@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localization>
+	<entity id="Atos-title">
+		<locale lang="fr">Paiement par carte bancaire</locale>
+		<locale lang="en">Payment by credit card</locale>
+		<locale lang="de">Zahlung per Kreditkarte</locale>
+	</entity>
+	<entity id="Cheque-title">
+		<locale lang="fr">Paiement par chèque</locale>
+		<locale lang="en">Payment by check</locale>
+		<locale lang="de">Zahlung per Scheck</locale>
+	</entity>
+	<entity id="Cybermut-title">
+		<locale lang="fr">Paiement par carte bancaire</locale>
+		<locale lang="en">Payment by credit card</locale>
+		<locale lang="de">Zahlung per Kreditkarte</locale>
+	</entity>
+	<entity id="Paypal-title">
+		<locale lang="fr">Paiement par Paypal</locale>
+		<locale lang="en">Payment by Paypal</locale>
+		<locale lang="de">Zahlung per Paypal</locale>
+	</entity>
+	<entity id="cheque-text">
+		<locale lang="fr">Pour valider votre transaction et payer à l'aide d'un chèque, cliquez sur le bouton "Payer par chèque" ci-dessous.</locale>
+		<locale lang="en">To complete your transaction and pay with a check, click "Pay by Check" below.</locale>
+		<locale lang="de">Um die Transaktion abzuschließen und mit einem Scheck bezahlen, klicken Sie auf "Pay-per Scheck" weiter unten.</locale>
+	</entity>
+	<entity id="cheque-recipient">
+		<locale lang="fr">ordre du chèque</locale>
+		<locale lang="en">Agenda check</locale>
+		<locale lang="de">Agenda überprüfen</locale>
+	</entity>
+	<entity id="cheque-address">
+		<locale lang="fr">adresse d'envoi</locale>
+		<locale lang="en">mailing address</locale>
+		<locale lang="de">Postanschrift</locale>
+	</entity>
+	<entity id="payment">
+		<locale lang="fr">Payer</locale>
+		<locale lang="en">Pay</locale>
+		<locale lang="de">Pay</locale>
+	</entity>
+	<entity id="cheque-payment">
+		<locale lang="fr">Payer par chèque</locale>
+		<locale lang="en">Pay by check</locale>
+		<locale lang="de">Pay-per Scheck</locale>
+	</entity>
+	<entity id="bank-confirm">
+		<locale lang="fr">En attente de confirmation de la banque</locale>
+		<locale lang="en">Pending confirmation from the bank</locale>
+		<locale lang="de">Bis zur Bestätigung von der Bank</locale>
+	</entity>
+	<entity id="cancel-transaction">
+		<locale lang="fr">Paiement annulé</locale>
+		<locale lang="en">Payment Canceled</locale>
+		<locale lang="de">Zahlung storniert</locale>
+	</entity>
+</localization>

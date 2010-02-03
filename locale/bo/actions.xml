@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localization>
+  <entity id="create_">
+    <locale lang="fr">créer</locale>
+    <locale lang="en">create</locale>
+    <locale lang="de">neu</locale>
+  </entity>
+  <entity id="Create-Atosconnector">
+    <locale lang="fr">créer un mode de paiement Atos (carte bancaire)</locale>
+    <locale lang="en">create an Atos billing mode (credit card)</locale>
+  </entity>
+  <entity id="Create-Cybermutconnector">
+    <locale lang="fr">créer un mode de paiement CyberMut (carte bancaire)</locale>
+    <locale lang="en">create a CyberMut billing mode (credit card)</locale>
+  </entity>
+  <entity id="Create-Chequeconnector">
+    <locale lang="fr">créer un mode de paiement par chèque</locale>
+    <locale lang="en">create a cheque billin gmode</locale>
+  </entity>
+  <entity id="Create-Paypalconnector">
+    <locale lang="fr">créer un mode de paiement Paypal</locale>
+    <locale lang="en">create an Paypal billing mode</locale>
+  </entity>
+</localization>

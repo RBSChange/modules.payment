@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization>
+	<entity id="fieldsgroup.Confirm-url">
+		<locale lang="fr">URL de confirmation</locale>
+	</entity>
+</localization>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+	<binding fileName="modules/list/persistentdocument/import/list_binding.xml" />
+
+	<systemfolder module="list" relatedmodule="payment">	
+		<staticlist listid="modules_payment/cybermutbankserverurl" 
+			label="Etablissement bancaire"
+			description="Etablissement bancaire du marchand">
+			<staticitem label="Crédit Mutuel" value="paiement.creditmutuel.fr" />
+			<staticitem label="CIC" value="ssl.paiement.cic-banques.fr" />
+			<staticitem label="OBC-ABNAMRO" value="ssl.paiement.banque-obc.fr" />
+			
+			<staticitem label="[TEST] Crédit Mutuel" value="paiement.creditmutuel.fr/test" />
+			<staticitem label="[TEST] CIC" value="ssl.paiement.cic-banques.fr/test" />
+			<staticitem label="[TEST] OBC-ABNAMRO" value="ssl.paiement.banque-obc.fr/test" />
+		</staticlist>
+	</systemfolder>
+</script>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel>
+	<section labeli18n="modules.uixul.bo.doceditor.fieldsgroup.Title">
+		<field name="label"/>
+		<field name="code"/>
+		<field name="username"/>
+		<field name="password"/>
+		<field name="signature" size="80"/>
+		<field name="sandbox" size="80"/>
+	</section>	 		
+</panel>

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<perspective>
+	<models>
+		<model name="modules_generic/rootfolder">
+			<children>
+				<child model="modules_payment/chequeconnector"/>
+				<child model="modules_payment/atosconnector"/>
+				<child model="modules_payment/cybermutconnector"/>
+				<child model="modules_payment/paypalconnector"/>
+			</children>
+			<contextactions>
+				<contextaction name="edit"/>
+				<groupactions name="create_">
+					<contextaction name="createChequeconnector"/>
+					<contextaction name="createAtosconnector"/>
+					<contextaction name="createCybermutconnector"/>
+					<contextaction name="createPaypalconnector"/>
+				</groupactions>
+			</contextactions>
+		</model>
+		<model name="modules_payment/chequeconnector">
+			<contextactions>
+				<contextaction name="edit"/>				
+				<contextaction name="delete"/>
+				<contextaction name="deactivated"/>
+				<contextaction name="reactivate"/>
+			</contextactions>
+		</model>
+		<model name="modules_payment/atosconnector">
+			<contextactions>
+				<contextaction name="edit"/>
+				<contextaction name="delete"/>
+				<contextaction name="deactivated"/>
+				<contextaction name="reactivate"/>
+			</contextactions>
+		</model>
+		<model name="modules_payment/cybermutconnector">
+			<contextactions>
+				<contextaction name="edit"/>
+				<contextaction name="delete"/>
+				<contextaction name="deactivated"/>
+				<contextaction name="reactivate"/>
+			</contextactions>
+		</model>
+		<model name="modules_payment/paypalconnector">
+			<contextactions>
+				<contextaction name="edit"/>
+				<contextaction name="delete"/>
+				<contextaction name="deactivated"/>
+				<contextaction name="reactivate"/>
+			</contextactions>
+		</model>
+	</models>
+	<toolbar>
+		<toolbarbutton name="edit"/>
+		<toolbarbutton name="delete"/>
+		<toolbarbutton name="deactivated"/>
+		<toolbarbutton name="reactivate"/>
+	</toolbar>
+	<actions>
+		<action name="refresh" single="true" icon="refresh" label="&amp;modules.uixul.bo.actions.Refresh;"/>
+		<action name="edit" single="true" permission="Load" icon="edit" label="&amp;modules.uixul.bo.actions.Edit;"/>
+		<action name="deactivated" permission="Deactivated" icon="deactivated" label="&amp;modules.uixul.bo.actions.Deactivate;"/>
+		<action name="reactivate" permission="ReActivate" icon="reactivate" label="&amp;modules.uixul.bo.actions.ReActivate;"/>
+		<action name="delete" permission="Delete" icon="delete" label="&amp;modules.uixul.bo.actions.Delete;"/>
+		<action name="create_" single="true" actions="createChequeconnector,createAtosconnector,createCybermutconnector,createPaypalconnector" icon="add"/>
+		<action name="createChequeconnector" single="true" permission="Insert_chequeconnector" group="create_" label="&amp;modules.payment.bo.actions.Create-Chequeconnector;"/>
+		<action name="createAtosconnector" single="true" permission="Insert_atosconnector" group="create_" label="&amp;modules.payment.bo.actions.Create-Atosconnector;"/>
+		<action name="createCybermutconnector" single="true" permission="Insert_cybermutconnector" group="create_" label="&amp;modules.payment.bo.actions.Create-Cybermutconnector;"/>
+		<action name="createPaypalconnector" single="true" permission="Insert_paypalconnector" group="create_" label="&amp;modules.payment.bo.actions.Create-Paypalconnector;"/>
+	</actions>
+</perspective>

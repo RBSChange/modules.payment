@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <binding fileName="modules/useractionlogger/persistentdocument/import/useractionlogger_binding.xml"/>
+  <actiondef modulename="payment" actionname="insert.paypalconnector" label="modules.payment.bo.useractionlogger.insert-paypalconnector"/>
+  <actiondef modulename="payment" actionname="reactivate.atosconnector" label="modules.payment.bo.useractionlogger.reactivate-atosconnector"/>
+  <actiondef modulename="payment" actionname="update.paypalconnector" label="modules.payment.bo.useractionlogger.update-paypalconnector"/>
+  <actiondef modulename="payment" actionname="reactivate.paypalconnector" label="modules.payment.bo.useractionlogger.reactivate-paypalconnector"/>
+</script>

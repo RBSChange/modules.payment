@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization>
+	<entity id="document-name">
+		<locale lang="fr">mode de paiement atos (Carte bancaire)</locale>
+		<locale lang="en">atos billing mode (Credit card)</locale>
+	</entity>
+	<entity id="label">
+		<locale lang="fr">libellé</locale>
+		<locale lang="en">label</locale>
+	</entity>
+	
+	<entity id="code">
+		<locale lang="fr">code</locale>
+		<locale lang="en">code</locale>
+	</entity>
+	<entity id="code-help">
+		<locale lang="fr">code du mode de paiement utilisé dans les factures</locale>
+	</entity>
+		
+	<entity id="merchantId">
+		<locale lang="fr">Paramètre merchant_id</locale>
+		<locale lang="en">merchant_id parameter</locale>
+	</entity>
+	<entity id="merchantId-help">
+		<locale lang="fr">La valeur de ce champ est fournie par la banque au commerçant, lors de l’inscription de sa boutique. Il permet l’identification d’une boutique. Il correspond généralement au SIRET précédé de 0.</locale>
+		<locale lang="en">merchantId-help</locale>
+	</entity>
+	<entity id="tpeCertifContent">
+		<locale lang="fr">certificat TPE</locale>
+	</entity>
+	<entity id="tpeCertifContent-help">
+		<locale lang="fr">contenu du fichier de certificat pour le TPE. Pour des raisons de sécurité, cette information n'est pas lisible à partir de cette interface.</locale>
+	</entity>
+	<entity id="tpeParmcomContent">
+		<locale lang="fr">paramètres TPE</locale>
+	</entity>
+	<entity id="tpeParmcomContent-help">
+		<locale lang="fr">contenu du fichier de paramètres pour le TPE.</locale>
+	</entity>
+	
+	
+	<entity id="Response-code-0">
+		<locale lang="fr">Autorisation acceptée</locale>
+	</entity>
+	<entity id="Response-code-2">
+		<locale lang="fr">Demande d'autorisation par téléphone à la banque à cause d'un dépassement de plafond d'autorisation sur la carte (cf. annexe I)</locale>
+	</entity>
+	<entity id="Response-code-3">
+		<locale lang="fr">Champ merchant_id invalide, vérifier la valeur renseignée dans la requête. Contrat de vente à distance inexistant, contacter votre banque</locale>
+	</entity>
+	<entity id="Response-code-5">
+		<locale lang="fr">Autorisation refusée</locale>
+	</entity>
+	<entity id="Response-code-12">
+		<locale lang="fr">Transaction invalide, vérifier les paramètres transférés dans la requête</locale>
+	</entity>
+	<entity id="Response-code-13">
+		<locale lang="fr">Montant invalide, vérifier le montant transféré dans la requête</locale>
+	</entity>
+	<entity id="Response-code-17">
+		<locale lang="fr">Annulation de l'internaute</locale>
+	</entity>
+	<entity id="Response-code-30">
+		<locale lang="fr">Erreur de format</locale>
+	</entity>
+	<entity id="Response-code-63">
+		<locale lang="fr">Règles de sécurité non respectées, transaction arrêtée</locale>
+	</entity>
+	<entity id="Response-code-75">
+		<locale lang="fr">Nombre de tentatives de saisie du numéro de carte dépassé</locale>
+	</entity>
+	<entity id="Response-code-90">
+		<locale lang="fr">Service temporairement indisponible</locale>
+	</entity>	
+</localization>

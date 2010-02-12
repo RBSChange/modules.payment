@@ -66,7 +66,7 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 		}
 		
 		$sessionInfo = $this->getSessionInfo();
-		if (!isset($sessionInfo['token']))
+		if (!isset($sessionInfo['payerId']))
 		{
 			$this->connecting($connector, $order);
 		}
@@ -108,7 +108,14 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 		$paymentAmount = $order->getPaymentAmount ();
 		$currencyCodeType = $order->getPaymentCurrency ();
 		
-		$addr = $order->getShippingAddress ();
+		$addr = $order->getPaymentShippingAddress();
+		if ($addr === null)
+		{
+			$errMsg = f_Locale::translate("&modules.payment.frontoffice.No-shipping-address-defined;");
+			$connector->setHTMLPayment("<ul class=\"errors\"><li class=\"first last\">$errMsg</li></ol>");			
+			return;
+		}
+		
 		$name = $addr->getTitle () ? $addr->getTitle ()->getLabel () . ' ' : '';
 		$shipToName = $name . $addr->getFirstname () . ' ' . $addr->getLastname ();
 		$shipToStreet = $addr->getAddressLine1 ();
@@ -137,10 +144,19 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 			);
 			
 			$this->setSessionInfo($sessionInfo);
-			payment_ModuleService::getInstance ()->log ( sprintf ( "PAYPAL BANKING (%s): prepare (token: '%s', amount: '%s', currency: '%s', language: '%s').", $connector->getLogLabel (), $sessionInfo ['token'], $paymentAmount, $currencyCodeType, $sessionInfo ['lang'] ) );
-			
+			payment_ModuleService::getInstance ()->log ( sprintf ( "PAYPAL BANKING (%s): prepare (token: '%s', amount: '%s', currency: '%s', language: '%s').", $connector->getLogLabel (), $sessionInfo ['token'], $paymentAmount, $currencyCodeType, $sessionInfo ['lang'] ) );			
+			$img = f_Locale::translate("&modules.payment.frontoffice.paypal.button;", null, null, false);
+			if ($img === null)
+			{
+				$img = 'https://www.paypal.com/fr_XC/i/btn/btn_xpressCheckout.gif';
+				Framework::fatal(__METHOD__ . ' DEFAULT ' . $img);
+			}
+			else
+			{
+				Framework::fatal(__METHOD__ . ' LOCAL ' . $img);
+			}
 			$url = $connector->redirectToPayPal ( $sessionInfo ['token'] );
-			$connector->setHTMLPayment ( "<a href=\"$url\"><img src=\"https://www.paypal.com/fr_XC/i/btn/btn_xpressCheckout.gif\" /></a>" );
+			$connector->setHTMLPayment ( "<a href=\"$url\"><img src=\"$img\" /></a>" );
 		}
 		else
 		{

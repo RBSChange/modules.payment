@@ -17,6 +17,18 @@ interface payment_Order
 	 */
 	function getPaymentUser();
 	
+	
+	/**
+	 * @return customer_persistentdocument_address
+	 */
+	function getPaymentShippingAddress();
+	
+	
+	/**
+	 * @return customer_persistentdocument_address
+	 */
+	function getPaymentBillingAddress();
+	
 	/**
 	 * @return double
 	 */

@@ -55,4 +55,15 @@
 		<locale lang="en">Payment Canceled</locale>
 		<locale lang="de">Zahlung storniert</locale>
 	</entity>
+	<entity id="no-shipping-address-defined">
+		<locale lang="fr">Adresse de livraison manquante</locale>
+		<locale lang="en">no shipping address defined</locale>
+	</entity>
+
+	<entity id="paypal.button">
+		<locale lang="fr">https://www.paypal.com/fr_XC/i/btn/btn_xpressCheckout.gif</locale>
+		<locale lang="en">https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif</locale>
+		<locale lang="de">https://www.paypal.com/de_DE/i/btn/btn_xpressCheckout.gif</locale>
+	</entity>	
+	
 </localization>

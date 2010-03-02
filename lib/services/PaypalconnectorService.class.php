@@ -278,12 +278,17 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 		$response->setTransactionId($transactionId);
 		if ($paymentStatus == 'Pending')
 		{
+			//2009-12-18T15:02:46Z'
+			$date = preg_replace('/^(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2})Z$/', '$1 $2', $orderTime);
+			$response->setDate($date);
 			$response->setDelayed();
 			$response->setTransactionText('Paiement paypal en attente. Référence de la transaction "' . $transactionId . '"');
 			
 		}
 		else
 		{
+			$date = preg_replace('/^(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2})Z$/', '$1 $2', $orderTime);
+			$response->setDate($date);
 			$response->setAccepted();
 			$response->setTransactionText('Paiement paypal effectué avec succés. Référence de la transaction "' . $transactionId . '"');	
 		}

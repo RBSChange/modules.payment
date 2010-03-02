@@ -219,7 +219,9 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 		$response->setRawBankResponse($cgi2_fields);
 		if ($oHmac->computeHmac($cgi2_fields) == strtolower($parameters['MAC']))
 		{
-			$response->setDate(date('Y-m-d H:i:s'));
+			//$parameters["date"] -> JJ/MM/AAAA_a_HH:MM:SS
+			$date = preg_replace('/^(\d{2})\/(\d{2})\/(\d{4})_a_(\d{2}:\d{2}:\d{2})$/', '$3-$2-$1 $4', $parameters["date"]);
+							
 			$amount = $parameters['montant'];
 			$mnt_lth = strlen($amount) - 3;
 			if ($mnt_lth > 0)
@@ -244,10 +246,12 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 				case "payetest" :
 					$response->setAccepted();
 					$response->setTransactionText('Paiement par carte Banquaire accépté (TEST).');
+					$response->setDate(date_Converter::convertDateToGMT($date));
 					break;				
 				case "paiement" :
 					$response->setAccepted();
 					$response->setTransactionText('Paiement par carte Banquaire accépté.');
+					$response->setDate(date_Converter::convertDateToGMT($date));
 					break;
 				
 				/*** ONLY FOR MULTIPART PAYMENT ***/

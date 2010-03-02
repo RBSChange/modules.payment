@@ -97,7 +97,8 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 		if ($response->isAccepted())
 		{
 			$order->setPaymentStatus('PAYMENT_SUCCESS');
-		} 
+			$order->setPaymentDate($response->getDate());
+		}
 		else if ($response->isFailed())
 		{
 			$order->setPaymentStatus('PAYMENT_FAILED');
@@ -105,7 +106,7 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 		else 
 		{
 			$order->setPaymentStatus('PAYMENT_DELAYED');
-		}
+		}		
 		$order->setPaymentTransactionId($response->getTransactionId());
 		$order->setPaymentTransactionText($response->getTransactionText());
 		$order->setPaymentResponse($response->getRawBankResponse());

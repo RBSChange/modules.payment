@@ -62,6 +62,11 @@ interface payment_Order
 	function getPaymentCallbackURL();
 	
 	/**
+	 * @param string $date
+	 */
+	function setPaymentDate($date);
+	
+	/**
 	 * @param string $status
 	 * @example "PAYMENT_WAITING", "PAYMENT_DELAYED", "PAYMENT_SUCCESS", "PAYMENT_FAILED"
 	 */

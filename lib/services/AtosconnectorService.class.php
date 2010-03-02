@@ -387,8 +387,6 @@ class payment_AtosconnectorService extends payment_ConnectorService
 			throw new Exception("ATOS BANKING FAILED : BAD CONTEXT OBJECT: " . $e->getMessage());
 		}
 		$response->setOrderId($order->getId());
-		$date = preg_replace('/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/', '\1-\2-\3 \4:\5:\6', $resultArray[8]);
-		$response->setDate($date);
 		$currency = intval($resultArray[14]);
 		foreach ($this->currencyMap as $code => $key) 
 		{
@@ -407,8 +405,9 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		{
 			$response->setAccepted();
 			$response->setTransactionId($resultArray[6]);
-			$response->setTransactionText('Paiement par carte "'.$resultArray[7] .'" effectué avec succés.');			
-
+			$response->setTransactionText('Paiement par carte "'.$resultArray[7] .'" effectué avec succés.');
+			$date = preg_replace('/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/', '\1-\2-\3 \4:\5:\6', $resultArray[8]);
+			$response->setDate($date);
 		} 
 		else 
 		{

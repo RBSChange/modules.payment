@@ -113,8 +113,7 @@ class payment_ChequeconnectorService extends payment_ConnectorService
 		$order = $response->getOrder();
 		$response->setAmount($order->getPaymentAmount());
 		$response->setCurrency($order->getPaymentCurrency());
-		$response->setDate($order->getPaymentDate());
-		
+		//$response->setDate(date_Calendar::getInstance()->toString());		
 		$response->setTransactionId('CHQ-' . $order->getPaymentReference());
 		
 		$trs = f_Locale::translate('&modules.payment.frontoffice.Cheque-recipient;', null, $lang) . ":\n" 

@@ -187,7 +187,7 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		// background color
 		// $params['bgcolor'] = '';
 
-		$path_bin = f_util_FileUtils::buildWebappPath('bin', 'request');
+		$path_bin = f_util_FileUtils::buildWebeditPath('bin', 'request');
 		
 		foreach ($params as $param => $value)
 		{
@@ -354,7 +354,7 @@ class payment_AtosconnectorService extends payment_ConnectorService
 
 		$response = new payment_Transaction();
 		$params = array('message' => $data, 'pathfile' => $this->getPathFile());		
-		$path_bin = f_util_FileUtils::buildWebappPath('bin', 'response');	
+		$path_bin = f_util_FileUtils::buildWebeditPath('bin', 'response');	
 		foreach ($params as $param => $value)
 		{
 			$path_bin .= ' '. $param .'='. $value;

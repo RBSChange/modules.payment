@@ -1,15 +1,15 @@
 treechildren::-moz-tree-image(modules_payment_connector){
-	list-style-image: url(/icons/small/credit-card.png) ;
+	list-style-image: url(/changeicons/small/credit-card.png) ;
 }
 treechildren::-moz-tree-image(modules_payment_chequeconnector){
-	list-style-image: url(/icons/small/cheque.png) ;
+	list-style-image: url(/changeicons/small/cheque.png) ;
 }
 treechildren::-moz-tree-image(modules_payment_atosconnector){
-	list-style-image: url(/icons/small/credit-card.png) ;
+	list-style-image: url(/changeicons/small/credit-card.png) ;
 }
 treechildren::-moz-tree-image(modules_payment_cybermutconnector){
-	list-style-image: url(/icons/small/credit-card.png) ;
+	list-style-image: url(/changeicons/small/credit-card.png) ;
 }
 treechildren::-moz-tree-image(modules_payment_paypalconnector){
-	list-style-image: url(/icons/small/credit-card.png) ;
+	list-style-image: url(/changeicons/small/credit-card.png) ;
 }

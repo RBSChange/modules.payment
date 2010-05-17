@@ -149,11 +149,17 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 			if ($img === null)
 			{
 				$img = 'https://www.paypal.com/fr_XC/i/btn/btn_xpressCheckout.gif';
-				Framework::fatal(__METHOD__ . ' DEFAULT ' . $img);
+				if (Framework::isDebugEnabled())
+				{
+					Framework::debug(__METHOD__ . ' DEFAULT ' . $img);
+				}
 			}
 			else
 			{
-				Framework::fatal(__METHOD__ . ' LOCAL ' . $img);
+				if (Framework::isDebugEnabled())
+				{
+					Framework::debug(__METHOD__ . ' LOCAL ' . $img);
+				}
 			}
 			$url = $connector->redirectToPayPal ( $sessionInfo ['token'] );
 			$connector->setHTMLPayment ( "<a href=\"$url\"><img src=\"$img\" /></a>" );

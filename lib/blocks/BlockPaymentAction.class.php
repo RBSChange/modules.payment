@@ -16,11 +16,11 @@ class payment_BlockPaymentAction extends website_BlockAction
 	{
 		try 
 		{
-			$connector = $this->getConnector();	
-			$order = $this->getOrderDocument();
-			$connector->getDocumentService()->setPaymentInfo($connector, $this->getOrderDocument());
+			$payment = $this->getPaymentDocument();
+			$connector = $payment->getPaymentConnector();
+			$connector->getDocumentService()->setPaymentInfo($connector, $payment);
 			$request->setAttribute('connector', $connector);
-			$request->setAttribute('order', $order);
+			$request->setAttribute('order', $payment);
 			if ($this->isInBackoffice())
 			{
 				$viewName = website_BlockView::BACKOFFICE;
@@ -38,32 +38,21 @@ class payment_BlockPaymentAction extends website_BlockAction
 		return $viewName;
 	}
 	
-	
-	/**
-	 * @return payment_persistentdocument_connector
-	 */
-	private function getConnector()
-	{
-		$connectorId = $this->findLocalParameterValue('connectorid');
-		$connector = DocumentHelper::getDocumentInstance($connectorId);
-		if (!$connector instanceof payment_persistentdocument_connector) 
-		{
-			throw new Exception('Invalid payment mode');
-		}
-		return $connector;	
-	}
-	
 	/**
 	 * @return payment_Order
 	 */
-	private function getOrderDocument()
+	private function getPaymentDocument()
 	{
-		$orderId = $this->findLocalParameterValue('orderid');
-		$order = DocumentHelper::getDocumentInstance($orderId);
-		if (!$order instanceof payment_Order) 
+		$payment = null;
+		$paymentId = $this->findLocalParameterValue('billid');
+		if ($paymentId)
 		{
-			throw new Exception('Invalid order');
+			$payment = DocumentHelper::getDocumentInstance($paymentId);
 		}
-		return $order;
+		if (!$payment instanceof payment_Order) 
+		{
+			throw new Exception('Invalid payment');
+		}
+		return $payment;
 	}
 }

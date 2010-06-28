@@ -22,8 +22,15 @@ class payment_BankResponseChequeAction extends payment_Action
 			{
 				throw new Exception('Session expired');
 			}			
+			if ($request->hasParameter('accept'))
+			{
+				$sessionInfo['status'] = 'waiting';
+			}
+			else
+			{
+				$sessionInfo['status'] = 'failed';
+			}
 			
-			$sessionInfo['status'] = 'DELAYED';
 			$bankResponse = $connectorService->getBankResponse($sessionInfo);
 			$order = $bankResponse->getOrder();
 			

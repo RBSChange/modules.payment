@@ -58,12 +58,12 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 	 */
 	public function setPaymentInfo($connector, $order)
 	{
-		$status = $order->getPaymentStatus();
-		if ($status != 'PAYMENT_WAITING')
-		{
+		$transactionId = $order->getPaymentTransactionId();
+		if ($transactionId != null)
+		{		
 			$this->setPaymentStatus($connector, $order);
-			return;	
-		}
+			return;
+		}	
 		
 		$sessionInfo = $this->getSessionInfo();
 		if (!isset($sessionInfo['payerId']))
@@ -83,7 +83,7 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 	private function setPaymentStatus($connector, $order)
 	{	
 		$html = '<ol><li>' . f_Locale::translate('&modules.order.frontoffice.Orderlist-status;') . ' : ' . 
-			order_OrderService::getInstance()->getStatusLabel($order->getPaymentStatus()) . '</li>'.
+			f_Locale::translate('&modules.payment.frontoffice.status.'. ucfirst($order->getPaymentStatus())  .';') . '</li>'.
 			'<li>' . f_util_HtmlUtils::nlTobr($order->getPaymentTransactionText()) .'</li></ol>';
 		$connector->setHTMLPayment($html);
 	}	

@@ -58,23 +58,28 @@ class payment_ChequeconnectorService extends payment_ConnectorService
 	 */
 	public function setPaymentInfo($connector, $order)
 	{
-		$status = $order->getPaymentStatus();
-		if ($status == 'PAYMENT_WAITING')
+		$transactionId = $order->getPaymentTransactionId();
+		if ($transactionId != null)
 		{
-			$sessionInfo = array('orderId' => $order->getPaymentId(), 
-				'connectorId' => $connector->getId(), 
-				'lang' => RequestContext::getInstance()->getLang(),
-				'paymentAmount' => $order->getPaymentAmount(),
-				'currencyCodeType' => $order->getPaymentCurrency(),
-				'paymentURL' => $order->getPaymentCallbackURL());
-			$this->setSessionInfo($sessionInfo);
-			$url = LinkHelper::getActionUrl('payment', 'BankResponseCheque', array());
-			$connector->setHTMLPayment("<p>" . f_Locale::translate("&modules.payment.frontoffice.Cheque-text;") ."</p><br /><p class=\"buttons\"><a class=\"link button\" href=\"$url\">".  f_Locale::translate('&modules.payment.frontoffice.cheque-payment;') ."</a></p>");
+			$this->setPaymentStatus($connector, $order);
+			return;
 		}
-		else
-		{
-			$this->setPaymentStatus($connector, $order);		
-		}
+		
+		$sessionInfo = array('orderId' => $order->getPaymentId(), 
+			'connectorId' => $connector->getId(), 
+			'lang' => RequestContext::getInstance()->getLang(),
+			'paymentAmount' => $order->getPaymentAmount(),
+			'currencyCodeType' => $order->getPaymentCurrency(),
+			'paymentURL' => $order->getPaymentCallbackURL());
+		$this->setSessionInfo($sessionInfo);
+		
+		$acceptUrl = LinkHelper::getActionUrl('payment', 'BankResponseCheque', array('accept' => true));
+		$cancelUrl = LinkHelper::getActionUrl('payment', 'BankResponseCheque', array('cancel' => true));
+		$connector->setHTMLPayment("<p>" . f_Locale::translate("&modules.payment.frontoffice.Cheque-text;") .
+			"</p><br /><p class=\"buttons\">" .
+			"<a class=\"link button\" href=\"$acceptUrl\">".  f_Locale::translate('&modules.payment.frontoffice.cheque-payment;') ."</a> ".
+			"<a class=\"link button\" href=\"$cancelUrl\">".  f_Locale::translate('&modules.payment.frontoffice.cancel;') ."</a>".
+			"</p>");
 	}
 	
 	/**
@@ -84,7 +89,7 @@ class payment_ChequeconnectorService extends payment_ConnectorService
 	private function setPaymentStatus($connector, $order)
 	{	
 		$html = '<ol><li>' . f_Locale::translate('&modules.order.frontoffice.Orderlist-status;') . ' : ' . 
-			order_OrderService::getInstance()->getStatusLabel($order->getPaymentStatus()) . '</li>'.
+			 f_Locale::translate('&modules.payment.frontoffice.status.'. ucfirst($order->getPaymentStatus())  .';') . '</li>'.
 			'<li>' . f_util_HtmlUtils::nlTobr($order->getPaymentTransactionText()) .'</li></ol>';
 		$connector->setHTMLPayment($html);
 	}
@@ -114,15 +119,25 @@ class payment_ChequeconnectorService extends payment_ConnectorService
 		$response->setAmount($order->getPaymentAmount());
 		$response->setCurrency($order->getPaymentCurrency());
 		//$response->setDate(date_Calendar::getInstance()->toString());		
-		$response->setTransactionId('CHQ-' . $order->getPaymentReference());
+
 		
-		$trs = f_Locale::translate('&modules.payment.frontoffice.Cheque-recipient;', null, $lang) . ":\n" 
+		if ($parameters['status'] == 'waiting')
+		{
+			$response->setDelayed();
+			$response->setTransactionId('CHQ-' . $order->getPaymentReference());
+		
+			$trs = f_Locale::translate('&modules.payment.frontoffice.Cheque-recipient;', null, $lang) . ":\n" 
 				. $connector->getRecipient() . "\n"
 				. f_Locale::translate('&modules.payment.frontoffice.Cheque-address;', null, $lang) . ":\n"
 				. $connector->getRecipientAddress();
-				
-		$response->setTransactionText($trs);
-		$response->setDelayed();
+			$response->setTransactionText($trs);	
+		}
+		else
+		{
+			$response->setTransactionId('CHQ-' . $order->getPaymentReference());
+			$response->setFailed();
+			$response->setTransactionText('Canceled');
+		}
 		
 		payment_ModuleService::getInstance()->logBankResponse($connector, $response);
 		return $response;

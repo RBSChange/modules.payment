@@ -68,8 +68,8 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 	 */
 	public function setPaymentInfo($connector, $order)
 	{
-		$status = $order->getPaymentStatus();
-		if ($status != 'PAYMENT_WAITING')
+		$transactionId = $order->getPaymentTransactionId();
+		if ($transactionId != null)
 		{		
 			$this->setPaymentStatus($connector, $order);
 			return;
@@ -160,7 +160,7 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 	private function setPaymentStatus($connector, $order)
 	{	
 		$html = '<ol><li>' . f_Locale::translate('&modules.order.frontoffice.Orderlist-status;') . ' : ' . 
-			order_OrderService::getInstance()->getStatusLabel($order->getPaymentStatus()) . '</li>'.
+			f_Locale::translate('&modules.payment.frontoffice.status.'. ucfirst($order->getPaymentStatus())  .';') . '</li>'.
 			'<li>' . f_util_HtmlUtils::nlTobr($order->getPaymentTransactionText()) .'</li></ol>';
 		$connector->setHTMLPayment($html);
 	}
@@ -283,7 +283,9 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 		$orderId = $parameters['orderId'];
 		$response->setOrderId($orderId);
 		$order = $response->getOrder();
-		if ($order->getPaymentStatus() != 'PAYMENT_WAITING')
+		
+		$transactionId = $order->getPaymentTransactionId();
+		if ($transactionId != null)
 		{
 			return null;
 		}

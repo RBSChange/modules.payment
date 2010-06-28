@@ -67,6 +67,17 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 	}
 	
 	/**
+	 * @param payment_Order $payment
+	 */
+	public function initializePayment($payment)
+	{
+		if (Framework::isInfoEnabled())
+		{
+			Framework::info(__METHOD__ . $payment->getPaymentId());
+		}
+	}
+	
+	/**
 	 * @param payment_persistentdocument_connector $connector
 	 * @param payment_Order $order
 	 */
@@ -94,23 +105,22 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 	 */
 	public function setPaymentResult($response, $order)
 	{
-		if ($response->isAccepted())
-		{
-			$order->setPaymentStatus('PAYMENT_SUCCESS');
-			$order->setPaymentDate($response->getDate());
-		}
-		else if ($response->isFailed())
-		{
-			$order->setPaymentStatus('PAYMENT_FAILED');
-		}
-		else 
-		{
-			$order->setPaymentStatus('PAYMENT_DELAYED');
-		}		
 		$order->setPaymentTransactionId($response->getTransactionId());
 		$order->setPaymentTransactionText($response->getTransactionText());
 		$order->setPaymentResponse($response->getRawBankResponse());
-		$order->save();		
+		if ($response->isAccepted())
+		{
+			$order->setPaymentDate($response->getDate());
+			$order->setPaymentStatus('success');
+		}
+		else if ($response->isFailed())
+		{
+			$order->setPaymentStatus('failed');
+		}
+		else 
+		{
+			$order->setPaymentStatus('waiting');
+		}
 	}
 	
 	/**

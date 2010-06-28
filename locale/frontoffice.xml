@@ -45,6 +45,10 @@
 		<locale lang="en">Pay by check</locale>
 		<locale lang="de">Pay-per Scheck</locale>
 	</entity>
+	<entity id="cancel">
+		<locale lang="fr">Annuler</locale>
+		<locale lang="en">Cancel</locale>
+	</entity>
 	<entity id="bank-confirm">
 		<locale lang="fr">En attente de confirmation de la banque</locale>
 		<locale lang="en">Pending confirmation from the bank</locale>
@@ -65,5 +69,20 @@
 		<locale lang="en">https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif</locale>
 		<locale lang="de">https://www.paypal.com/de_DE/i/btn/btn_xpressCheckout.gif</locale>
 	</entity>	
-	
+
+	<entity id="status.success">
+		<locale lang="fr">paiement validé</locale>
+		<locale lang="en">payment validated</locale>
+		<locale lang="de">validiert Zahlung</locale>
+	</entity>
+	<entity id="status.waiting">
+		<locale lang="fr">en attente de paiement</locale>
+		<locale lang="en">waiting payment</locale>
+		<locale lang="de">Erwartung der Zahlung</locale>
+	</entity>
+	<entity id="status.failed">
+		<locale lang="fr">paiement echoué</locale>
+		<locale lang="en">payment failed</locale>
+		<locale lang="de">Zahlung nicht</locale>
+	</entity>
 </localization>

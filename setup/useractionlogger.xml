@@ -5,4 +5,5 @@
   <actiondef modulename="payment" actionname="reactivate.atosconnector" label="modules.payment.bo.useractionlogger.reactivate-atosconnector"/>
   <actiondef modulename="payment" actionname="update.paypalconnector" label="modules.payment.bo.useractionlogger.update-paypalconnector"/>
   <actiondef modulename="payment" actionname="reactivate.paypalconnector" label="modules.payment.bo.useractionlogger.reactivate-paypalconnector"/>
+  <actiondef modulename="payment" actionname="reactivate.cybermutconnector" label="modules.payment.bo.useractionlogger.reactivate-cybermutconnector"/>
 </script>

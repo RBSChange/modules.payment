@@ -68,7 +68,7 @@ interface payment_Order
 	
 	/**
 	 * @param string $status
-	 * @example "PAYMENT_WAITING", "PAYMENT_DELAYED", "PAYMENT_SUCCESS", "PAYMENT_FAILED"
+	 * @example "waiting", "success", "failed"
 	 */
 	function setPaymentStatus($status);
 
@@ -89,7 +89,7 @@ interface payment_Order
 	
 	/**
 	 * @return string
-	 * @example "PAYMENT_WAITING", "PAYMENT_DELAYED", "PAYMENT_SUCCESS", "PAYMENT_FAILED"
+	 * @example "waiting", "success", "failed"
 	 */
 	function getPaymentStatus();
 

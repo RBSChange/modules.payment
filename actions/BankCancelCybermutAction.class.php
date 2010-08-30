@@ -1,5 +1,5 @@
 <?php
-class payment_BankCancelCybermutAction extends payment_Action
+class payment_BankCancelCybermutAction extends f_action_BaseAction
 {
 	
 	/**
@@ -9,13 +9,15 @@ class payment_BankCancelCybermutAction extends payment_Action
 	 * @param Request $request
 	 */
 	protected function _execute($context, $request)
-	{
+	{	
 	    $remoteAddr = $_SERVER['REMOTE_ADDR'];
-        $requestUri = $_SERVER['REQUEST_URI'];
-        $ms = payment_ModuleService::getInstance();	
-		$ms->log("BANKING CYBERMUT from [".$remoteAddr." : ".$requestUri."] BEGIN");	        
+        $requestUri = $_SERVER['REQUEST_URI'];  	        
+		$ms = payment_ModuleService::getInstance();	
+		$ms->log("BANKING CANCEL CYBERMUT from [".$remoteAddr." : ".$requestUri."] BEGIN");
+		
 		try
 		{
+			$this->getTransactionManager()->beginTransaction();		
 			$connectorService = payment_CybermutconnectorService::getInstance();
 			$sessionInfo = $connectorService->getSessionInfo();
 			if (count($sessionInfo) == 0)
@@ -32,18 +34,19 @@ class payment_BankCancelCybermutAction extends payment_Action
 			
 			$url = $sessionInfo['paymentURL'];		
 			$connectorService->setSessionInfo(array());
-			$ms->log("BANKING CYBERMUT from [".$remoteAddr." : ".$requestUri."] END AND REDIRECT : " . $url);
-			$context->getController()->redirectToUrl($url);
-			return VIEW::NONE;		
+			$ms->log("BANKING CANCEL CYBERMUT from [".$remoteAddr." : ".$requestUri."] END AND REDIRECT : " . $url);
+			
+			$this->getTransactionManager()->commit();
 		}
 		catch(Exception $e)
 		{
-			$ms->log("BANKING CYBERMUT from [".$remoteAddr." : ".$requestUri."] FAILED : " . $e->getMessage());
-			Framework::exception($e);
+			$ms->log("BANKING CANCEL CYBERMUT from [".$remoteAddr." : ".$requestUri."] FAILED : " . $e->getMessage());
+			$this->getTransactionManager()->rollBack($e);
+			$currentWebsite = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
+			$url = $currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang());
 		}
-
-		$currentWebsite = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
-		$context->getController()->redirectToUrl($currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang()));
+	
+		$context->getController()->redirectToUrl($url);
 		return VIEW::NONE;
 	}
 

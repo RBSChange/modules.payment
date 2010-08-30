@@ -1,5 +1,5 @@
 <?php
-class payment_BankResponseCybermutAction extends payment_Action
+class payment_BankResponseCybermutAction extends f_action_BaseAction
 {
 	
 	/**
@@ -13,9 +13,12 @@ class payment_BankResponseCybermutAction extends payment_Action
 	    $remoteAddr = $_SERVER['REMOTE_ADDR'];
         $requestUri = $_SERVER['REQUEST_URI'];
         $ms = payment_ModuleService::getInstance();	
-		$ms->log("BANKING CYBERMUT from [".$remoteAddr." : ".$requestUri."] BEGIN");	        
+		$ms->log("BANKING CYBERMUT from [".$remoteAddr." : ".$requestUri."] BEGIN");	
+        
 		try
 		{
+			$this->getTransactionManager()->beginTransaction();		
+		
 			$connectorService = payment_CybermutconnectorService::getInstance();
 			$sessionInfo = $connectorService->getSessionInfo();
 			if (count($sessionInfo) == 0)
@@ -33,18 +36,18 @@ class payment_BankResponseCybermutAction extends payment_Action
 			$url = $sessionInfo['paymentURL'];		
 			$connectorService->setSessionInfo(array());
 			$ms->log("BANKING CYBERMUT from [".$remoteAddr." : ".$requestUri."] END AND REDIRECT : " . $url);
-			$context->getController()->redirectToUrl($url);
-			return VIEW::NONE;		
+			$this->getTransactionManager()->commit();
+	
 		}
 		catch(Exception $e)
 		{
 			$ms->log("BANKING CYBERMUT from [".$remoteAddr." : ".$requestUri."] FAILED : " . $e->getMessage());
-			Framework::exception($e);
+			$this->getTransactionManager()->rollBack($e);
+			$currentWebsite = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
+			$url = $currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang());
 		}
-
-		$currentWebsite = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
-		$context->getController()->redirectToUrl($currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang()));
-		return VIEW::NONE;
+		$context->getController()->redirectToUrl($url);
+		return VIEW::NONE;	
 	}
 
 	/**

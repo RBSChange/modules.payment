@@ -1,5 +1,5 @@
 <?php
-class payment_BankResponseChequeAction extends payment_Action
+class payment_BankResponseChequeAction extends f_action_BaseAction
 {
 	/**
 	 * @see f_action_BaseAction::_execute()
@@ -13,9 +13,11 @@ class payment_BankResponseChequeAction extends payment_Action
         $requestUri = $_SERVER['REQUEST_URI'];
 		$ms = payment_ModuleService::getInstance();
 		$ms->log("BANKING CHEQUE from [".$remoteAddr." : ".$requestUri."] BEGIN");	
-        
+			 
 		try
 		{
+			$this->getTransactionManager()->beginTransaction();
+		
 			$connectorService = payment_ChequeconnectorService::getInstance();
 			$sessionInfo = $connectorService->getSessionInfo();
 			if (count($sessionInfo) == 0)
@@ -39,17 +41,18 @@ class payment_BankResponseChequeAction extends payment_Action
 			
 			$connectorService->setSessionInfo(array());
 			$ms->log("BANKING CHEQUE from [".$remoteAddr." : ".$requestUri."] END AND REDIRECT : " . $url);
-			$context->getController()->redirectToUrl($url);
-			return VIEW::NONE;	
+
+			$this->getTransactionManager()->commit();
 		}
 		catch(Exception $e)
 		{
 			$ms->log("BANKING CHEQUE from [".$remoteAddr." : ".$requestUri."] FAILED : " . $e->getMessage());
-			Framework::exception($e);
+			$this->getTransactionManager()->rollBack($e);
+			$currentWebsite = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
+			$url = $currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang());
 		}
-		$currentWebsite = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
-		$context->getController()->redirectToUrl($currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang()));
-		return VIEW::NONE;
+		$context->getController()->redirectToUrl($url);
+		return VIEW::NONE;	
 	}
 
 	/**

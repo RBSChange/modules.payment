@@ -1,5 +1,5 @@
 <?php
-class payment_PayPalPaymentAction extends payment_Action
+class payment_PayPalPaymentAction extends f_action_BaseAction
 {
 	/**
 	 * @see f_action_BaseAction::_execute()
@@ -11,10 +11,13 @@ class payment_PayPalPaymentAction extends payment_Action
 	{
 		$remoteAddr = $_SERVER['REMOTE_ADDR'];
         $requestUri = $_SERVER['REQUEST_URI'];
-        $ms = payment_ModuleService::getInstance();	
-		$ms->log("BANKING PAYMENT from [".$remoteAddr." : ".$requestUri."] BEGIN");		
+	
 		try
 		{
+			$this->getTransactionManager()->beginTransaction();
+	        $ms = payment_ModuleService::getInstance();	
+			$ms->log("BANKING PAYMENT PAYPAL from [".$remoteAddr." : ".$requestUri."] BEGIN");				
+			
 			$connectorService = payment_PaypalconnectorService::getInstance();
 			$sessionInfo = $connectorService->getSessionInfo();
 			$connector = $this->getPaypalConnector($sessionInfo);
@@ -34,17 +37,17 @@ class payment_PayPalPaymentAction extends payment_Action
 			$url = $sessionInfo['paymentURL'];
 			
 			$connectorService->setSessionInfo(array());
-			$ms->log("BANKING PAYMENT from [".$remoteAddr." : ".$requestUri."] END AND REDIRECT : " . $url);
-			$context->getController()->redirectToUrl($url);
-			return VIEW::NONE;
+			$ms->log("BANKING PAYMENT PAYPAL from [".$remoteAddr." : ".$requestUri."] END AND REDIRECT : " . $url);
+			$this->getTransactionManager()->commit();
 		}
 		catch ( Exception $e )
 		{
-			$ms->log("BANKING PAYMENT from [".$remoteAddr." : ".$requestUri."] FAILED : " . $e->getMessage());
-			Framework::exception($e);
+			$ms->log("BANKING PAYMENT PAYPAL from [".$remoteAddr." : ".$requestUri."] FAILED : " . $e->getMessage());
+			$this->getTransactionManager()->rollBack($e);
+			$currentWebsite = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
+			$url = $currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang());
 		}
-		$currentWebsite = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
-		$context->getController()->redirectToUrl($currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang()));
+		$context->getController()->redirectToUrl($url);
 		return VIEW::NONE;
 	}
 	

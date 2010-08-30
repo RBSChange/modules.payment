@@ -1,5 +1,5 @@
 <?php
-class payment_PaypalConfirmAction extends payment_Action
+class payment_PaypalConfirmAction extends f_action_BaseAction
 {
 	/**
 	 * @see f_action_BaseAction::_execute()
@@ -9,10 +9,17 @@ class payment_PaypalConfirmAction extends payment_Action
 	 */
 	protected function _execute($context, $request)
 	{
+ 		$remoteAddr = $_SERVER['REMOTE_ADDR'];
+        $requestUri = $_SERVER['REQUEST_URI'];
+ 		$payerId = $request->getParameter('PayerID');
+ 		$ms = payment_ModuleService::getInstance();	
+		$ms->log("BANKING CONFIRM PAYPAL from [".$remoteAddr." : ".$requestUri."] PayerId: $payerId");
+		
 		$sessionInfo = payment_ConnectorService::getInstance()->getSessionInfo();
-		$sessionInfo['payerId'] = $request->getParameter('PayerID');
+		$sessionInfo['payerId'] = $payerId;
 		payment_ConnectorService::getInstance()->setSessionInfo($sessionInfo);
-		$context->getController()->redirectToUrl($sessionInfo['paymentURL']);
+		$url = $sessionInfo['paymentURL'];
+		$context->getController()->redirectToUrl($url);
 	}
 
 	/**

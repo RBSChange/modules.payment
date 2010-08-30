@@ -1,5 +1,5 @@
 <?php
-class payment_BankListenerCybermutAction extends payment_Action
+class payment_BankListenerCybermutAction extends f_action_BaseAction
 {
 
 	/**
@@ -21,14 +21,17 @@ class payment_BankListenerCybermutAction extends payment_Action
 	 * @param WebRequest $request
 	 */
 	public function _execute($context, $request)
-    {
-		$ms = payment_ModuleService::getInstance();	
+	{
 	    $remoteAddr = $_SERVER['REMOTE_ADDR'];
         $requestUri = $_SERVER['REQUEST_URI'];
+		$ms = payment_ModuleService::getInstance();	
 		$ms->log("BANKING CYBERMUT LISTENER from [".$remoteAddr." : ".$requestUri."] BEGIN");	
-        $connectorService = payment_CybermutconnectorService::getInstance();       
+		
 		try
 		{
+			$this->getTransactionManager()->beginTransaction();
+			
+			$connectorService = payment_CybermutconnectorService::getInstance();       
 			$bankResponse = $connectorService->getBankResponse($request->getParameters());			
 			if ($bankResponse->getTransactionId() == null)
 			{
@@ -38,22 +41,25 @@ class payment_BankListenerCybermutAction extends payment_Action
 			$connectorService->setPaymentResult($bankResponse, $order);
 					
 			$ms->log("BANKING CYBERMUT LISTENER from [".$remoteAddr." : ".$requestUri."] END");
-			ob_get_clean();		
-			header("Pragma: no-cache");
-			header("Content-type: text/plain");
-    		$receipt = CMCIC_CGI2_MACOK;
-    		printf (CMCIC_CGI2_RECEIPT, $receipt);
+			$this->getTransactionManager()->commit();
 		}
 		catch(Exception $e)
 		{
 			$ms->log("BANKING CYBERMUT LISTENER from [".$remoteAddr." : ".$requestUri."] FAILED : " . $e->getMessage());
-			Framework::exception($e);
+			$this->getTransactionManager()->rollBack($e);
 			
 			header("Pragma: no-cache");
 			header("Content-type: text/plain");
     		$receipt = CMCIC_CGI2_MACNOTOK.$bankResponse->getRawBankResponse();
     		printf (CMCIC_CGI2_RECEIPT, $receipt);
+    		exit();
 		}
+		
+		ob_get_clean();		
+		header("Pragma: no-cache");
+		header("Content-type: text/plain");
+    	$receipt = CMCIC_CGI2_MACOK;
+    	printf (CMCIC_CGI2_RECEIPT, $receipt);
 		exit();
 	}
 	

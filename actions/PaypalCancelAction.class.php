@@ -1,5 +1,5 @@
 <?php
-class payment_PaypalCancelAction extends payment_Action
+class payment_PaypalCancelAction extends f_action_BaseAction
 {
 	/**
 	 * @see f_action_BaseAction::_execute()
@@ -8,9 +8,15 @@ class payment_PaypalCancelAction extends payment_Action
 	 * @param Request $request
 	 */
 	protected function _execute($context, $request)
-	{
+	{	
+ 		$remoteAddr = $_SERVER['REMOTE_ADDR'];
+        $requestUri = $_SERVER['REQUEST_URI'];
+        $ms = payment_ModuleService::getInstance();	
+		$ms->log("BANKING CANCEL PAYPAL from [".$remoteAddr." : ".$requestUri."]");
+		
 		$currentWebsite = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
-		$context->getController()->redirectToUrl($currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang()));
+		$url = $currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang());
+		$context->getController()->redirectToUrl($url);
 		return VIEW::NONE;
 	}
 

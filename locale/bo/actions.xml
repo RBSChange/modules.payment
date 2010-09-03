@@ -6,16 +6,16 @@
     <locale lang="de">neu</locale>
   </entity>
   <entity id="Create-Atosconnector">
-    <locale lang="fr">créer un mode de paiement Atos (carte bancaire)</locale>
-    <locale lang="en">create an Atos billing mode (credit card)</locale>
+    <locale lang="fr">créer un mode de paiement SIPS (CB)</locale>
+    <locale lang="en">create a SIPS billing mode (credit card)</locale>
   </entity>
   <entity id="Create-Cybermutconnector">
-    <locale lang="fr">créer un mode de paiement CyberMut (carte bancaire)</locale>
+    <locale lang="fr">créer un mode de paiement CM-CIC p@iement (CB)</locale>
     <locale lang="en">create a CyberMut billing mode (credit card)</locale>
   </entity>
   <entity id="Create-Chequeconnector">
     <locale lang="fr">créer un mode de paiement par chèque</locale>
-    <locale lang="en">create a cheque billin gmode</locale>
+    <locale lang="en">create a cheque billing gmode</locale>
   </entity>
   <entity id="Create-Paypalconnector">
     <locale lang="fr">créer un mode de paiement Paypal</locale>

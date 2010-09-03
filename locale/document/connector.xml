@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <localization>
-
+	<entity id="code">
+		<locale lang="fr">code</locale>
+		<locale lang="en">code</locale>
+	</entity>
+	<entity id="code-help">
+		<locale lang="fr">code du mode de paiement utilisé dans les factures et pour l'export des commandes.</locale>
+	</entity>
+	<entity id="label">
+		<locale lang="fr">libellé</locale>
+		<locale lang="en">label</locale>
+	</entity>
+	<entity id="label-help">
+		<locale lang="fr">libellé du mode de paiement utilisé en backoffice et dans l'étape de sélection du mode de paiement du processus de commande.</locale>
+		<locale lang="en">label</locale>
+	</entity>
 </localization>

@@ -1,10 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<panel>
-	<section labeli18n="modules.uixul.bo.doceditor.fieldsgroup.Title">
-		<field name="label"/>
-		<field name="code"/>
-		<field name="merchantId"/>
-		<field name="tpeCertifContent" rows="9" cols="90"/>
-		<field name="tpeParmcomContent" rows="9" cols="90"/>
-	</section>
-</panel>
+<panel use="properties"></panel>

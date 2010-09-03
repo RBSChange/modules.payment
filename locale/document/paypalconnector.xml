@@ -1,32 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<localization>
+<localization extend="modules.payment.document.connector">
   <entity id="document-name">
-    <locale lang="fr">mode de paiement Paypal</locale>
-    <locale lang="en">Paypal billing mode</locale>
+    <locale lang="fr">mode de paiement PayPal</locale>
+    <locale lang="en">PayPal billing mode</locale>
   </entity>
-  <entity id="label">
-    <locale lang="fr">libellé</locale>
-    <locale lang="en">label</locale>
-  </entity>
-  <entity id="label-help">
-    <locale lang="fr">libellé</locale>
-    <locale lang="en">label</locale>
-  </entity>
-  
-  <entity id="code">
-    <locale lang="fr">code</locale>
-    <locale lang="en">code</locale>
-  </entity>
-  <entity id="code-help">
-    <locale lang="fr">code du mode de paiement utilisé dans les factures</locale>
-  </entity>
-  
   <entity id="username">
     <locale lang="fr">API Username</locale>
     <locale lang="en">API Username</locale>
   </entity>
   <entity id="username-help">
-    <locale lang="fr">API Username</locale>
+    <locale lang="fr">API Username fourni par Paypal lors de la création de votre solution de paiement.</locale>
     <locale lang="en">API Username</locale>
   </entity>
   
@@ -35,7 +18,7 @@
     <locale lang="en">API Password</locale>
   </entity>
   <entity id="password-help">
-    <locale lang="fr">API Password</locale>
+    <locale lang="fr">API Password fourni par Paypal lors de la création de votre solution de paiement.</locale>
     <locale lang="en">API Password</locale>
   </entity>
   
@@ -44,7 +27,7 @@
     <locale lang="en">Signature</locale>
   </entity>
   <entity id="signature-help">
-    <locale lang="fr">Signature</locale>
+    <locale lang="fr">Signature fournie par Paypal lors de la création de votre solution de paiement.</locale>
     <locale lang="en">Signature</locale>
   </entity>
   <entity id="sandbox">
@@ -53,7 +36,7 @@
   </entity>
   
   <entity id="sandbox-help">
-    <locale lang="fr">mode de test</locale>
+    <locale lang="fr">mode bac à sable du connecteur Paypal qui vous permet d'effectuer des tests en toute sécurité. Attention, ce mode ne doit pas être utilisé dans des environnement de production!</locale>
     <locale lang="en">sandbox</locale>
   </entity>
 </localization>

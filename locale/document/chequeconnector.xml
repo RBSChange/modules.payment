@@ -1,30 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<localization>
+<localization  extend="modules.payment.document.connector">
   <entity id="document-name">
     <locale lang="fr">mode de paiement par chèque</locale>
     <locale lang="en">cheque billing mode</locale>
   </entity>
-  <entity id="label">
-    <locale lang="fr">libellé</locale>
-    <locale lang="en">label</locale>
-  </entity>
-  <entity id="label-help">
-    <locale lang="fr">libellé</locale>
-    <locale lang="en">label</locale>
-  </entity>
-	<entity id="code">
-		<locale lang="fr">code</locale>
-		<locale lang="en">code</locale>
-	</entity>
-	<entity id="code-help">
-		<locale lang="fr">code du mode de paiement utilisé dans les factures</locale>
-	</entity>
   <entity id="recipient">
     <locale lang="fr">ordre du chèque</locale>
     <locale lang="en">cheque label</locale>
   </entity>
   <entity id="recipient-help">
-    <locale lang="fr">indique l'ordre auquel les clients devront libeller leur chèque</locale>
+    <locale lang="fr">indique l'ordre auquel les clients devront libeller leur chèque. Ce texte est présenté dans la page de confirmation de commande.</locale>
     <locale lang="en">customers will have to label their cheque to this recipient</locale>
   </entity>
   <entity id="recipientAddress">
@@ -32,8 +17,7 @@
     <locale lang="en">address to send the cheque</locale>
   </entity>
   <entity id="recipientAddress-help">
-    <locale lang="fr">indique l'adresse postale où le chèque devra être envoyé</locale>
+    <locale lang="fr">indique l'adresse postale à laquelle le chèque devra être envoyé. Ce texte est présenté dans la page de confirmation de commande.</locale>
     <locale lang="en">customers will have to send their cheque to this address</locale>
   </entity> 
-
 </localization>

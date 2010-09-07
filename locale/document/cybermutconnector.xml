@@ -1,32 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<localization>
+<localization extend="modules.payment.document.connector">
 	<entity id="document-name">
-		<locale lang="fr">mode de paiement CyberMut</locale>
-		<locale lang="en">cybermutbillingmode</locale>
-	</entity>
-	<entity id="label">
-		<locale lang="fr">libellé</locale>
-		<locale lang="en">label</locale>
-		<locale lang="de">Name</locale>
-	</entity>
-	<entity id="label-help">
-		<locale lang="fr">libellé</locale>
-		<locale lang="en">label</locale>
-		<locale lang="de">Name</locale>
-	</entity>
-	<entity id="code">
-		<locale lang="fr">code</locale>
-		<locale lang="en">code</locale>
-	</entity>
-	<entity id="code-help">
-		<locale lang="fr">code du mode de paiement utilisé dans les factures</locale>
+		<locale lang="fr">mode de paiement CM-CIC p@iement (CB)</locale>
+		<locale lang="en">CM-CIC p@iement</locale>
 	</entity>
 	<entity id="merchantId">
 		<locale lang="fr">identifiant marchand</locale>
 		<locale lang="en">merchant id</locale>
 	</entity>
 	<entity id="merchantId-help">
-		<locale lang="fr">identifiant du marchand auprès de la banque (merchantId)</locale>
+		<locale lang="fr">identifiant du marchand auprès de la banque (merchantId).</locale>
 		<locale lang="en">merchant id</locale>
 	</entity>
 	<entity id="bankServerUrl">
@@ -34,38 +17,35 @@
 		<locale lang="en">bank</locale>
 	</entity>
 	<entity id="bankServerUrl-help">
-		<locale lang="fr">banque du marchand</locale>
+		<locale lang="fr">banque du marchand.</locale>
 		<locale lang="en">merchant bank</locale>
 	</entity>
 	<entity id="tpeKey">
 		<locale lang="fr">clé TPE</locale>
 	</entity>
 	<entity id="tpeKey-help">
-		<locale lang="fr">clé TPE. Pour des raisons de sécurité, cette information n'est pas lisible à partir de cette interface.</locale>
+		<locale lang="fr">clé TPE fournie par votre prestataire.</locale>
 	</entity>
 	<entity id="tpePassPhrase">
 		<locale lang="fr">phrase clé TPE</locale>
 	</entity>
 	<entity id="tpePassPhrase-help">
-		<locale lang="fr">phrase clé TPE. Pour des raisons de sécurité, cette information n'est pas lisible à partir de cette interface.</locale>
+		<locale lang="fr">phrase clé TPE fournie par votre prestataire.</locale>
 	</entity>
 	<entity id="tpeCompanyCode">
 		<locale lang="fr">code société</locale>
 	</entity>
 	<entity id="tpeCompanyCode-help">
-		<locale lang="fr">code société</locale>
+		<locale lang="fr">code société fourni par votre prestataire.</locale>
 	</entity>
-	
-   <entity id="payment-cb">
-    <locale lang="fr">Paiement CB</locale>
-    <locale lang="en">Payment CB</locale>
-  </entity>
-  
-  
-   <entity id="listenerURL">
-    <locale lang="fr">URL</locale>
-  </entity> 
-     <entity id="listenerURL-help">
-    <locale lang="fr">URL utlisé par la banque pour valider/confirmer le paiement. Champ ne peux pas etre modifier</locale>
-  </entity>  
+	<entity id="payment-cb">
+		<locale lang="fr">Paiement CB</locale>
+		<locale lang="en">Payment CB</locale>
+	</entity>
+	<entity id="listenerURL">
+		<locale lang="fr">URL</locale>
+	</entity>
+	<entity id="listenerURL-help">
+		<locale lang="fr">URL utilisée par la banque pour valider/confirmer le paiement.</locale>
+	</entity>
 </localization>

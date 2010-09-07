@@ -116,10 +116,7 @@ class payment_AtosconnectorService extends payment_ConnectorService
 			return;
 		}		
 				
-		if (!$this->hasCertificate($connector))
-		{
-			throw new Exception('Invalid config file for connector ' . $connector->__toString());
-		}
+		$this->updateCertificateIfNeeded($connector);
 		
 		//Set session Info for callback
 		$sessionInfo = array('orderId' => $order->getPaymentId(), 
@@ -164,8 +161,21 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		$params['language'] = RequestContext::getInstance()->getLang();
 		$params['pathfile'] = $this->getPathFile();
 		
+		if ($connector->getPaymentmeans())
+		{
+			$params['payment_means'] = $connector->getPaymentmeans();
+		}
+		
 		// Optional things
 		$params['order_id'] = $order->getPaymentReference();
+		$params['transaction_id'] = substr(str_pad($order->getPaymentId(), 6, '0', STR_PAD_LEFT), -6);	
+		
+		
+		/**
+		$params['capture_mode'] = 'AUTHOR_CAPTURE';
+		$params['capture_day'] = ($delayed) ? '99' : '0';
+		 */
+	
 		$params['return_context'] = $order->getPaymentId() . ',' . $connector->getId();	
 			
 		$user = $order->getPaymentUser();
@@ -192,7 +202,7 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		{
 			$path_bin .= ' '. $param .'='. $value;
 		}
-		
+
 		$result = exec($path_bin);
 		payment_ModuleService::getInstance()->log(
 			sprintf("ATOS BANKING (%s): prepare (bin: '%s', transaction: '%s', amount: '%s', currency: '%s', language: '%s').",
@@ -317,6 +327,11 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		$merchantId = $atosConnector->getMerchantId();
 		if (!file_exists($this->getParmcomFile($merchantId))) {return false;}
 		if (!file_exists($this->getCertifFile($merchantId))) {return false;}
+		
+		if (filemtime($this->getPathFile()) < date_Calendar::getInstance($atosConnector->getModificationdate())->getTimestamp())
+		{
+			return false;
+		}
 		return true;
 	}	
 	
@@ -332,12 +347,23 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		$content = str_replace('{WEBEDIT_HOME}', WEBEDIT_HOME, $content);	
 		f_util_FileUtils::writeAndCreateContainer($pathfile, $content, f_util_FileUtils::OVERRIDE);
 		
+		$atime = date_Calendar::getInstance($atosConnector->getModificationdate())->getTimestamp();
+		touch($pathfile, $atime);
+		
 		$merchantId = $atosConnector->getMerchantId();
 		$certifFile = $this->getCertifFile($merchantId);
 		f_util_FileUtils::writeAndCreateContainer($certifFile, $atosConnector->getTpeCertifContent(), f_util_FileUtils::OVERRIDE);
 		
 		$parmcomFile = $this->getParmcomFile($merchantId); 
 		f_util_FileUtils::writeAndCreateContainer($parmcomFile, $atosConnector->getTpeParmcomContent(), f_util_FileUtils::OVERRIDE);
+	}
+	
+	public function updateCertificateIfNeeded($atosConnector)
+	{
+		if (!$this->hasCertificate($atosConnector))
+		{
+			$this->refreshCertificate($atosConnector);
+		}
 	}
 	
 	/**

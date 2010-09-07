@@ -14,5 +14,11 @@
 			<staticitem label="[TEST] CIC" value="ssl.paiement.cic-banques.fr/test" />
 			<staticitem label="[TEST] OBC-ABNAMRO" value="ssl.paiement.banque-obc.fr/test" />
 		</staticlist>
+		
+		<staticlist listid="modules_payment/atospaymentmeans" label="Cartes de paiement">
+			<staticitem label="CB" value="CB.1" />
+			<staticitem label="VISA" value="VISA.1" />
+			<staticitem label="MASTERCARD" value="MASTERCARD.1" />
+		</staticlist>
 	</systemfolder>
 </script>

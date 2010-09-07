@@ -1,2 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<localization><entity id="insert-paypalconnector"><locale lang="fr">insert.paypalconnector {documentlabel}</locale></entity><entity id="log-insert-paypalconnector"><locale lang="fr">log-insert-paypalconnector</locale></entity><entity id="reactivate-atosconnector"><locale lang="fr">reactivate.atosconnector {documentlabel}</locale></entity><entity id="log-reactivate-atosconnector"><locale lang="fr">log-reactivate-atosconnector</locale></entity><entity id="update-paypalconnector"><locale lang="fr">update.paypalconnector {documentlabel}</locale></entity><entity id="log-update-paypalconnector"><locale lang="fr">log-update-paypalconnector</locale></entity><entity id="reactivate-paypalconnector"><locale lang="fr">reactivate.paypalconnector {documentlabel}</locale></entity><entity id="log-reactivate-paypalconnector"><locale lang="fr">log-reactivate-paypalconnector</locale></entity><entity id="reactivate-cybermutconnector"><locale lang="fr">reactivate.cybermutconnector {documentlabel}</locale></entity><entity id="log-reactivate-cybermutconnector"><locale lang="fr">log-reactivate-cybermutconnector</locale></entity></localization>
+<localization>
+	<entity id="insert-paypalconnector">
+		<locale lang="fr">insert.paypalconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-insert-paypalconnector">
+		<locale lang="fr">log-insert-paypalconnector</locale>
+	</entity>
+	<entity id="reactivate-atosconnector">
+		<locale lang="fr">reactivate.atosconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-reactivate-atosconnector">
+		<locale lang="fr">log-reactivate-atosconnector</locale>
+	</entity>
+	<entity id="update-paypalconnector">
+		<locale lang="fr">update.paypalconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-update-paypalconnector">
+		<locale lang="fr">log-update-paypalconnector</locale>
+	</entity>
+	<entity id="reactivate-paypalconnector">
+		<locale lang="fr">reactivate.paypalconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-reactivate-paypalconnector">
+		<locale lang="fr">log-reactivate-paypalconnector</locale>
+	</entity>
+	<entity id="reactivate-cybermutconnector">
+		<locale lang="fr">reactivate.cybermutconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-reactivate-cybermutconnector">
+		<locale lang="fr">log-reactivate-cybermutconnector</locale>
+	</entity>
+	<entity id="update-atosconnector">
+		<locale lang="fr">update.atosconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-update-atosconnector">
+		<locale lang="fr">log-update-atosconnector</locale>
+	</entity>
+	<entity id="deactivated-paypalconnector">
+		<locale lang="fr">deactivated.paypalconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-deactivated-paypalconnector">
+		<locale lang="fr">log-deactivated-paypalconnector</locale>
+	</entity>
+	<entity id="deactivated-cybermutconnector">
+		<locale lang="fr">deactivated.cybermutconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-deactivated-cybermutconnector">
+		<locale lang="fr">log-deactivated-cybermutconnector</locale>
+	</entity>
+	<entity id="deactivated-chequeconnector">
+		<locale lang="fr">deactivated.chequeconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-deactivated-chequeconnector">
+		<locale lang="fr">log-deactivated-chequeconnector</locale>
+	</entity>
+	<entity id="reactivate-chequeconnector">
+		<locale lang="fr">reactivate.chequeconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-reactivate-chequeconnector">
+		<locale lang="fr">log-reactivate-chequeconnector</locale>
+	</entity>
+	<entity id="deactivated-atosconnector">
+		<locale lang="fr">deactivated.atosconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-deactivated-atosconnector">
+		<locale lang="fr">log-deactivated-atosconnector</locale>
+	</entity>
+	<entity id="insert-chequeconnector">
+		<locale lang="fr">insert.chequeconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-insert-chequeconnector">
+		<locale lang="fr">log-insert-chequeconnector</locale>
+	</entity>
+	<entity id="update-chequeconnector">
+		<locale lang="fr">update.chequeconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-update-chequeconnector">
+		<locale lang="fr">log-update-chequeconnector</locale>
+	</entity>
+	<entity id="delete-chequeconnector">
+		<locale lang="fr">delete.chequeconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-delete-chequeconnector">
+		<locale lang="fr">log-delete-chequeconnector</locale>
+	</entity>
+	<entity id="delete-paypalconnector">
+		<locale lang="fr">delete.paypalconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-delete-paypalconnector">
+		<locale lang="fr">log-delete-paypalconnector</locale>
+	</entity>
+	<entity id="insert-cybermutconnector">
+		<locale lang="fr">insert.cybermutconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-insert-cybermutconnector">
+		<locale lang="fr">log-insert-cybermutconnector</locale>
+	</entity>
+	<entity id="update-cybermutconnector">
+		<locale lang="fr">update.cybermutconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-update-cybermutconnector">
+		<locale lang="fr">log-update-cybermutconnector</locale>
+	</entity>
+	<entity id="delete-cybermutconnector">
+		<locale lang="fr">delete.cybermutconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-delete-cybermutconnector">
+		<locale lang="fr">log-delete-cybermutconnector</locale>
+	</entity>
+	<entity id="insert-atosconnector">
+		<locale lang="fr">insert.atosconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-insert-atosconnector">
+		<locale lang="fr">log-insert-atosconnector</locale>
+	</entity>
+	<entity id="delete-atosconnector">
+		<locale lang="fr">delete.atosconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-delete-atosconnector">
+		<locale lang="fr">log-delete-atosconnector</locale>
+	</entity>
+</localization>

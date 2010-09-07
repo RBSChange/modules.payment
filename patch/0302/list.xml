@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+	<binding fileName="modules/list/persistentdocument/import/list_binding.xml" />
+	<systemfolder module="list" relatedmodule="payment">	
+		<staticlist listid="modules_payment/atospaymentmeans" label="Cartes de paiement">
+			<staticitem label="CB" value="CB.1" />
+			<staticitem label="VISA" value="VISA.1" />
+			<staticitem label="MASTERCARD" value="MASTERCARD.1" />
+		</staticlist>
+	</systemfolder>
+</script>

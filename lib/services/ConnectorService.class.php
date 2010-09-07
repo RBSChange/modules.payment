@@ -96,6 +96,7 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 			->setPackageName('modules_payment')
 			->setDirectory('templates')
 			->load('Payment-Inc-Selection-' . $connector->getTemplateViewName());
+		$template->setAttribute('connector', $connector);
 		return $template->execute(true);
 	}
 		

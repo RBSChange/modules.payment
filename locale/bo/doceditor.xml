@@ -3,4 +3,8 @@
 	<entity id="fieldsgroup.Confirm-url">
 		<locale lang="fr">URL de confirmation</locale>
 	</entity>
+	
+	<entity id="fieldsgroup.advanced">
+		<locale lang="fr">Parametrage avancé</locale>
+	</entity>
 </localization>

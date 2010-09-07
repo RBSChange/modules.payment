@@ -38,6 +38,16 @@
 		<locale lang="fr">contenu du fichier de paramètres pour le TPE.</locale>
 	</entity>
 	
+	<entity id="paymentmeans">
+		<locale lang="fr">Cartes authorisées</locale>
+	</entity>
+	<entity id="paymentmeans-help">
+		<locale lang="fr">Liste des cartes authorisées</locale>
+	</entity>	
+	
+	<entity id="all-paymentmeans">
+		<locale lang="fr">Toutes les cartes définies</locale>
+	</entity>		
 	
 	<entity id="Response-code-0">
 		<locale lang="fr">Autorisation acceptée</locale>
@@ -71,5 +81,8 @@
 	</entity>
 	<entity id="Response-code-90">
 		<locale lang="fr">Service temporairement indisponible</locale>
-	</entity>	
+	</entity>
+	
+	
+		
 </localization>

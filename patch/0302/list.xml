@@ -3,9 +3,9 @@
 	<binding fileName="modules/list/persistentdocument/import/list_binding.xml" />
 	<systemfolder module="list" relatedmodule="payment">	
 		<staticlist listid="modules_payment/atospaymentmeans" label="Cartes de paiement">
-			<staticitem label="CB" value="CB.1" />
-			<staticitem label="VISA" value="VISA.1" />
-			<staticitem label="MASTERCARD" value="MASTERCARD.1" />
+			<staticitem label="CB" value="CB.2" />
+			<staticitem label="VISA" value="VISA.2" />
+			<staticitem label="MASTERCARD" value="MASTERCARD.2" />
 		</staticlist>
 	</systemfolder>
 </script>

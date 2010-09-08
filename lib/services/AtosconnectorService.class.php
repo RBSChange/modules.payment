@@ -170,12 +170,6 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		$params['order_id'] = $order->getPaymentReference();
 		$params['transaction_id'] = substr(str_pad($order->getPaymentId(), 6, '0', STR_PAD_LEFT), -6);	
 		
-		
-		/**
-		$params['capture_mode'] = 'AUTHOR_CAPTURE';
-		$params['capture_day'] = ($delayed) ? '99' : '0';
-		 */
-	
 		$params['return_context'] = $order->getPaymentId() . ',' . $connector->getId();	
 			
 		$user = $order->getPaymentUser();
@@ -195,6 +189,10 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		// $params['background_id'] = '';
 		// background color
 		// $params['bgcolor'] = '';
+		// $params['capture_mode'] = 'AUTHOR_CAPTURE';
+		// $params['capture_day'] = ($delayed) ? '99' : '0';
+		
+		$this->completeRequestParams($params, $connector, $order);
 
 		$path_bin = f_util_FileUtils::buildWebeditPath('bin', 'request');
 		
@@ -230,6 +228,16 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		}
 		
 		$connector->setHTMLPayment($message);	
+	}
+	
+	/**
+	 * @param array $params
+	 * @param payment_persistentdocument_atosconnector $connector
+	 * @param payment_Order $order
+	 */	
+	protected function completeRequestParams(&$params, $connector, $order)
+	{
+		//Override this	
 	}
 	
 	/**

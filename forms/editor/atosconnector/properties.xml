@@ -11,6 +11,7 @@
 	</section>	
 	
 	<section labeli18n="modules.payment.bo.doceditor.fieldsgroup.Advanced" class="toggle" hidden="true"> 	
+		<field name="useHTTPS" />
 		<field name="tpeParmcomContent" rows="9" cols="90"/>
 	</section>	
 </panel>

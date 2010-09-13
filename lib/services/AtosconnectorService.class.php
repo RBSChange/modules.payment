@@ -155,9 +155,9 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		$amount = $amount . str_repeat("0", $numberOfZeroToAdd);		
 		$params['amount'] = $amount;
 		
-		$params['normal_return_url'] = $this->getSuccessURL();
-		$params['cancel_return_url'] = $this->getCancelURL();
-		$params['automatic_response_url'] = $this->getListenerURL();
+		$params['normal_return_url'] = $this->getSuccessURL($connector);
+		$params['cancel_return_url'] = $this->getCancelURL($connector);
+		$params['automatic_response_url'] = $this->getListenerURL($connector);
 		$params['language'] = RequestContext::getInstance()->getLang();
 		$params['pathfile'] = $this->getPathFile();
 		
@@ -294,42 +294,51 @@ class payment_AtosconnectorService extends payment_ConnectorService
 	}
 	
 	/**
+	 * @param payment_persistentdocument_atosconnector $connector
 	 * @return String
 	 */
-	private function getServer()
+	protected function getServer($connector = null)
 	{
 		$currentWebsite = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
 		return $currentWebsite->getDomain();
 	}
 	
 	/**
+	 * @param payment_persistentdocument_atosconnector $connector
 	 * @return String
 	 */
-	private function getSuccessURL()
+	protected function getSuccessURL($connector = null)
 	{
-		return "http://" . $this->getServer() . "/payment/atosResponse.php";
+		$protocol =  ($connector !== null && $connector->getUseHTTPS()) ? "https://" : "http://";
+		return $protocol . $this->getServer($connector) . "/payment/atosResponse.php";
 	}
 
 	/**
+	 * @param payment_persistentdocument_atosconnector $connector
 	 * @return String
 	 */
-	private function getCancelURL()
+	protected function getCancelURL($connector = null)
 	{
-		return "http://" . $this->getServer() . "/payment/atosResponse.php";
+		$protocol =  ($connector !== null && $connector->getUseHTTPS()) ? "https://" : "http://";
+		return $protocol . $this->getServer($connector) . "/payment/atosResponse.php";
 	}
 
 	/**
+	 * @param payment_persistentdocument_atosconnector $connector
 	 * @return String
 	 */
-	private function getListenerURL()
+	protected function getListenerURL($connector = null)
 	{
-		return "http://" . $this->getServer() . "/payment/atosListenerResponse.php";
+		$protocol =  ($connector !== null && $connector->getUseHTTPS()) ? "https://" : "http://";
+		return $protocol . $this->getServer($connector) . "/payment/atosListenerResponse.php";
 	}
+	
+	
 	
 	/**
 	 * @param payment_persistentdocument_atosconnector $atosConnector
 	 */		
-	private function hasCertificate($atosConnector)
+	protected function hasCertificate($atosConnector)
 	{
 		if (!file_exists($this->getPathFile())) {return false;}
 		$merchantId = $atosConnector->getMerchantId();
@@ -346,7 +355,7 @@ class payment_AtosconnectorService extends payment_ConnectorService
 	/**
 	 * @param payment_persistentdocument_atosconnector $atosConnector
 	 */		
-	private function refreshCertificate($atosConnector)
+	protected function refreshCertificate($atosConnector)
 	{
 		$pathfile = $this->getPathFile();
 		$template = FileResolver::getInstance()->setPackageName('modules_payment')->setDirectory('config/atos')

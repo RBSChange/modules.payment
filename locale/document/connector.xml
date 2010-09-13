@@ -15,4 +15,11 @@
 		<locale lang="fr">libellé du mode de paiement utilisé en backoffice et dans l'étape de sélection du mode de paiement du processus de commande.</locale>
 		<locale lang="en">label</locale>
 	</entity>
+	
+	<entity id="useHTTPS">
+		<locale lang="fr">utilisation de https</locale>
+	</entity>
+	<entity id="useHTTPS-help">
+		<locale lang="fr">Utilisation du protocol https pour la communication entre la banque et le site.</locale>
+	</entity>
 </localization>

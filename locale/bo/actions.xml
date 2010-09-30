@@ -21,4 +21,8 @@
     <locale lang="fr">créer un mode de paiement Paypal</locale>
     <locale lang="en">create an Paypal billing mode</locale>
   </entity>
+  <entity id="Create-Ogoneconnector">
+    <locale lang="fr">créer un mode de paiement Ogone</locale>
+    <locale lang="en">create a Ogone billing mode</locale>
+  </entity>
 </localization>

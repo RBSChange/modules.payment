@@ -20,7 +20,7 @@ class payment_PayPalPaymentAction extends f_action_BaseAction
 			
 			$connectorService = payment_PaypalconnectorService::getInstance();
 			$sessionInfo = $connectorService->getSessionInfo();
-			$connector = $this->getPaypalConnector($sessionInfo);
+			$connector = payment_persistentdocument_paypalconnector::getInstanceById($sessionInfo['connectorId']);
 			
 			$finalPaymentAmt = $sessionInfo ['paymentAmount'];
 			$token = $sessionInfo ['token'];
@@ -50,16 +50,7 @@ class payment_PayPalPaymentAction extends f_action_BaseAction
 		$context->getController()->redirectToUrl($url);
 		return VIEW::NONE;
 	}
-	
-	/**
-	 * @param array $sessionInfo
-	 * @return payment_persistentdocument_paypalconnector 
-	 */
-	private function getPaypalConnector($sessionInfo)
-	{
-		return DocumentHelper::getDocumentInstance ( $sessionInfo ['connectorId'], 'modules_payment/paypalconnector' );
-	}
-	
+		
 	/**
 	 * @return Integer
 	 */

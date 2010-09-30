@@ -120,4 +120,52 @@
 	<entity id="log-delete-atosconnector">
 		<locale lang="fr">log-delete-atosconnector</locale>
 	</entity>
+	<entity id="insert-folder">
+		<locale lang="fr">insert.folder {documentlabel}</locale>
+	</entity>
+	<entity id="log-insert-folder">
+		<locale lang="fr">log-insert-folder</locale>
+	</entity>
+	<entity id="update-folder">
+		<locale lang="fr">update.folder {documentlabel}</locale>
+	</entity>
+	<entity id="log-update-folder">
+		<locale lang="fr">log-update-folder</locale>
+	</entity>
+	<entity id="savepermissions-folder">
+		<locale lang="fr">savepermissions.folder {documentlabel}</locale>
+	</entity>
+	<entity id="log-savepermissions-folder">
+		<locale lang="fr">log-savepermissions-folder</locale>
+	</entity>
+	<entity id="delete-folder">
+		<locale lang="fr">delete.folder {documentlabel}</locale>
+	</entity>
+	<entity id="log-delete-folder">
+		<locale lang="fr">log-delete-folder</locale>
+	</entity>
+	<entity id="reactivate-ogoneconnector">
+		<locale lang="fr">reactivate.ogoneconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-reactivate-ogoneconnector">
+		<locale lang="fr">log-reactivate-ogoneconnector</locale>
+	</entity>
+	<entity id="deactivated-ogoneconnector">
+		<locale lang="fr">deactivated.ogoneconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-deactivated-ogoneconnector">
+		<locale lang="fr">log-deactivated-ogoneconnector</locale>
+	</entity>
+	<entity id="update-ogoneconnector">
+		<locale lang="fr">update.ogoneconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-update-ogoneconnector">
+		<locale lang="fr">log-update-ogoneconnector</locale>
+	</entity>
+	<entity id="delete-ogoneconnector">
+		<locale lang="fr">delete.ogoneconnector {documentlabel}</locale>
+	</entity>
+	<entity id="log-delete-ogoneconnector">
+		<locale lang="fr">log-delete-ogoneconnector</locale>
+	</entity>
 </localization>

@@ -20,5 +20,15 @@
 			<staticitem label="VISA" value="VISA.2" />
 			<staticitem label="MASTERCARD" value="MASTERCARD.2" />
 		</staticlist>
+		
+		<staticlist listid="modules_payment/ogoneserverurl" label="Url de paiement Ogone">
+			<staticitem label="Serveur de TEST" value="https://secure.ogone.com/ncol/test/orderstandard.asp" />
+			<staticitem label="Serveur de PROD" value="https://secure.ogone.com/ncol/prod/orderstandard.asp" />
+		</staticlist>
+		
+		<staticlist listid="modules_payment/ogoneoperation" label="Type d'oprération Ogone">
+			<staticitem label="Authorization" value="RES" />
+			<staticitem label="Paiement" value="SAL" />
+		</staticlist>
 	</systemfolder>
 </script>

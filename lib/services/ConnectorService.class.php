@@ -145,4 +145,26 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 		}
 		return array();
 	}
+	
+	/**
+	 * Return null if $id is not a payment_Order
+	 * @param integer $id
+	 * @return payment_Order
+	 */
+	public function getPaymentOrderById($id)
+	{
+		try 
+		{
+			$order = DocumentHelper::getDocumentInstance($id);
+			if ($order instanceof payment_Order)
+			{
+				return $order;
+			}
+		}
+		catch (Exception $e)
+		{
+			Framework::exception($e);
+		}
+		return null;
+	}
 }

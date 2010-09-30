@@ -5,9 +5,10 @@
 	backoffice-indexable="true">
 	<properties>
 		<add name="code" default-value="CB" />
-		<add name="merchantId" type="String" min-occurs="1" max-occurs="1" />
-		<add name="bankServerUrl" type="String" min-occurs="0" max-occurs="1" from-list="modules_payment/cybermutbankserverurl" />
-		<add name="tpeKey" type="String" min-occurs="1" />
-		<add name="tpeCompanyCode" type="String" min-occurs="1" />
+		<add name="pspid" type="String" min-occurs="1"/>
+		<add name="bankServerUrl" type="String" min-occurs="1" from-list="modules_payment/ogoneserverurl" />
+		<add name="operation" type="String" db-size="3" from-list="modules_payment/ogoneoperation" default-value="RES" />
+		<add name="shaInKey" type="String" db-size="50" />
+		<add name="shaOutKey" type="String" db-size="50" />
 	</properties>
 </document>

@@ -21,4 +21,12 @@
   <actiondef modulename="payment" actionname="delete.cybermutconnector" label="modules.payment.bo.useractionlogger.delete-cybermutconnector"/>
   <actiondef modulename="payment" actionname="insert.atosconnector" label="modules.payment.bo.useractionlogger.insert-atosconnector"/>
   <actiondef modulename="payment" actionname="delete.atosconnector" label="modules.payment.bo.useractionlogger.delete-atosconnector"/>
+  <actiondef modulename="payment" actionname="insert.folder" label="modules.payment.bo.useractionlogger.insert-folder"/>
+  <actiondef modulename="payment" actionname="update.folder" label="modules.payment.bo.useractionlogger.update-folder"/>
+  <actiondef modulename="payment" actionname="savepermissions.folder" label="modules.payment.bo.useractionlogger.savepermissions-folder"/>
+  <actiondef modulename="payment" actionname="delete.folder" label="modules.payment.bo.useractionlogger.delete-folder"/>
+  <actiondef modulename="payment" actionname="reactivate.ogoneconnector" label="modules.payment.bo.useractionlogger.reactivate-ogoneconnector"/>
+  <actiondef modulename="payment" actionname="deactivated.ogoneconnector" label="modules.payment.bo.useractionlogger.deactivated-ogoneconnector"/>
+  <actiondef modulename="payment" actionname="update.ogoneconnector" label="modules.payment.bo.useractionlogger.update-ogoneconnector"/>
+  <actiondef modulename="payment" actionname="delete.ogoneconnector" label="modules.payment.bo.useractionlogger.delete-ogoneconnector"/>
 </script>

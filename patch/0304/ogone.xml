@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+	<binding fileName="modules/list/persistentdocument/import/list_binding.xml" />
+	<binding fileName="modules/payment/persistentdocument/import/payment_binding.xml" />
+	<systemfolder module="list" relatedmodule="payment">	
+		<staticlist listid="modules_payment/ogoneserverurl" label="Url de paiement Ogone">
+			<staticitem label="Serveur de TEST" value="https://secure.ogone.com/ncol/test/orderstandard.asp" />
+			<staticitem label="Serveur de PROD" value="https://secure.ogone.com/ncol/prod/orderstandard.asp" />
+		</staticlist>
+		
+		<staticlist listid="modules_payment/ogoneoperation" label="Type d'oprération Ogone">
+			<staticitem label="Authorization" value="RES" />
+			<staticitem label="Paiement" value="SAL" />
+		</staticlist>
+	</systemfolder>
+</script>

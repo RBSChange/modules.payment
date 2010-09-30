@@ -54,15 +54,6 @@ class payment_BankResponseChequeAction extends f_action_BaseAction
 		$context->getController()->redirectToUrl($url);
 		return VIEW::NONE;	
 	}
-
-	/**
-	 * @param array $sessionInfo
-	 * @return payment_persistentdocument_chequeconnector 
-	 */
-	private function getChequeConnector($sessionInfo)
-	{
-		return DocumentHelper::getDocumentInstance ($sessionInfo ['connectorId'], 'modules_payment/chequeconnector');
-	}
 	
 	/**
 	 * @return Integer

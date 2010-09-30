@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization extend="modules.payment.document.connector">
+	<entity id="document-name">
+		<locale lang="fr">mode de paiement Ogone (CB)</locale>
+	</entity>
+	<entity id="pspid">
+		<locale lang="fr">Code PSPID</locale>
+	</entity>  
+	<entity id="bankServerUrl">
+		<locale lang="fr">URL du serveur banquaire</locale>
+	</entity> 
+	<entity id="operation">
+		<locale lang="fr">Type d'opération</locale>
+	</entity> 
+	
+	
+	<entity id="shaInKey">
+		<locale lang="fr">Clé SHA-1 In</locale>
+	</entity> 
+	<entity id="shaOutKey">
+		<locale lang="fr">Clé SHA-1 Out</locale>
+	</entity> 
+	
+	
+	<entity id="payment-cb">
+		<locale lang="fr">Paiement CB</locale>
+		<locale lang="en">Payment CB</locale>
+	</entity>
+	<entity id="transaction-accepted">
+		<locale lang="fr">Paiement accpeté.</locale>
+	</entity>	
+	<entity id="transaction-delayed">
+		<locale lang="fr">Paiement en attente de validation.</locale>
+	</entity>
+	<entity id="transaction-failed">
+		<locale lang="fr">Paiement refusé.</locale>
+	</entity>
+	
+	<!--
+		Vos paramètres techniques
+			- Paramètres de transaction globaux 
+				- Code d'opération par défaut : Correspond au champ Type d'opération du document
+				- Tentatives de paiement multiples : 3 ?
+			- Paramètres globaux de sécurité 
+				- Algorithme de hachage : SHA-1  
+				- Encodage des caractères : UTF-8
+				
+			- Affichage de la page de paiement 
+				- Bouton Annuler  : "cocher" Cacher le bouton "Annuler" sur les pages de paiement sécurisées Ogone
+			
+			- Contrôle de données et d'origine : mettre l'url de base du site ex: http://www.rbschange.fr
+				- URL de la page du marchand
+				- Clé SHA-IN : saisir la valeur du champ Clé SHA-1 In du document
+				
+			- Retour d'information sur la transaction 
+				- Redirection HTTP dans le navigateur 
+					- Accepturl: vide  (generé automatiquement ex:  http://www.rbschange.fr/payment/ogoneConfirm.php)
+					- Declineurl: vide  (generé automatiquement ex: http://www.rbschange.fr/payment/ogoneBack.php)
+					- Exceptionurl: vide
+					- Cancelurl: vide
+					- Cocher : Je veux recevoir les paramètres de transaction en retour dans les URL lors de la redirection. 
+					- Cocher : Je veux que Ogone affiche, sur la page de paiement, un message court à l’attention du client lorsqu'une redirection vers votre site est détectée juste après le processus de paiement.
+					
+				- Requête directe HTTP serveur-à-serveur 
+					- Cocher : Toujours en background/différé (pas tout de suite après le paiement).
+					- URL de la page post-paiement du marchand: 
+						- Si le statut du paiement est "accepté", "en attente" ou "incertain"
+							URL de base  + /payment/ogoneListener.php
+							ex http://www.rbschange.fr/payment/ogoneListener.php
+						- Si le statut du paiement est "annulé par le client" ou "trop de rejets par l'acquéreur".
+							URL de base  + /payment/ogoneListener.php
+							ex http://www.rbschange.fr/payment/ogoneListener.php
+					- Méthode de la requête : POST
+					
+				- Général
+					- Cocher : Je veux que Ogone affiche un message d’attente de traitement au client pendant le traitement du paiement. 
+					- Cocher : Je veux que Ogone relance le processus de fin de transaction (requête/redirection post paiement) si nécessaire.
+				
+				- Tous les modes de soumission
+					- Clé SHA-OUT : saisir la valeur du champ Clé SHA-1 Out du document
+					- Type de requête : Lors de tous les changements de statut offline
+						- URL : URL de base  + /payment/ogoneListener.php
+							ex http://www.rbschange.fr/payment/ogoneListener.php
+					
+						 
+	-->
+	
+</localization>

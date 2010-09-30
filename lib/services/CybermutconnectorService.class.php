@@ -63,7 +63,7 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 	}
 	
 	/**
-	 * @param payment_persistentdocument_atosconnector $connector
+	 * @param payment_persistentdocument_cybermutconnector $connector
 	 * @param payment_Order $order
 	 */
 	public function setPaymentInfo($connector, $order)
@@ -241,16 +241,16 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 			{
 				case "Annulation" :
 					$response->setFailed();
-					$response->setTransactionText('Paiement par carte Banquaire refusé.');
+					$response->setTransactionText(f_Locale::translate('&modules.payment.document.cybermutconnector.Transaction-failed;'));
 					break;			
 				case "payetest" :
 					$response->setAccepted();
-					$response->setTransactionText('Paiement par carte Banquaire accépté (TEST).');
+					$response->setTransactionText(f_Locale::translate('&modules.payment.document.cybermutconnector.Transaction-accepted-test;'));
 					$response->setDate(date_Converter::convertDateToGMT($date));
 					break;				
 				case "paiement" :
 					$response->setAccepted();
-					$response->setTransactionText('Paiement par carte Banquaire accépté.');
+					$response->setTransactionText(f_Locale::translate('&modules.payment.document.cybermutconnector.Transaction-accepted;'));
 					$response->setDate(date_Converter::convertDateToGMT($date));
 					break;
 				

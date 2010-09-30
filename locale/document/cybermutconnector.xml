@@ -38,14 +38,28 @@
 	<entity id="tpeCompanyCode-help">
 		<locale lang="fr">code société fourni par votre prestataire.</locale>
 	</entity>
-	<entity id="payment-cb">
-		<locale lang="fr">Paiement CB</locale>
-		<locale lang="en">Payment CB</locale>
-	</entity>
 	<entity id="listenerURL">
 		<locale lang="fr">URL</locale>
 	</entity>
 	<entity id="listenerURL-help">
 		<locale lang="fr">URL utilisée par la banque pour valider/confirmer le paiement.</locale>
+	</entity>
+	
+	<entity id="payment-cb">
+		<locale lang="fr">Paiement CB</locale>
+		<locale lang="en">Payment CB</locale>
+	</entity>
+	<entity id="transaction-accepted">
+		<locale lang="fr">Paiement par carte Banquaire accépté.</locale>
+	</entity>	
+	<entity id="transaction-accepted-test">
+		<locale lang="fr">Paiement par carte Banquaire accépté (TEST).</locale>
+	</entity>	
+	
+	<entity id="transaction-delayed">
+		<locale lang="fr">Paiement en attente de validation.</locale>
+	</entity>
+	<entity id="transaction-failed">
+		<locale lang="fr">Paiement par carte Banquaire refusé.</locale>
 	</entity>
 </localization>

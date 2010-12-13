@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.payment.document.chequeconnector" lcid="en_GB">
+  <include id="m.payment.document.connector"/>
+  <key id="document-name">cheque billing mode</key>
+  <key id="recipient">cheque label</key>
+  <key id="recipient-help">customers will have to label their cheque to this recipient</key>
+  <key id="recipientaddress">address to send the cheque</key>
+  <key id="recipientaddress-help">customers will have to send their cheque to this address</key>
+</i18n>

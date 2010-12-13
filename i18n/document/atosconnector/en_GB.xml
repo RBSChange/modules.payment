@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.payment.document.atosconnector" lcid="en_GB">
+  <include id="m.payment.document.connector"/>
+  <key id="document-name">SIPS billing mode (Credit card)</key>
+  <key id="merchantid">merchant_id parameter</key>
+  <key id="merchantid-help">merchantId-help</key>
+</i18n>

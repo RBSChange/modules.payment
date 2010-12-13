@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.payment.frontoffice.paypal" lcid="de_DE">
+  <key id="button">https://www.paypal.com/de_DE/i/btn/btn_xpressCheckout.gif</key>
+</i18n>

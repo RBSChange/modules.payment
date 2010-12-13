@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.payment.document.paypalconnector" lcid="fr_FR">
+  <include id="m.payment.document.connector"/>
+  <key id="document-name">mode de paiement PayPal</key>
+  <key id="username">API Username</key>
+  <key id="username-help">API Username fourni par Paypal lors de la création de votre solution de paiement.</key>
+  <key id="password">API Password</key>
+  <key id="password-help">API Password fourni par Paypal lors de la création de votre solution de paiement.</key>
+  <key id="signature">Signature</key>
+  <key id="signature-help">Signature fournie par Paypal lors de la création de votre solution de paiement.</key>
+  <key id="sandbox">sandbox</key>
+  <key id="sandbox-help">mode bac à sable du connecteur Paypal qui vous permet d'effectuer des tests en toute sécurité. Attention, ce mode ne doit pas être utilisé dans des environnement de production!</key>
+</i18n>

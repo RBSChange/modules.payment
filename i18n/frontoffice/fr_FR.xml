@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.payment.frontoffice" lcid="fr_FR">
+  <key id="atos-title">Paiement par carte bancaire</key>
+  <key id="cheque-title">Paiement par chèque</key>
+  <key id="cybermut-title">Paiement par carte bancaire</key>
+  <key id="paypal-title">Paiement par Paypal</key>
+  <key id="cheque-text">Pour valider votre transaction et payer à l'aide d'un chèque, cliquez sur le bouton ″Payer par chèque″ ci-dessous.</key>
+  <key id="cheque-recipient">ordre du chèque</key>
+  <key id="cheque-address">adresse d'envoi</key>
+  <key id="payment">Payer</key>
+  <key id="cheque-payment">Payer par chèque</key>
+  <key id="cancel">Annuler</key>
+  <key id="bank-confirm">En attente de confirmation de la banque</key>
+  <key id="cancel-transaction">Paiement annulé</key>
+  <key id="no-shipping-address-defined">Adresse de livraison manquante</key>
+</i18n>

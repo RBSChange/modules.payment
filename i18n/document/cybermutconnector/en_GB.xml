@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.payment.document.cybermutconnector" lcid="en_GB">
+  <include id="m.payment.document.connector"/>
+  <key id="document-name">CM-CIC p@iement</key>
+  <key id="merchantid">merchant id</key>
+  <key id="merchantid-help">merchant id</key>
+  <key id="bankserverurl">bank</key>
+  <key id="bankserverurl-help">merchant bank</key>
+  <key id="payment-cb">Payment CB</key>
+</i18n>

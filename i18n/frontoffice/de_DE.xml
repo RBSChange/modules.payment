@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.payment.frontoffice" lcid="de_DE">
+  <key id="atos-title">Zahlung per Kreditkarte</key>
+  <key id="cheque-title">Zahlung per Scheck</key>
+  <key id="cybermut-title">Zahlung per Kreditkarte</key>
+  <key id="paypal-title">Zahlung per Paypal</key>
+  <key id="cheque-text">Um die Transaktion abzuschließen und mit einem Scheck bezahlen, klicken Sie auf ″Pay-per Scheck″ weiter unten.</key>
+  <key id="cheque-recipient">Agenda überprüfen</key>
+  <key id="cheque-address">Postanschrift</key>
+  <key id="payment">Pay</key>
+  <key id="cheque-payment">Pay-per Scheck</key>
+  <key id="bank-confirm">Bis zur Bestätigung von der Bank</key>
+  <key id="cancel-transaction">Zahlung storniert</key>
+</i18n>

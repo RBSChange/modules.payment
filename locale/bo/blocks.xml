@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<localization>
-	<entity id="Payment">
-		<locale lang="fr">Paiement</locale>
-		<locale lang="en">Payment</locale>
-	</entity>
-</localization>

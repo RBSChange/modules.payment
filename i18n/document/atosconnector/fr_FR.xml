@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.payment.document.atosconnector" lcid="fr_FR">
+  <include id="m.payment.document.connector"/>
+  <key id="document-name">mode de paiement SIPS (CB)</key>
+  <key id="merchantid">Paramètre merchant_id</key>
+  <key id="merchantid-help">La valeur de ce champ est fournie par la banque au commerçant, lors de l’inscription de sa boutique. Il permet l’identification d’une boutique. Il correspond généralement au SIRET précédé de 0.</key>
+  <key id="tpecertifcontent">certificat TPE</key>
+  <key id="tpecertifcontent-help">contenu du fichier de certificat pour le TPE.</key>
+  <key id="tpeparmcomcontent">paramètres TPE</key>
+  <key id="tpeparmcomcontent-help">contenu du fichier de paramètres pour le TPE.</key>
+  <key id="paymentmeans">Cartes authorisées</key>
+  <key id="paymentmeans-help">Liste des cartes authorisées</key>
+  <key id="all-paymentmeans">Toutes les cartes définies</key>
+  <key id="response-code-0">Autorisation acceptée.</key>
+  <key id="response-code-2">Demande d'autorisation par téléphone à la banque à cause d'un dépassement de plafond d'autorisation sur la carte (cf. annexe I).</key>
+  <key id="response-code-3">Champ merchant_id invalide, vérifier la valeur renseignée dans la requête. Contrat de vente à distance inexistant, contacter votre banque.</key>
+  <key id="response-code-5">Autorisation refusée.</key>
+  <key id="response-code-12">Transaction invalide, vérifier les paramètres transférés dans la requête.</key>
+  <key id="response-code-13">Montant invalide, vérifier le montant transféré dans la requête.</key>
+  <key id="response-code-17">Annulation de l'internaute.</key>
+  <key id="response-code-30">Erreur de format.</key>
+  <key id="response-code-63">Règles de sécurité non respectées, transaction arrêtée.</key>
+  <key id="response-code-75">Nombre de tentatives de saisie du numéro de carte dépassé.</key>
+  <key id="response-code-90">Service temporairement indisponible.</key>
+</i18n>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.payment.document.connector" lcid="fr_FR">
+  <key id="code">code</key>
+  <key id="code-help">code du mode de paiement utilisé dans les factures et pour l'export des commandes.</key>
+  <key id="label">libellé</key>
+  <key id="label-help">libellé du mode de paiement utilisé en backoffice et dans l'étape de sélection du mode de paiement du processus de commande.</key>
+  <key id="usehttps">utilisation de https</key>
+  <key id="usehttps-help">Utilisation du protocol https pour la communication entre la banque et le site.</key>
+</i18n>

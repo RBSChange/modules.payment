@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.payment.document.chequeconnector" lcid="fr_FR">
+  <include id="m.payment.document.connector"/>
+  <key id="document-name">mode de paiement par chèque</key>
+  <key id="recipient">ordre du chèque</key>
+  <key id="recipient-help">indique l'ordre auquel les clients devront libeller leur chèque. Ce texte est présenté dans la page de confirmation de commande.</key>
+  <key id="recipientaddress">adresse d'envoi du chèque</key>
+  <key id="recipientaddress-help">indique l'adresse postale à laquelle le chèque devra être envoyé. Ce texte est présenté dans la page de confirmation de commande.</key>
+</i18n>

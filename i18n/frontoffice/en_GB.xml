@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.payment.frontoffice" lcid="en_GB">
+  <key id="atos-title">Payment by credit card</key>
+  <key id="cheque-title">Payment by check</key>
+  <key id="cybermut-title">Payment by credit card</key>
+  <key id="paypal-title">Payment by Paypal</key>
+  <key id="cheque-text">To complete your transaction and pay with a check, click ″Pay by Check″ below.</key>
+  <key id="cheque-recipient">Agenda check</key>
+  <key id="cheque-address">mailing address</key>
+  <key id="payment">Pay</key>
+  <key id="cheque-payment">Pay by check</key>
+  <key id="cancel">Cancel</key>
+  <key id="bank-confirm">Pending confirmation from the bank</key>
+  <key id="cancel-transaction">Payment Canceled</key>
+  <key id="no-shipping-address-defined">no shipping address defined</key>
+</i18n>

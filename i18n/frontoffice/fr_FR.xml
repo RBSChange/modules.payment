@@ -13,4 +13,11 @@
   <key id="bank-confirm">En attente de confirmation de la banque</key>
   <key id="cancel-transaction">Paiement annulé</key>
   <key id="no-shipping-address-defined">Adresse de livraison manquante</key>
+  
+  
+  <key id="free-title">Commande offerte</key>
+  <key id="free-text">Pour valider votre commande cliquez sur le bouton ″Valider la commande″ ci-dessous.</key>
+  <key id="free-payment">valider la commande</key>
+  <key id="free-status-waiting">en attente de validation</key>
+  <key id="free-status-success">validé</key>
 </i18n>

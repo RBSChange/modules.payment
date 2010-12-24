@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.payment.document.freeconnector" lcid="en_GB">
+  <include id="m.payment.document.connector"/>
+  <key id="document-name">freeconnector</key>
+  <key id="description">[TO TRANSLATE] description</key>
+  <key id="description-help">[TO TRANSLATE] description-help</key>
+</i18n>

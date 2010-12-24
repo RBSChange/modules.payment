@@ -6,4 +6,5 @@
   <key id="create-chequeconnector">create a cheque billing mode</key>
   <key id="create-paypalconnector">create an Paypal billing mode</key>
   <key id="create-ogoneconnector">create a Ogone billing mode</key>
+  <key id="create-freeconnector">create</key>
 </i18n>

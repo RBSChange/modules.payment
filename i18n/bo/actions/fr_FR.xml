@@ -6,4 +6,5 @@
   <key id="create-chequeconnector">créer un mode de paiement par chèque</key>
   <key id="create-paypalconnector">créer un mode de paiement Paypal</key>
   <key id="create-ogoneconnector">créer un mode de paiement Ogone</key>
+  <key id="create-freeconnector">créer un mode sans paiement</key>
 </i18n>

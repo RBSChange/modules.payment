@@ -7,4 +7,5 @@
   <binding name="cybermutconnector" className="payment_CybermutconnectorScriptDocumentElement"/>
   <binding name="paypalconnector" className="payment_PaypalconnectorScriptDocumentElement"/>
   <binding name="ogoneconnector" className="payment_OgoneconnectorScriptDocumentElement"/>
+  <binding name="freeconnector" className="payment_FreeconnectorScriptDocumentElement"/>
 </script>

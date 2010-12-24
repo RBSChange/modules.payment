@@ -7,6 +7,7 @@
     <document name="cybermutconnector"/>
     <document name="paypalconnector"/>
     <document name="ogoneconnector"/>
+    <document name="freeconnector"/>
   </actions>
   <roles>
     <role name="Admin">

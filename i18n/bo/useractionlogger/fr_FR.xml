@@ -56,4 +56,6 @@
   <key id="log-update-ogoneconnector">log-update-ogoneconnector</key>
   <key id="delete-ogoneconnector">delete.ogoneconnector {documentlabel}</key>
   <key id="log-delete-ogoneconnector">log-delete-ogoneconnector</key>
+  <key id="insert-freeconnector">insert.freeconnector {documentlabel}</key>
+  <key id="log-insert-freeconnector">log insert freeconnector</key>
 </i18n>

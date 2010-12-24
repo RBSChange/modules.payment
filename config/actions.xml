@@ -1,37 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
-	<action name="createFolder">
-		<parameter name="listWidget" />
-		<body><![CDATA[
+  <action name="createFolder">
+    <parameter name="listWidget"/>
+    <body><![CDATA[
 			this.createDocumentEditor('modules_brand_folder', listWidget.getSelectedItems()[0].id);
 		]]></body>
-	</action>
-	<action name="createChequeconnector">
-		<parameter name="listWidget"/>
-		<body><![CDATA[
+  </action>
+  <action name="createChequeconnector">
+    <parameter name="listWidget"/>
+    <body><![CDATA[
 			this.createDocumentEditor('modules_payment_chequeconnector', listWidget.getSelectedItems()[0].id);
 		]]></body>
-	</action>
-	<action name="createAtosconnector">
-		<parameter name="listWidget"/>
-		<body><![CDATA[
+  </action>
+  <action name="createAtosconnector">
+    <parameter name="listWidget"/>
+    <body><![CDATA[
 			this.createDocumentEditor('modules_payment_atosconnector', listWidget.getSelectedItems()[0].id);
 		]]></body>
-	</action>
-	<action name="createCybermutconnector">
-		<parameter name="listWidget"/>
-		<body><![CDATA[
+  </action>
+  <action name="createCybermutconnector">
+    <parameter name="listWidget"/>
+    <body><![CDATA[
 			this.createDocumentEditor('modules_payment_cybermutconnector', listWidget.getSelectedItems()[0].id);
 		]]></body>
-	</action>
-	<action name="createPaypalconnector">
-		<parameter name="listWidget"/>
-		<body><![CDATA[
+  </action>
+  <action name="createPaypalconnector">
+    <parameter name="listWidget"/>
+    <body><![CDATA[
 			this.createDocumentEditor('modules_payment_paypalconnector', listWidget.getSelectedItems()[0].id);
 		]]></body>
-	</action>
-	<action name="createOgoneconnector">
-		<parameter name="listWidget"/>
-		<body><![CDATA[this.createDocumentEditor('modules_payment_ogoneconnector', listWidget.getSelectedItems()[0].id);]]></body>
-	</action>
+  </action>
+  <action name="createOgoneconnector">
+    <parameter name="listWidget"/>
+    <body><![CDATA[this.createDocumentEditor('modules_payment_ogoneconnector', listWidget.getSelectedItems()[0].id);]]></body>
+  </action>
+  <action name="createFreeconnector">
+    <parameter name="listWidget"/>
+    <body><![CDATA[this.createDocumentEditor('modules_payment_freeconnector', listWidget.getSelectedItems()[0].id);]]></body>
+  </action>
 </actions>

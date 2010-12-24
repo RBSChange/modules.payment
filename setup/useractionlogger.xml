@@ -29,4 +29,5 @@
   <actiondef modulename="payment" actionname="deactivated.ogoneconnector" label="modules.payment.bo.useractionlogger.deactivated-ogoneconnector"/>
   <actiondef modulename="payment" actionname="update.ogoneconnector" label="modules.payment.bo.useractionlogger.update-ogoneconnector"/>
   <actiondef modulename="payment" actionname="delete.ogoneconnector" label="modules.payment.bo.useractionlogger.delete-ogoneconnector"/>
+  <actiondef modulename="payment" actionname="insert.freeconnector" label="m.payment.bo.useractionlogger.insert-freeconnector"/>
 </script>

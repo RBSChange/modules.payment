@@ -16,3 +16,6 @@ treechildren::-moz-tree-image(modules_payment_paypalconnector){
 treechildren::-moz-tree-image(modules_payment_ogoneconnector){
 	list-style-image: url(/changeicons/small/credit-card.png);
 }
+treechildren::-moz-tree-image(modules_payment_freeconnector){
+	list-style-image: url(/changeicons/small/freeconnector.png);
+}

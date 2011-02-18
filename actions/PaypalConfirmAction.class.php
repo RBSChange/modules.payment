@@ -15,9 +15,10 @@ class payment_PaypalConfirmAction extends f_action_BaseAction
  		$ms = payment_ModuleService::getInstance();	
 		$ms->log("BANKING CONFIRM PAYPAL from [".$remoteAddr." : ".$requestUri."] PayerId: $payerId");
 		
-		$sessionInfo = payment_ConnectorService::getInstance()->getSessionInfo();
+		$connectorService = payment_PaypalconnectorService::getInstance(); 
+		$sessionInfo = $connectorService->getSessionInfo();
 		$sessionInfo['payerId'] = $payerId;
-		payment_ConnectorService::getInstance()->setSessionInfo($sessionInfo);
+		$connectorService->setSessionInfo($sessionInfo);
 		$url = $sessionInfo['paymentURL'];
 		$context->getController()->redirectToUrl($url);
 	}

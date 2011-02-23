@@ -6,23 +6,6 @@
 class payment_persistentdocument_freeconnector extends payment_persistentdocument_freeconnectorbase 
 {
 	/**
-	 * @param string $moduleName
-	 * @param string $treeType
-	 * @param array<string, string> $nodeAttributes
-	 */
-//	protected function addTreeAttributes($moduleName, $treeType, &$nodeAttributes)
-//	{
-//	}
-	
-	/**
-	 * @param string $actionType
-	 * @param array $formProperties
-	 */
-//	public function addFormProperties($propertiesNames, &$formProperties)
-//	{	
-//	}
-
-	/**
 	 * @return string
 	 */	
 	public function getTemplateViewName()

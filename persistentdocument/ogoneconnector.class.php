@@ -6,23 +6,8 @@
 class payment_persistentdocument_ogoneconnector extends payment_persistentdocument_ogoneconnectorbase 
 {
 	/**
-	 * @param string $moduleName
-	 * @param string $treeType
-	 * @param array<string, string> $nodeAttributes
+	 * @return string
 	 */
-//	protected function addTreeAttributes($moduleName, $treeType, &$nodeAttributes)
-//	{
-//	}
-	
-	/**
-	 * @param string $actionType
-	 * @param array $formProperties
-	 */
-//	public function addFormProperties($propertiesNames, &$formProperties)
-//	{	
-//	}
-
-	
 	public function getTemplateViewName()
 	{
 		return 'Ogone';

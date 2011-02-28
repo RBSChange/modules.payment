@@ -80,5 +80,7 @@ Entzheim 67836 Tanneries Cedex" />
 			signature="A.uDRx7AN1vNDm3J613rooPmk6OrASsLDx9KMS8Gd-xMYautoJxd-i79"
 			sandbox="true"
 			/>
+			
+		<freeconnector byLabel="Pas de paiement" publicationstatus="ACTIVE" code="FREE" autoValidation="true" />
 	</rootfolder>
 </script>

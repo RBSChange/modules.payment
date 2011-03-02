@@ -36,7 +36,10 @@ class payment_BankResponseAtosAction extends f_action_BaseAction
 			}
             else
             {
-                $order->setPaymentStatus('waiting');
+				if (f_util_StringUtils::isEmpty($order->getPaymentStatus()))
+				{
+					$order->setPaymentStatus('waiting');
+				}
             }
 			$connectorService->setSessionInfo(array());
 				

@@ -19,4 +19,6 @@
 	<key id="free-status-waiting">en attente de validation</key>
 	<key id="free-status-success">validé</key>
 	<key id="atos-waiting" format="html"><![CDATA[Nous sommes en attente de confirmation de votre paiement par carte bancaire. D'ici quelques minutes vous recevrez un e-mail vous informant du traitement de votre paiement par notre site.<br />Merci de votre patience.]]></key>
+	<key id="atos-success">Paiement par carte "{code}" effectué avec succès.</key>
+	<key id="atos-failed">Paiement échoué.</key>
 </i18n>

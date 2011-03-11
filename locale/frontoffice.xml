@@ -91,4 +91,7 @@
 		<locale lang="en">payment failed</locale>
 		<locale lang="de">Zahlung nicht</locale>
 	</entity>
+    <entity id="atos-waiting">
+        <locale lang="fr"><![CDATA[ Nous sommes en attente de confirmation de votre paiement par carte bancaire. D'ici quelques minutes vous recevrez un e-mail vous informant du traitement de votre paiement par notre site. <br />Merci de votre patience.]]></locale>
+	</entity>
 </localization>

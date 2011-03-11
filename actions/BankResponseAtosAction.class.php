@@ -25,16 +25,22 @@ class payment_BankResponseAtosAction extends f_action_BaseAction
 			{
 				throw new Exception('Session expired');
 			}
-						
+			$bankResponse = $connectorService->getBankResponse($request->getParameter('DATA'));
+            RequestContext::getInstance()->setLang($bankResponse->getLang());
+				
+			$order = $bankResponse->getOrder();			
 			//En production le listener ce charge de compléter la commande
 			if (Framework::inDevelopmentMode())
 			{
-				$bankResponse = $connectorService->getBankResponse($request->getParameter('DATA'));
-				RequestContext::getInstance()->setLang($bankResponse->getLang());
-				
-				$order = $bankResponse->getOrder();
 				$connectorService->setPaymentResult($bankResponse, $order);
 			}
+            else
+            {
+				if (f_util_StringUtils::isEmpty($order->getPaymentStatus()))
+				{
+					$order->setPaymentStatus('waiting');
+				}
+            }
 			$connectorService->setSessionInfo(array());
 				
 			$url = $sessionInfo['paymentURL'];

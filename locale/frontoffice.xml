@@ -69,6 +69,12 @@
 		<locale lang="en">https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif</locale>
 		<locale lang="de">https://www.paypal.com/de_DE/i/btn/btn_xpressCheckout.gif</locale>
 	</entity>	
+	<entity id="paypal.payment-waiting">
+		<locale lang="fr">Paiement paypal en attente. Référence de la transaction {transaction}.</locale>
+	</entity>	
+	<entity id="paypal.payment-success">
+		<locale lang="fr">Paiement paypal effectué avec succès. Référence de la transaction {transaction}.</locale>
+	</entity>
 
 	<entity id="status.success">
 		<locale lang="fr">paiement validé</locale>

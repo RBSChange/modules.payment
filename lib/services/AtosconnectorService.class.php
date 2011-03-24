@@ -5,6 +5,40 @@
  */
 class payment_AtosconnectorService extends payment_ConnectorService
 {
+	const DATA_HEADER = 0;
+	const DATA_CODE = 1;
+	const DATA_ERROR = 2;
+	const DATA_MERCHANT_ID = 3;
+	const DATA_MERCHANT_COUNTRY = 4;
+	const DATA_AMOUNT = 5;
+	const DATA_TRANSACTION_ID = 6;
+	const DATA_PAYMENT_MEANS = 7;
+	const DATA_TRANSMISSION_DATE = 8;
+	const DATA_PAYMENT_TIME = 9;
+	const DATA_PAYMENT_DATE = 10;
+	const DATA_RESPONSE_CODE = 11;
+	const DATA_PAYMENT_CERTIFICATE = 12;
+	const DATA_AUTHORISATION_ID = 13;
+	const DATA_CURRENCY_CODE = 14;
+	const DATA_CARD_NUMBER = 15;
+	const DATA_CVV_FLAG = 16;
+	const DATA_CVV_RESPONSE_CODE = 17;
+	const DATA_BANK_RESPONSE_CODE = 18;
+	const DATA_COMPLEMENTARY_CODE = 19;
+	const DATA_COMPLEMENTARY_INFO = 20;
+	const DATA_RETURN_CONTEXT = 21;
+	const DATA_CADDIE = 22;
+	const DATA_RECEIPT_COMPLEMENT = 23;
+	const DATA_MERCHANT_LANGUAGE = 24;
+	const DATA_LANGUAGE = 25;
+	const DATA_CUSTOMER_ID = 26;
+	const DATA_ORDER_ID = 27;
+	const DATA_CUSTOMER_EMAIL = 28;
+	const DATA_CUSTOMER_IP_ADDRESS = 29;
+	const DATA_CAPTURE_DAY = 30;
+	const DATA_CAPTURE_MODE = 31;
+	const DATA_DATA = 32;
+	
 	/**
 	 * @var payment_AtosconnectorService
 	 */
@@ -230,6 +264,8 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		$connector->setHTMLPayment($message);	
 	}
 	
+	
+	
 	/**
 	 * @param array $params
 	 * @param payment_persistentdocument_atosconnector $connector
@@ -388,20 +424,20 @@ class payment_AtosconnectorService extends payment_ConnectorService
 	 * @return payment_Transaction
 	 */
 	public function getBankResponse($data)
-	{	
+	{
 		if ($data == null)
 		{
 			throw new Exception("ATOS BANKING from FAILED : REQUEST DATA NOT FOUND");
 		}
-
+		
 		$response = new payment_Transaction();
-		$params = array('message' => $data, 'pathfile' => $this->getPathFile());		
-		$path_bin = f_util_FileUtils::buildWebeditPath('bin', 'response');	
+		$params = array('message' => $data, 'pathfile' => $this->getPathFile());
+		$path_bin = f_util_FileUtils::buildWebeditPath('bin', 'response');
 		foreach ($params as $param => $value)
 		{
-			$path_bin .= ' '. $param .'='. $value;
+			$path_bin .= ' ' . $param . '=' . $value;
 		}
-		$result = exec($path_bin);	
+		$result = exec($path_bin);
 		$response->setRawBankResponse($result);
 		payment_ModuleService::getInstance()->log('ATOS BANKING DATA : ' . $result);
 		
@@ -415,7 +451,7 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		
 		$response->setLang($resultArray[25]);
 		$contextArray = explode(',', $resultArray[21]);
-		try 
+		try
 		{
 			if (count($contextArray) !== 2)
 			{
@@ -430,35 +466,107 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		}
 		$response->setOrderId($order->getId());
 		$currency = intval($resultArray[14]);
-		foreach ($this->currencyMap as $code => $key) 
+		foreach ($this->currencyMap as $code => $key)
 		{
-			if ($key == $currency) 
+			if ($key == $currency)
 			{
 				$response->setCurrency($code);
 				break;
 			}
 		}
 		$prec = $this->currencyPrecision[$currency];
-		$amount = floatval(preg_replace('/^(\d*)(\d{'.$prec.'})$/', '\1.\2', $resultArray[5]));			
+		$amount = floatval(preg_replace('/^(\d*)(\d{' . $prec . '})$/', '\1.\2', $resultArray[5]));
 		$response->setAmount($amount);
-			
+		
 		// Is the payment OK or not ?
 		if ($resultArray[11] == self::RESPONSE_CODE_ACCEPTED)
 		{
 			$response->setAccepted();
 			$response->setTransactionId($resultArray[6]);
-			$response->setTransactionText('Paiement par carte "'.$resultArray[7] .'" effectué avec succés.');
+			$response->setTransactionText('Paiement par carte "' . $resultArray[7] . '" effectué avec succés.');
 			$date = preg_replace('/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/', '\1-\2-\3 \4:\5:\6', $resultArray[8]);
 			$response->setDate($date);
-		} 
-		else 
+		}
+		else
 		{
 			$response->setFailed();
-			$response->setTransactionId('ERROR-'. $resultArray[11]);
-			$response->setTransactionText('Paiement échoué.');			
+			$response->setTransactionId('ERROR-' . $resultArray[11]);
+			$response->setTransactionText('Paiement échoué.');
 		}
-			
+		
 		payment_ModuleService::getInstance()->logBankResponse($connector, $response);
 		return $response;
+	}
+	
+	// Parse payment response for display
+	
+	/**
+	 * Parse order paymentResponse
+	 * @param payment_Order $order
+	 * @return array associative array<String, String>
+	 */
+	public function parsePaymentResponse($order)
+	{
+		if (!$order->getPaymentResponse())
+		{
+			return array();
+		}
+		$res = unserialize($order->getPaymentResponse());
+		if ($res === false)
+		{
+			return array();
+		}
+		$parsed = array("transactionText" => $res["transactionText"]);
+		$data = $res["transactionData"];
+		
+		$parsed = array();
+		$parsed['merchant_id'] = $data[self::DATA_MERCHANT_ID];
+		$parsed['transaction_id'] = $data[self::DATA_TRANSACTION_ID];
+		
+		if (isset($data[self::DATA_TRANSMISSION_DATE]))
+		{
+			$date = null;
+			ereg("(.{4})(.{2})(.{2})(.{2})(.{2})(.{2})", strval($data[self::DATA_TRANSMISSION_DATE]), $date);
+			$dateString = $date[1] . "-" . $date[2] . "-" . $date[3] . " " . $date[4] . ":" . $date[5] . ":" . $date[6];
+			$dateObject = date_Calendar::getInstance($dateString);
+			$parsed['transmission_date'] = date_DateFormat::format($dateObject, "d F Y H:i:s");
+		}
+		
+		$parsed['response_code'] = $data[self::DATA_RESPONSE_CODE];
+		$parsed['payment_certificate'] = $data[self::DATA_PAYMENT_CERTIFICATE];
+		$parsed['authorisation_id'] = $data[self::DATA_AUTHORISATION_ID];
+		$parsed['card_number'] = str_replace(".", " #### #### ##", strval($data[self::DATA_CARD_NUMBER]));
+		
+		if ("" != $data[self::DATA_AMOUNT] && "" != $data[self::DATA_CURRENCY_CODE])
+		{
+			$amount = $this->translateAmountFromAtos($data[self::DATA_AMOUNT], $data[self::DATA_CURRENCY_CODE]);
+			$parsed["transaction_amount"] = catalog_ShopService::getInstance()->getCurrentShop()->formatPrice($amount);
+		}
+		else
+		{
+			$parsed["transaction_amount"] = "";
+		}
+		
+		$parsed["card_name"] = $data[self::DATA_PAYMENT_MEANS];
+		
+		return $parsed;
+	}
+	
+	/**
+	 * @param String $amount
+	 * @param String $currencyCode
+	 * @return float
+	 */
+	protected function translateAmountFromAtos($amount, $currencyCode)
+	{
+		if (isset(self::$currencyPrecision[$currencyCode]))
+		{
+			$prec = 2;
+		}
+		else
+		{
+			$prec = self::$currencyPrecision[$currencyCode];
+		}
+		return floatval(preg_replace('/^(\d*)(\d{' . $prec . '})$/', '\1.\2', $amount));
 	}
 }

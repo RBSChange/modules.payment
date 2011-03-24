@@ -125,6 +125,16 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 	}
 	
 	/**
+	 * Parse order paymentResponse
+	 * @param payment_Order $order
+	 * @return array associative array<String, String>
+	 */
+	public function parsePaymentResponse($order)
+	{
+		return array();
+	}
+	
+	/**
 	 * @param array $info
 	 */
 	public function setSessionInfo($info)

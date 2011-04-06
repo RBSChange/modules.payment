@@ -326,4 +326,39 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 		$currentWebsite = website_WebsiteModuleService::getInstance ()->getCurrentWebsite ();
 		return $currentWebsite->getDomain ();
 	}
+	
+	/**
+	 * Parse order paymentResponse
+	 * @param payment_Order $order
+	 * @return array associative array<String, String>
+	 */
+	public function parsePaymentResponse($order)
+	{
+		$result = array();
+		
+		if (!$order->getPaymentResponse())
+		{
+			return $result;
+		}
+		$matches = unserialize($order->getPaymentResponse());
+		foreach ($matches as $name => $value) 
+		{
+			switch ($name) 
+			{
+				case 'token':
+				case 'connectorId':
+				case 'orderId':
+				case 'paymentAmount':	
+				case 'currencyCodeType':
+				case 'lang':
+				case 'paymentURL':	
+				break;
+				
+				default:
+					$result[$name] = $value;
+					break;
+			}
+		}
+		return $result;		
+	}
 }

@@ -114,13 +114,16 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 			$order->setPaymentDate($response->getDate());
 			$order->setPaymentStatus('success');
 		}
-		else if ($response->isFailed())
-		{
-			$order->setPaymentStatus('failed');
-		}
-		else 
-		{
-			$order->setPaymentStatus('waiting');
+		else if ($order->getPaymentStatus() != 'success')
+		{  
+			if ($response->isFailed())
+			{
+				$order->setPaymentStatus('failed');
+			}
+			else 
+			{
+				$order->setPaymentStatus('waiting');
+			}
 		}
 	}
 	

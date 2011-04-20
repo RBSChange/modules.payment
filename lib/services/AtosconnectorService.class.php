@@ -282,7 +282,7 @@ class payment_AtosconnectorService extends payment_ConnectorService
 	 */	
 	private function setPaymentStatus($connector, $order)
 	{	
-		$html = '<ol><li>' . f_Locale::translate('&modules.order.frontoffice.Orderlist-status;') . ' : ' . 
+		$html = '<ol class="messages"><li>' . f_Locale::translate('&modules.order.frontoffice.Orderlist-status;') . ' : ' . 
 			f_Locale::translate('&modules.payment.frontoffice.status.'. ucfirst($order->getPaymentStatus())  .';') . '</li>'.
 			'<li>' . f_util_HtmlUtils::nlTobr($order->getPaymentTransactionText()) .'</li></ol>';
 

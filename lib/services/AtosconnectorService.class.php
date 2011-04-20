@@ -483,7 +483,8 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		{
 			$response->setAccepted();
 			$response->setTransactionId($resultArray[6]);
-			$response->setTransactionText('Paiement par carte "' . $resultArray[7] . '" effectué avec succés.');
+			$substitutions = array("card" => $resultArray[7]);
+			$response->setTransactionText(f_Locale::translate("&modules.payment.document.atosconnector.Response-code-".$resultArray[11].";", $substitutions));
 			$date = preg_replace('/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/', '\1-\2-\3 \4:\5:\6', $resultArray[8]);
 			$response->setDate($date);
 		}
@@ -491,7 +492,8 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		{
 			$response->setFailed();
 			$response->setTransactionId('ERROR-' . $resultArray[11]);
-			$response->setTransactionText('Paiement échoué.');
+			$response->setTransactionText(f_Locale::translate('&modules.payment.document.atosconnector.Payment-canceled').' : '.
+				f_Locale::translate("&modules.payment.document.atosconnector.Response-code-".$resultArray[11].";"));
 		}
 		
 		payment_ModuleService::getInstance()->logBankResponse($connector, $response);

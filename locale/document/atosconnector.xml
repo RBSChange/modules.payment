@@ -37,7 +37,7 @@
 	</entity>		
 	
 	<entity id="Response-code-0">
-		<locale lang="fr">Autorisation acceptée.</locale>
+		<locale lang="fr">Paiement par carte {card} effectué avec succés.</locale>
 	</entity>
 	<entity id="Response-code-2">
 		<locale lang="fr">Demande d'autorisation par téléphone à la banque à cause d'un dépassement de plafond d'autorisation sur la carte (cf. annexe I).</locale>
@@ -68,5 +68,8 @@
 	</entity>
 	<entity id="Response-code-90">
 		<locale lang="fr">Service temporairement indisponible.</locale>
-	</entity>	
+	</entity>
+	<entity id="Payment-canceled">
+		<locale lang="fr">Paiement échoué</locale>
+	</entity>
 </localization>

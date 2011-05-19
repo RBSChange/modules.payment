@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <script>
 	<binding fileName="modules/list/persistentdocument/import/list_binding.xml" />
-
+	<binding fileName="modules/payment/persistentdocument/import/payment_binding.xml" />
+	
 	<systemfolder module="list" relatedmodule="payment">	
 		<staticlist listid="modules_payment/cybermutbankserverurl" 
 			label="Etablissement bancaire"
@@ -31,4 +32,8 @@
 			<staticitem label="Paiement" value="SAL" />
 		</staticlist>
 	</systemfolder>
+	
+	<rootfolder module="payment">
+		<freeconnector byLabel="Pas de paiement" publicationstatus="ACTIVE" code="FREE" autoValidation="true" />
+	</rootfolder>
 </script>

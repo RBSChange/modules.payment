@@ -182,6 +182,7 @@ class payment_AtosconnectorService extends payment_ConnectorService
 			$numberOfZeroToAdd = $numberOfZeroToAdd - strlen(substr($amount, $pos + 1, strlen($amount)));
 			if ($numberOfZeroToAdd < 0)
 			{
+				$amount = substr($amount, 0, $numberOfZeroToAdd);
 				$numberOfZeroToAdd = 0;
 			}
 			$amount = substr_replace($amount, '', $pos, 1);

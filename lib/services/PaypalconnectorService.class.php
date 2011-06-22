@@ -99,6 +99,47 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 	}
 	
 	/**
+	 * @param array $sessionInfo
+	 * @param payment_persistentdocument_paypalconnector $connector
+	 */
+	public function validatePayment($sessionInfo, $connector)
+	{
+		$remoteAddr = $_SERVER['REMOTE_ADDR'];
+        $requestUri = $_SERVER['REQUEST_URI'];
+		try
+		{
+			$this->getTransactionManager()->beginTransaction();
+	        $ms = payment_ModuleService::getInstance();	
+			$ms->log("BANKING PAYMENT PAYPAL from [".$remoteAddr." : ".$requestUri."] BEGIN");							
+			$finalPaymentAmt = $sessionInfo ['paymentAmount'];
+			$token = $sessionInfo ['token'];
+			$paymentType = $sessionInfo ['paymentType'];
+			$currencyCodeType = $sessionInfo ['currencyCodeType'];
+			$payerId = $sessionInfo ['payerId'];
+			
+			$resArray = array_merge($sessionInfo, $connector->confirmPayment ( $finalPaymentAmt, $token, $paymentType, $currencyCodeType, $payerId ));	
+			$bankResponse = $this->getBankResponse($resArray);
+
+			$order = $bankResponse->getOrder();
+			
+			$this->setPaymentResult($bankResponse, $order);
+			$url = $sessionInfo['paymentURL'];
+			
+			$this->setSessionInfo(array());
+			$ms->log("BANKING PAYMENT PAYPAL from [".$remoteAddr." : ".$requestUri."] END AND REDIRECT : " . $url);
+			$this->getTransactionManager()->commit();
+		}
+		catch (Exception $e)
+		{
+			$ms->log("BANKING PAYMENT PAYPAL from [".$remoteAddr." : ".$requestUri."] FAILED : " . $e->getMessage());
+			$this->getTransactionManager()->rollBack($e);
+			$currentWebsite = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
+			$url = $currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang());
+		}
+		return $url; 		
+	}
+	
+	/**
 	 * @param payment_persistentdocument_paypalconnector $connector
 	 * @param payment_Order $order
 	 */	
@@ -215,11 +256,11 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 			$response->setTransactionId('ERROR-'. $ErrorCode);
 			if (Framework::inDevelopmentMode())
 			{
-				$response->setTransactionText('Paiement échoué.' . $msg);
+				$response->setTransactionText(LocaleService::getInstance()->transFO('m.payment.frontoffice.failed-transaction') . $msg);
 			}
 			else
 			{
-				$response->setTransactionText('Paiement échoué.');
+				$response->setTransactionText(LocaleService::getInstance()->transFO('m.payment.frontoffice.failed-transaction'));
 			}
 			
 			payment_ModuleService::getInstance()->logBankResponse($connector, $response);

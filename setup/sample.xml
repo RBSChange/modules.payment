@@ -61,26 +61,26 @@ ADVERT!merchant.gif!\n
 # URL de retour suite a paiement accepte\n
 #RETURN_URL!http://!\n
 # END OF FILE"
-			/>
+		 minValue="0.1" />
+		 
 		<chequeconnector byLabel="Paiement par chèque" publicationstatus="ACTIVE" code="CHQ"
 			recipient="RBS"
 			recipientAddress="11 rue Icare Strasbourg
-Entzheim 67836 Tanneries Cedex" />
+Entzheim 67836 Tanneries Cedex" minValue="0.1" />
 		
 		<cybermutconnector byLabel="Paiement CB CYBERMUT" publicationstatus="DEACTIVATED" code="CB" 
 			merchantId="0000001"
 			bankServerUrl="paiement.creditmutuel.fr/test" 
 			tpeKey="babf3e31e5e7dc44deaffc72b035804deafb0281"
-			tpeCompanyCode="RBS"
-			/>
+			tpeCompanyCode="RBS" minValue="0.1" />
 		
 		<paypalconnector byLabel="Paypal" publicationstatus="DEACTIVATED" code="PAYPAL"
 			username="seller_1256046402_biz_api1.rbs.fr"
 			password="1256046416"
 			signature="A.uDRx7AN1vNDm3J613rooPmk6OrASsLDx9KMS8Gd-xMYautoJxd-i79"
-			sandbox="true"
-			/>
+			sandbox="true" maxValue="100" minValue="0.1" />
 			
-		<freeconnector byLabel="Pas de paiement" publicationstatus="ACTIVE" code="FREE" autoValidation="true" />
+		<freeconnector byLabel="Pas de paiement" publicationstatus="ACTIVE" code="FREE" autoValidation="true"
+			addressRequired="false" maxValue="0"/>
 	</rootfolder>
 </script>

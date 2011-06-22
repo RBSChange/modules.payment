@@ -19,6 +19,8 @@ class payment_PaypalConfirmAction extends f_action_BaseAction
 		$sessionInfo = $connectorService->getSessionInfo();
 		$sessionInfo['payerId'] = $payerId;
 		$connectorService->setSessionInfo($sessionInfo);
+		$connector = payment_persistentdocument_paypalconnector::getInstanceById($sessionInfo['connectorId']);
+		$connectorService->validatePayment($sessionInfo, $connector);
 		$url = $sessionInfo['paymentURL'];
 		$context->getController()->redirectToUrl($url);
 	}

@@ -13,5 +13,10 @@
 		<field name="listenerURL" size="100"
 			   labeli18n="modules.payment.document.cybermutconnector.ListenerURL"
 			   shorthelp="&amp;modules.payment.document.cybermutconnector.ListenerURL-help;" />
+			   
+		<field name="addressRequired" />
+		<field name="currencyCode" />
+		<field name="minValue" />
+		<field name="maxValue" />
 	</section>	 		
 </panel>

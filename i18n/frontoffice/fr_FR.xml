@@ -12,6 +12,7 @@
 	<key id="cancel">Annuler</key>
 	<key id="bank-confirm">En attente de confirmation de la banque</key>
 	<key id="cancel-transaction">Paiement annulé</key>
+	<key id="failed-transaction">Paiement échoué.</key>
 	<key id="no-shipping-address-defined">Adresse de livraison manquante</key>
 	<key id="free-title">Commande offerte</key>
 	<key id="free-text">Pour valider votre commande cliquez sur le bouton ″Valider la commande″ ci-dessous.</key>
@@ -21,4 +22,5 @@
 	<key id="atos-waiting" format="html"><![CDATA[Nous sommes en attente de confirmation de votre paiement par carte bancaire. D'ici quelques minutes vous recevrez un e-mail vous informant du traitement de votre paiement par notre site.<br />Merci de votre patience.]]></key>
 	<key id="atos-success">Paiement par carte "{code}" effectué avec succès.</key>
 	<key id="atos-failed">Paiement échoué.</key>
+	
 </i18n>

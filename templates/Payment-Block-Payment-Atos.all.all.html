@@ -1,10 +1,7 @@
-<h3 class="title" change:translate="&modules.payment.frontoffice.Atos-title;" />
-<tal:block tal:condition="php: order.getPaymentStatus() == 'waiting'">
-    <p change:translate="&modules.payment.frontoffice.Atos-waiting" />
-</tal:block>
-<tal:block tal:condition="php: order.getPaymentStatus() != 'waiting'" tal:content="connector/getHTMLPayment" />
+<h3 change:h="">${trans:m.payment.frontoffice.atos-title,ucf}</h3>
+<div class="normal" tal:condition="php: order.getPaymentStatus() == 'waiting'">${trans:m.payment.frontoffice.atos-waiting,ucf}</div>
+<div class="normal" tal:condition="php: order.getPaymentStatus() != 'waiting'">${connector/getHTMLPayment}</div>
 <tal:block tal:condition="order/getArchive" >
-	<br />
-	<span change:translate="&modules.order.frontoffice.Orderlist-bill;" />: 
-	<a change:download="document order/getArchive" change:translate="&modules.order.frontoffice.Orderlist-bill;">Facture</a>
+	<span>${trans:m.order.frontoffice.orderlist-bill,ucf,lab}</span> 
+	<a change:download="document order/getArchive">${trans:m.order.frontoffice.orderlist-bill,ucf}</a>
 </tal:block>

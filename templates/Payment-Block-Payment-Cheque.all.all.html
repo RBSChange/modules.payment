@@ -1,7 +1,6 @@
-<h3 class="title" change:translate="&modules.payment.frontoffice.Cheque-title;" />
-<tal:block tal:content="connector/getHTMLPayment" />
-<tal:block tal:condition="order/getArchive" >
-	<br />
-	<span change:translate="&modules.order.frontoffice.Orderlist-bill;" />: 
-	<a change:download="document order/getArchive" change:translate="&modules.order.frontoffice.Orderlist-bill;">Facture</a>
+<h3 change:h="">${trans:m.payment.frontoffice.cheque-title,ucf}</h3>
+<div class="normal">${connector/getHTMLPayment}</div>
+<tal:block tal:condition="order/getArchive">
+	<span>${trans:m.order.frontoffice.orderlist-bill,ucf,lab}</span> 
+	<a change:download="document order/getArchive">${trans:m.order.frontoffice.orderlist-bill,ucf}</a>
 </tal:block>

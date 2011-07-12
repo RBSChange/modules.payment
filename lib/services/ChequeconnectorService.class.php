@@ -77,8 +77,8 @@ class payment_ChequeconnectorService extends payment_ConnectorService
 		$cancelUrl = LinkHelper::getActionUrl('payment', 'BankResponseCheque', array('cancel' => true));
 		$connector->setHTMLPayment("<p>" . f_Locale::translate("&modules.payment.frontoffice.Cheque-text;") .
 			"</p><br /><p class=\"buttons\">" .
-			"<a class=\"link button\" href=\"$acceptUrl\">".  f_Locale::translate('&modules.payment.frontoffice.cheque-payment;') ."</a> ".
-			"<a class=\"link button\" href=\"$cancelUrl\">".  f_Locale::translate('&modules.payment.frontoffice.cancel;') ."</a>".
+			"<a class=\"button\" href=\"$acceptUrl\">".  f_Locale::translate('&modules.payment.frontoffice.cheque-payment;') ."</a> ".
+			"<a class=\"button\" href=\"$cancelUrl\">".  f_Locale::translate('&modules.payment.frontoffice.cancel;') ."</a>".
 			"</p>");
 	}
 	

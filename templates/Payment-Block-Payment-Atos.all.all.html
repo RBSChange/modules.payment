@@ -1,6 +1,6 @@
 <h3 class="title" change:translate="&modules.payment.frontoffice.Atos-title;" />
 <tal:block tal:condition="php: order.getPaymentStatus() == 'waiting'">
-    <p change:translate="&modules.payment.frontoffice.Atos-waiting" />
+    <p change:translate="&modules.payment.frontoffice.Atos-waiting;" />
 </tal:block>
 <tal:block tal:condition="php: order.getPaymentStatus() != 'waiting'" tal:content="connector/getHTMLPayment" />
 <tal:block tal:condition="order/getArchive" >

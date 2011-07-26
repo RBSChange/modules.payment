@@ -530,7 +530,7 @@ class payment_AtosconnectorService extends payment_ConnectorService
 			ereg("(.{4})(.{2})(.{2})(.{2})(.{2})(.{2})", strval($data[self::DATA_TRANSMISSION_DATE]), $date);
 			$dateString = $date[1] . "-" . $date[2] . "-" . $date[3] . " " . $date[4] . ":" . $date[5] . ":" . $date[6];
 			$dateObject = date_Calendar::getInstance($dateString);
-			$parsed['transmission_date'] = date_DateFormat::format($dateObject, "d F Y H:i:s");
+			$parsed['transmission_date'] = date_Formatter::format($dateObject, "d F Y H:i:s");
 		}
 		
 		$parsed['response_code'] = $data[self::DATA_RESPONSE_CODE];

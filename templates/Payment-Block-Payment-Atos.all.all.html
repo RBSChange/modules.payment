@@ -1,6 +1,6 @@
 <h3 change:h="">${trans:m.payment.frontoffice.atos-title,ucf}</h3>
 <div class="normal" tal:condition="php: order.getPaymentStatus() == 'waiting'">${trans:m.payment.frontoffice.atos-waiting,ucf}</div>
-<div class="normal" tal:condition="php: order.getPaymentStatus() != 'waiting'">${connector/getHTMLPayment}</div>
+<div class="normal" tal:condition="php: order.getPaymentStatus() != 'waiting'">${structure connector/getHTMLPayment}</div>
 <tal:block tal:condition="order/getArchive" >
 	<span>${trans:m.order.frontoffice.orderlist-bill,ucf,lab}</span> 
 	<a change:download="document order/getArchive">${trans:m.order.frontoffice.orderlist-bill,ucf}</a>

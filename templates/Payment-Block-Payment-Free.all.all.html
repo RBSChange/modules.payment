@@ -1,5 +1,5 @@
 <h3 change:h="">${trans:m.payment.frontoffice.free-title,ucf}</h3>
-<div class="normal">${connector/getHTMLPayment}</div>
+<div class="normal">${structure connector/getHTMLPayment}</div>
 <tal:block tal:condition="order/getArchive">
 	<span>${trans:m.order.frontoffice.orderlist-bill,ucf,lab}</span> 
 	<a change:download="document order/getArchive">${trans:m.order.frontoffice.orderlist-bill,ucf}</a>

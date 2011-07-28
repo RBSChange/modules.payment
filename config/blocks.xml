@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <blocks>
-	<block type="modules_payment_payment" icon="payment" label="&amp;modules.payment.bo.blocks.Payment;">
+	<block type="modules_payment_payment" icon="payment" labeli18n="m.payment.bo.blocks.payment">
 		<parameters>
 			<parameter name="connectorid" type="Integer" min-occurs="1" />
 			<parameter name="orderid" type="Integer" min-occurs="1" />

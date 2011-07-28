@@ -132,21 +132,21 @@
 		<toolbarbutton name="reactivate" />
 	</toolbar>
 	<actions>
-		<action name="refresh" single="true" icon="refresh" label="&amp;modules.uixul.bo.actions.Refresh;" />
-		<action name="edit" single="true" permission="Load" icon="edit" label="&amp;modules.uixul.bo.actions.Edit;" />
-		<action name="deactivated" permission="Deactivated" icon="deactivated" label="&amp;modules.uixul.bo.actions.Deactivate;" />
-		<action name="reactivate" permission="ReActivate" icon="reactivate" label="&amp;modules.uixul.bo.actions.ReActivate;" />
-		<action name="delete" permission="Delete" icon="delete" label="&amp;modules.uixul.bo.actions.Delete;" />
+		<action name="refresh" single="true" icon="refresh" labeli18n="m.uixul.bo.actions.refresh" />
+		<action name="edit" single="true" permission="Load" icon="edit" labeli18n="m.uixul.bo.actions.edit" />
+		<action name="deactivated" permission="Deactivated" icon="deactivated" labeli18n="m.uixul.bo.actions.deactivate" />
+		<action name="reactivate" permission="ReActivate" icon="reactivate" labeli18n="m.uixul.bo.actions.reactivate" />
+		<action name="delete" permission="Delete" icon="delete" labeli18n="m.uixul.bo.actions.delete" />
 		<action name="create_" single="true" icon="add" />
-		<action name="createFolder" single="true" permission="Insert_folder" label="&amp;modules.uixul.bo.actions.Create-folder;" />
-		<action name="createChequeconnector" single="true" permission="Insert_chequeconnector" label="&amp;modules.payment.bo.actions.Create-Chequeconnector;" />
-		<action name="createAtosconnector" single="true" permission="Insert_atosconnector" label="&amp;modules.payment.bo.actions.Create-Atosconnector;" />
-		<action name="createCybermutconnector" single="true" permission="Insert_cybermutconnector" label="&amp;modules.payment.bo.actions.Create-Cybermutconnector;" />
-		<action name="createPaypalconnector" single="true" permission="Insert_paypalconnector" label="&amp;modules.payment.bo.actions.Create-Paypalconnector;" />
-		<action name="createOgoneconnector" single="true" permission="Insert_ogoneconnector" label="&amp;modules.payment.bo.actions.Create-Ogoneconnector;" />
-		<action name="openTreeNodeOrder" single="true" permission="Order" icon="sort" label="&amp;modules.uixul.bo.actions.Set-children-order;" />
-		<action name="openFolder" icon="open-folder" label="&amp;modules.uixul.bo.actions.OpenFolder;" />
+		<action name="createFolder" single="true" permission="Insert_folder" labeli18n="m.uixul.bo.actions.create-folder" />
+		<action name="createChequeconnector" single="true" permission="Insert_chequeconnector" labeli18n="m.payment.bo.actions.create-chequeconnector" />
+		<action name="createAtosconnector" single="true" permission="Insert_atosconnector" labeli18n="m.payment.bo.actions.create-atosconnector" />
+		<action name="createCybermutconnector" single="true" permission="Insert_cybermutconnector" labeli18n="m.payment.bo.actions.create-cybermutconnector" />
+		<action name="createPaypalconnector" single="true" permission="Insert_paypalconnector" labeli18n="m.payment.bo.actions.create-paypalconnector" />
+		<action name="createOgoneconnector" single="true" permission="Insert_ogoneconnector" labeli18n="m.payment.bo.actions.create-ogoneconnector" />
+		<action name="openTreeNodeOrder" single="true" permission="Order" icon="sort" labeli18n="m.uixul.bo.actions.set-children-order" />
+		<action name="openFolder" icon="open-folder" labeli18n="m.uixul.bo.actions.openfolder" />
 		<action name="createFreeconnector" single="true" permission="Insert_freeconnector" icon="add"
-			label="&amp;modules.payment.bo.actions.Create-freeconnector;" />
+			labeli18n="m.payment.bo.actions.create-freeconnector" />
 	</actions>
 </perspective>

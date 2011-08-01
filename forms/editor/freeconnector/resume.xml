@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
 <panel>
-  <section name="properties" linkedtab="properties" labeli18n="modules.uixul.bo.doceditor.section.Properties" image="{IconsBase}/small/edit-properties.png">
-    <property name="label" labeli18n="modules.uixul.bo.doceditor.property.Label"/>
-    <property name="author" labeli18n="modules.uixul.bo.doceditor.property.Author"/>
-    <property name="creationdate" labeli18n="modules.uixul.bo.doceditor.property.Creationdate"/>
+  <section name="properties" linkedtab="properties" labeli18n="m.uixul.bo.doceditor.section.properties" image="{IconsBase}/small/edit-properties.png">
+    <property name="label" labeli18n="m.uixul.bo.doceditor.property.label"/>
+    <property name="author" labeli18n="m.uixul.bo.doceditor.property.author"/>
+    <property name="creationdate" labeli18n="m.uixul.bo.doceditor.property.creationdate"/>
   </section>
-  <section name="publication" linkedtab="publication" labeli18n="modules.uixul.bo.doceditor.section.Status" image="{IconsBase}/small/status.png">
-    <property name="status" labeli18n="modules.uixul.bo.doceditor.property.Status"/>
-    <property name="workflow" labeli18n="modules.uixul.bo.doceditor.property.Workflow"/>
+  <section name="publication" linkedtab="publication" labeli18n="m.uixul.bo.doceditor.section.status" image="{IconsBase}/small/status.png">
+    <property name="status" labeli18n="m.uixul.bo.doceditor.property.status"/>
+    <property name="workflow" labeli18n="m.uixul.bo.doceditor.property.workflow"/>
   </section>
-  <section name="localization" linkedtab="localization" labeli18n="modules.uixul.bo.doceditor.section.Localization" image="{IconsBase}/small/translate.png">
-    <property name="languages" type="langs" labeli18n="modules.uixul.bo.doceditor.property.Languages"/>
+  <section name="localization" linkedtab="localization" labeli18n="m.uixul.bo.doceditor.section.localization" image="{IconsBase}/small/translate.png">
+    <property name="languages" type="langs" labeli18n="m.uixul.bo.doceditor.property.languages"/>
   </section>
-  <section name="history" linkedtab="history" actiontexti18n="modules.uixul.bo.doceditor.section.action.View" labeli18n="modules.uixul.bo.doceditor.section.History" image="{IconsBase}/small/history.png">
-    <property name="modificationdate" labeli18n="modules.uixul.bo.doceditor.property.Modificationdate"/>
+  <section name="history" linkedtab="history" actiontexti18n="m.uixul.bo.doceditor.section.action.view" labeli18n="m.uixul.bo.doceditor.section.history" image="{IconsBase}/small/history.png">
+    <property name="modificationdate" labeli18n="m.uixul.bo.doceditor.property.modificationdate"/>
   </section>
-  <section flex="1" name="urlrewriting" linkedtab="redirect" labeli18n="modules.uixul.bo.doceditor.section.Urlrewriting" image="{IconsBase}/small/urlrewriting.png">
-    <property name="currenturl" labeli18n="modules.uixul.bo.doceditor.property.Currenturl" class="link"/>
+  <section flex="1" name="urlrewriting" linkedtab="redirect" labeli18n="m.uixul.bo.doceditor.section.urlrewriting" image="{IconsBase}/small/urlrewriting.png">
+    <property name="currenturl" labeli18n="m.uixul.bo.doceditor.property.currenturl" class="link"/>
   </section>
-  <section flex="1" name="tags" labeli18n="modules.uixul.bo.doceditor.section.Tags" image="{IconsBase}/small/tags.png">
-    <property name="tagsaction" class="action" type="openTags" labeli18n="modules.uixul.bo.doceditor.property.Tags"/>
-    <!-- <property name="tags" labeli18n="modules.uixul.bo.doceditor.property.Tags" /> -->
+  <section flex="1" name="tags" labeli18n="m.uixul.bo.doceditor.section.tags" image="{IconsBase}/small/tags.png">
+    <property name="tagsaction" class="action" type="openTags" labeli18n="m.uixul.bo.doceditor.property.tags"/>
+    <!-- <property name="tags" labeli18n="m.uixul.bo.doceditor.property.tags" /> -->
   </section>
 </panel>

@@ -1,11 +1,11 @@
 <?php
-class payment_BankResponseChequeAction extends f_action_BaseAction
+class payment_BankResponseChequeAction extends change_Action
 {
 	/**
 	 * @see f_action_BaseAction::_execute()
 	 *
-	 * @param Context $context
-	 * @param Request $request
+	 * @param change_Context $context
+	 * @param change_Request $request
 	 */
 	protected function _execute($context, $request)
 	{
@@ -60,7 +60,7 @@ class payment_BankResponseChequeAction extends f_action_BaseAction
 	 */
 	public function getRequestMethods()
 	{
-		return Request::POST | Request::GET;
+		return change_Request::POST | change_Request::GET;
 	}
 
 	/**

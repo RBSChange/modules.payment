@@ -37,7 +37,7 @@ class commands_ApplyAtosPolicy extends commands_AbstractChangeCommand
 	{
 		$this->message("== Apply Atos Binaries Policy ==");
 
-		$files = array(WEBEDIT_HOME."/bin/request", WEBEDIT_HOME."/bin/response");
+		$files = array(PROJECT_HOME."/bin/request", PROJECT_HOME."/bin/response");
 		foreach ($files as $file)
 		{
 			f_util_FileUtils::chmod($file, "755");

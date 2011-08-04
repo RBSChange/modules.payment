@@ -26,14 +26,14 @@ D_LOGO!/media/frontoffice/!
 #
 # fichier des  parametres mercanet
 #
-F_DEFAULT!{WEBEDIT_HOME}/modules/payment/config/atos/parmcom.cyberplus!
+F_DEFAULT!{PROJECT_HOME}/modules/payment/config/atos/parmcom.cyberplus!
 #
 # fichier parametre commercant
 #
-F_PARAM!{WEBEDIT_HOME}/build/atos/parmcom!
+F_PARAM!{PROJECT_HOME}/build/atos/parmcom!
 # certificat du commercant
 #
-F_CERTIFICATE!{WEBEDIT_HOME}/build/atos/certif!
+F_CERTIFICATE!{PROJECT_HOME}/build/atos/certif!
 #
 # --------------------------------------------------------------------------
 # 	end of file

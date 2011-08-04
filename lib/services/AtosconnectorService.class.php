@@ -398,7 +398,7 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		$template = FileResolver::getInstance()->setPackageName('modules_payment')->setDirectory('config/atos')
 			->getPath('pathfile.tpl');
 		$content = f_util_FileUtils::read($template);
-		$content = str_replace('{WEBEDIT_HOME}', WEBEDIT_HOME, $content);	
+		$content = str_replace('{PROJECT_HOME}', PROJECT_HOME, $content);	
 		f_util_FileUtils::writeAndCreateContainer($pathfile, $content, f_util_FileUtils::OVERRIDE);
 		
 		$atime = date_Calendar::getInstance($atosConnector->getModificationdate())->getTimestamp();

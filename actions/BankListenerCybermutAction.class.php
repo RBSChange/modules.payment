@@ -1,5 +1,5 @@
 <?php
-class payment_BankListenerCybermutAction extends f_action_BaseAction
+class payment_BankListenerCybermutAction extends change_Action
 {
 
 	/**
@@ -17,8 +17,8 @@ class payment_BankListenerCybermutAction extends f_action_BaseAction
 	 * Version: 1
 	 * Document falsifie
 	 *
-	 * @param Context $context
-	 * @param WebRequest $request
+	 * @param change_Context $context
+	 * @param change_Request $request
 	 */
 	public function _execute($context, $request)
 	{
@@ -68,7 +68,7 @@ class payment_BankListenerCybermutAction extends f_action_BaseAction
 	 */
 	public function getRequestMethods()
 	{
-		return Request::POST | Request::GET;
+		return change_Request::POST | change_Request::GET;
 	}
 
 	/**

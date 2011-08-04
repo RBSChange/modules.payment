@@ -193,7 +193,7 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 	/**
 	 * Written from the check_HMAC function provided in the PHP Kit.
 	 *
-	 * @param Request $request
+	 * @param change_Request $request
 	 * @return payment_Transaction
 	 */
 	public function getBankResponse($parameters)

@@ -152,7 +152,7 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 	 */
 	public function setSessionInfo($info)
 	{
-		$session = Controller::getInstance()->getContext()->getUser();
+		$session = change_Controller::getInstance()->getContext()->getUser();
 		$session->setAttribute('connector', $info, 'payment');
 	}
 	
@@ -161,7 +161,7 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 	 */
 	public function getSessionInfo()
 	{
-		$session = Controller::getInstance()->getContext()->getUser();
+		$session = change_Controller::getInstance()->getContext()->getUser();
 		if ($session->hasAttribute('connector', 'payment'))
 		{
 			return $session->getAttribute('connector', 'payment');	

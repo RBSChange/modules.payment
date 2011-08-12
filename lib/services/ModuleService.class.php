@@ -88,13 +88,11 @@ class payment_ModuleService extends ModuleBaseService
 	 */
 	public function getCurrentTransaction()
 	{
-		if ($this->getSession()->hasAttribute('CurrentTransaction', self::PAYMENT_SESSION_NAMESPACE))
+		$storage = change_Controller::getInstance()->getInstance()->getStorage();
+		$data = $storage->read('CurrentTransaction', self::PAYMENT_SESSION_NAMESPACE);
+		if (f_util_StringUtils::isNotEmpty($data))
 		{
-			$data = $this->getSession()->getAttribute('CurrentTransaction', self::PAYMENT_SESSION_NAMESPACE);
-			if (f_util_StringUtils::isNotEmpty($data))
-			{
-				return unserialize($data);
-			}
+			return unserialize($data);
 		}
 		return null;
 	}
@@ -112,8 +110,8 @@ class payment_ModuleService extends ModuleBaseService
 		{
 			$data = null;
 		}
-	
-		$this->getSession()->setAttribute('CurrentTransaction', $data, self::PAYMENT_SESSION_NAMESPACE);
+		$storage = change_Controller::getInstance()->getInstance()->getStorage();
+		$storage->write('CurrentTransaction', $data, self::PAYMENT_SESSION_NAMESPACE);
 	}
 	
 	/**

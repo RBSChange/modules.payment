@@ -17,7 +17,7 @@ class payment_FreeconnectorService extends payment_ConnectorService
 	{
 		if (self::$instance === null)
 		{
-			self::$instance = self::getServiceClassInstance(get_class());
+			self::$instance = new self();
 		}
 		return self::$instance;
 	}

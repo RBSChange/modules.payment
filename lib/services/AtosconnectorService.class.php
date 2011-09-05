@@ -493,8 +493,8 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		{
 			$response->setFailed();
 			$response->setTransactionId('ERROR-' . $resultArray[11]);
-			$response->setTransactionText(f_Locale::translate('&modules.payment.document.atosconnector.Payment-canceled').' : '.
-				f_Locale::translate("&modules.payment.document.atosconnector.Response-code-".$resultArray[11].";"));
+			$response->setTransactionText(f_Locale::translate('&modules.payment.document.atosconnector.Payment-canceled;').' : '.
+				f_Locale::translate("&modules.payment.document.atosconnector.Response-code-". intval($resultArray[11]).";"));
 		}
 		
 		payment_ModuleService::getInstance()->logBankResponse($connector, $response);

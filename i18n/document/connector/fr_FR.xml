@@ -8,10 +8,10 @@
   <key id="usehttps-help">Utilisation du protocol https pour la communication entre la banque et le site.</key>
   
   <key id="addressRequired">Adresse de facturation</key>
-  <key id="addressRequired-help">l'adresse de facturation est obligatoire</key>
+  <key id="addressRequired-help">l'adresse de facturation est obligatoire.</key>
   
   <key id="currencycode">Devise</key>
-  <key id="currencycode-help">Devise accepeté par le connecteur, laisser vide pour toute les devises</key>
+  <key id="currencycode-help">Devise acceptéz par le connecteur, laisser vide pour toutes les devises.</key>
   
   <key id="minvalue">Montant minimum</key>
   <key id="minvalue-help">Montant minimum accepté par le connecteur</key>

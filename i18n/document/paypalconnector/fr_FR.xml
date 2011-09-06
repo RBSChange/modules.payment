@@ -9,5 +9,5 @@
   <key id="signature">Signature</key>
   <key id="signature-help">Signature fournie par Paypal lors de la création de votre solution de paiement.</key>
   <key id="sandbox">sandbox</key>
-  <key id="sandbox-help">mode bac à sable du connecteur Paypal qui vous permet d'effectuer des tests en toute sécurité. Attention, ce mode ne doit pas être utilisé dans des environnement de production!</key>
+  <key id="sandbox-help">mode bac à sable du connecteur Paypal qui vous permet d'effectuer des tests en toute sécurité. Attention, ce mode ne doit pas être utilisé dans des environnements de production!</key>
 </i18n>

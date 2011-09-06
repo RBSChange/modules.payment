@@ -3,7 +3,7 @@
   <include id="m.payment.document.connector"/>
   <key id="document-name">freeconnector</key>
   <key id="description">description</key>
-  <key id="description-help">description afficher lors de la validation de la commande</key>
+  <key id="description-help">description affichée lors de la validation de la commande</key>
   <key id="autovalidation">validation automatique</key>
   <key id="autovalidation-help">validation automatique de la commande</key>
 </i18n>

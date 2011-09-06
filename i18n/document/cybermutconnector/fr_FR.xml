@@ -15,8 +15,8 @@
   <key id="listenerurl">URL</key>
   <key id="listenerurl-help">URL utilisée par la banque pour valider/confirmer le paiement.</key>
   <key id="payment-cb">Paiement CB</key>
-  <key id="transaction-accepted">Paiement par carte Banquaire accépté.</key>
-  <key id="transaction-accepted-test">Paiement par carte Banquaire accépté (TEST).</key>
+  <key id="transaction-accepted">Paiement par carte bancaire accépté.</key>
+  <key id="transaction-accepted-test">Paiement par carte bancaire accépté (TEST).</key>
   <key id="transaction-delayed">Paiement en attente de validation.</key>
-  <key id="transaction-failed">Paiement par carte Banquaire refusé.</key>
+  <key id="transaction-failed">Paiement par carte bancaire refusé.</key>
 </i18n>

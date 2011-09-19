@@ -2,7 +2,7 @@
 /**
  * Should be in website module
  */
-class commands_ApplyAtosPolicy extends commands_AbstractChangeCommand
+class commands_ApplyAtosPolicy extends c_ChangescriptCommand
 {
 	/**
 	 * @return String
@@ -26,6 +26,16 @@ class commands_ApplyAtosPolicy extends commands_AbstractChangeCommand
 	function isHidden()
 	{
 		return true;
+	}
+	
+	/**
+	 * @see c_ChangescriptCommand::getEvents()
+	 */
+	public function getEvents()
+	{
+		return array(
+			array('target' => 'apply-webapp-policy'),
+		);
 	}
 
 	/**

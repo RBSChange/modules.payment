@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<listeners>
-	<listener pointcut="after" command="payment.apply-atos-policy" />
-</listeners>

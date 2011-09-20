@@ -152,7 +152,7 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 	 */
 	public function setSessionInfo($info)
 	{
-		change_Controller::getInstance()->getStorage()->write('payment_connector', $info);
+		change_Controller::getInstance()->getStorage()->writeForUser('payment_connector', $info);
 	}
 	
 	/**
@@ -160,7 +160,7 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 	 */
 	public function getSessionInfo()
 	{
-		$sInfo = change_Controller::getInstance()->getStorage()->read('payment_connector');
+		$sInfo = change_Controller::getInstance()->getStorage()->readForUser('payment_connector');
 		return $sInfo ? $sInfo : array();
 	}
 	

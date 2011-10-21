@@ -13,7 +13,7 @@ interface payment_Order
 	function getPaymentReference();
 	
 	/**
-	 * @return users_persistentdocument_frontenduser
+	 * @return users_persistentdocument_user
 	 */
 	function getPaymentUser();
 	

@@ -52,7 +52,7 @@ class payment_BankResponseAtosAction extends change_Action
 		{
 			$ms->log("BANKING ATOS from [".$remoteAddr." : ".$requestUri."] FAILED : " . $e->getMessage());
 			$this->getTransactionManager()->rollBack($e);
-			$currentWebsite = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
+			$currentWebsite = website_WebsiteService::getInstance()->getCurrentWebsite();
 			$url = $currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang());
 		}
 		$context->getController()->redirectToUrl($url);

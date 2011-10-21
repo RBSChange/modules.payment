@@ -37,7 +37,7 @@ class payment_Transaction
 	}
 	
 	/**
-	 * @return users_persistentdocument_frontenduser
+	 * @return users_persistentdocument_user
 	 */
 	public function getUser()
 	{

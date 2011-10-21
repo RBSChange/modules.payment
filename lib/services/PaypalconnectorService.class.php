@@ -133,7 +133,7 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 		{
 			$ms->log("BANKING PAYMENT PAYPAL from [".$remoteAddr." : ".$requestUri."] FAILED : " . $e->getMessage());
 			$this->getTransactionManager()->rollBack($e);
-			$currentWebsite = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
+			$currentWebsite = website_WebsiteService::getInstance()->getCurrentWebsite();
 			$url = $currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang());
 		}
 		return $url; 		
@@ -364,7 +364,7 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 	 */
 	private function getServer()
 	{
-		$currentWebsite = website_WebsiteModuleService::getInstance ()->getCurrentWebsite ();
+		$currentWebsite = website_WebsiteService::getInstance ()->getCurrentWebsite();
 		return $currentWebsite->getDomain ();
 	}
 	

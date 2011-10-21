@@ -35,7 +35,7 @@ class payment_BankResponseOgoneAction extends change_Action
 			}
 			else
 			{
-				$currentWebsite = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
+				$currentWebsite = website_WebsiteService::getInstance()->getCurrentWebsite();
 				$url = $currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang());
 			}	
 			$ms->log("BANKING OGONE from [".$remoteAddr." : ".$requestUri."] END AND REDIRECT : " . $url);
@@ -46,7 +46,7 @@ class payment_BankResponseOgoneAction extends change_Action
 		{
 			$ms->log("BANKING OGONE from [".$remoteAddr." : ".$requestUri."] FAILED : " . $e->getMessage());
 			$this->getTransactionManager()->rollBack($e);
-			$currentWebsite = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
+			$currentWebsite = website_WebsiteService::getInstance()->getCurrentWebsite();
 			$url = $currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang());
 		}
 		$context->getController()->redirectToUrl($url);

@@ -38,13 +38,13 @@ class payment_PaypalCancelAction extends change_Action
 			}
 			else
 			{
-				$currentWebsite = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
+				$currentWebsite = website_WebsiteService::getInstance()->getCurrentWebsite();
 				$url = $currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang());
 			}
 		}
 		catch (Exception $e)
 		{
-			$currentWebsite = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
+			$currentWebsite = website_WebsiteService::getInstance()->getCurrentWebsite();
 			$url = $currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang());
 		}
 		

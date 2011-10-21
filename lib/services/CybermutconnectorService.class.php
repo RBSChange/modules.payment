@@ -170,7 +170,7 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 	 */
 	private function getServer()
 	{
-		$currentWebsite = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
+		$currentWebsite = website_WebsiteService::getInstance()->getCurrentWebsite();
 		return $currentWebsite->getDomain();
 	}
 	

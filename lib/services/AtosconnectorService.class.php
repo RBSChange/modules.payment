@@ -336,7 +336,7 @@ class payment_AtosconnectorService extends payment_ConnectorService
 	 */
 	protected function getServer($connector = null)
 	{
-		$currentWebsite = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
+		$currentWebsite = website_WebsiteService::getInstance()->getCurrentWebsite();
 		return $currentWebsite->getDomain();
 	}
 	

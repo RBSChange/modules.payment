@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document xmlns="http://www.rbs.fr/schema/change-document/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/1.0.xsd" model-version="1.0" icon="credit-card" extend="modules_payment/connector" backoffice-indexable="true">
+<document xmlns="http://www.rbs.fr/schema/change-document/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/4.0.xsd" model-version="1.0" icon="credit-card" extend="modules_payment/connector" backoffice-indexable="true">
   <properties>
-    <add name="code" default-value="CB"/>
-    <add name="merchantId" type="String" min-occurs="1" max-occurs="1"/>
-    <add name="tpeCertifContent" type="LongString" min-occurs="1"/>
-    <add name="tpeParmcomContent" type="LongString" min-occurs="1"/>
-    <add name="paymentmeans" type="String"/>
+    <property name="code" default-value="CB"/>
+    <property name="merchantId" type="String" min-occurs="1" max-occurs="1"/>
+    <property name="tpeCertifContent" type="LongString" min-occurs="1"/>
+    <property name="tpeParmcomContent" type="LongString" min-occurs="1"/>
+    <property name="paymentmeans" type="String"/>
   </properties>
 </document>

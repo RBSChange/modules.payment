@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document xmlns="http://www.rbs.fr/schema/change-document/1.0" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/3.5.xsd" 
-	model-version="1.0" icon="credit-card" publish-on-day-change="false" 
-	has-url="false" indexable="false" backoffice-indexable="false" >
+<document xmlns="http://www.rbs.fr/schema/change-document/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/4.0.xsd" model-version="1.0" icon="credit-card" publish-on-day-change="false" has-url="false" indexable="false" backoffice-indexable="false">
   <properties>
-    <add name="code" type="String" min-occurs="1" db-size="25"/>
-    <add name="useHTTPS" type="Boolean" default-value="false"/>
-    <add name="addressRequired" type="Boolean" default-value="true"/>
-    <add name="currencyCode" type="String" from-list="modules_catalog/shopcurrency" db-size="25"/>
-    <add name="minValue" type="Double"/>
-    <add name="maxValue" type="Double"/>
+    <property name="code" type="String" min-occurs="1" db-size="25"/>
+    <property name="useHTTPS" type="Boolean" default-value="false"/>
+    <property name="addressRequired" type="Boolean" default-value="true"/>
+    <property name="currencyCode" type="String" from-list="modules_catalog/shopcurrency" db-size="25"/>
+    <property name="minValue" type="Double"/>
+    <property name="maxValue" type="Double"/>
   </properties>
   <statuses default="ACTIVE"/>
 </document>

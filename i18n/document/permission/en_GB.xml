@@ -7,9 +7,9 @@
   <key id="translator">Translator</key>
   <key id="translator-help">Translator</key>
   <key id="validator">Validator</key>
-  <key id="validator-help">Validator</key>
+  <key id="validator-help">Validator of content before it is published</key>
   <key id="guest">Guest</key>
-  <key id="guest-help">Authorized to enter and navigate into module</key>
+  <key id="guest-help">Authorised to navigate in the module</key>
   <key id="user">Integrator</key>
-  <key id="user-help">Authorized to see module in ressources</key>
+  <key id="user-help">Use module data as resources</key>
 </i18n>

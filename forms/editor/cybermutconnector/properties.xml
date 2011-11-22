@@ -12,7 +12,7 @@
 	<section labeli18n="modules.payment.bo.doceditor.fieldsgroup.Confirm-url">
 		<field name="listenerURL" size="100"
 			   labeli18n="modules.payment.document.cybermutconnector.ListenerURL"
-			   shorthelp="&amp;modules.payment.document.cybermutconnector.ListenerURL-help;" />
+			   shorthelp="m.payment.document.cybermutconnector.ListenerURL-help" />
 			   
 		<field name="addressRequired" />
 		<field name="currencyCode" />

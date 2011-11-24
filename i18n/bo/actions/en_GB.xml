@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.payment.bo.actions" lcid="en_GB">
   <key id="create_">create</key>
-  <key id="create-atosconnector">create a SIPS billing mode (credit card)</key>
-  <key id="create-cybermutconnector">create a CyberMut billing mode (credit card)</key>
-  <key id="create-chequeconnector">create a cheque billing mode</key>
-  <key id="create-paypalconnector">create an Paypal billing mode</key>
-  <key id="create-ogoneconnector">create a Ogone billing mode</key>
-  <key id="create-freeconnector">create</key>
+  <key id="create-atosconnector">create a SIPS payment method (credit card)</key>
+  <key id="create-cybermutconnector">create a CMC-CIC p@iment payment method (credit card)</key>
+  <key id="create-chequeconnector">create a cheque payment method</key>
+  <key id="create-paypalconnector">create a PayPal payment method</key>
+  <key id="create-ogoneconnector">create an Ogone payment method</key>
+  <key id="create-freeconnector">create a method without payment</key>
 </i18n>

@@ -6,7 +6,7 @@
 		<field name="merchantId"/>
 		<field name="paymentmeansbo" type="multiplelist" 
 			labeli18n="m.payment.document.atosconnector.paymentmeans" 
-			listid="modules_payment/atospaymentmeans" emptylabel="&amp;modules.payment.document.atosconnector.All-Paymentmeans;"/>	
+			listid="modules_payment/atospaymentmeans" emptylabel="${trans:m.payment.document.atosconnector.All-Paymentmeans,ucf,attr}"/>	
 		<field name="tpeCertifContent" rows="9" cols="90"/>
 	</section>	
 	

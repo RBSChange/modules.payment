@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.payment.bo.general" lcid="en_GB">
-  <key id="module-name">payment modes</key>
-  <key id="tree-root-name">payment modes</key>
-  <key id="system-folder-name">payment modes</key>
+  <key id="module-name">payment methods</key>
+  <key id="tree-root-name">payment methods</key>
+  <key id="system-folder-name">payment methods</key>
 </i18n>

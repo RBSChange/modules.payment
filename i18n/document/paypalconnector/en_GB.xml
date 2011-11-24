@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.payment.document.paypalconnector" lcid="en_GB">
   <include id="m.payment.document.connector"/>
-  <key id="document-name">PayPal billing mode</key>
+  <key id="document-name">PayPal payment method</key>
   <key id="username">API Username</key>
-  <key id="username-help">API Username</key>
+  <key id="username-help">This is the 'API Username' provided by PayPal when your payment solution has been created.</key>
   <key id="password">API Password</key>
-  <key id="password-help">API Password</key>
+  <key id="password-help">This is the 'API Password' provided by PayPal when your payment solution has been created.</key>
   <key id="signature">Signature</key>
-  <key id="signature-help">Signature</key>
+  <key id="signature-help">This is the 'Signature' provided by PayPal when your payment solution has been created.</key>
   <key id="sandbox">sandbox</key>
-  <key id="sandbox-help">sandbox</key>
+  <key id="sandbox-help">'Sandbox' mode of the PayPal connector that lets you safely do testing. Warning: this mode should not be used in production environments!</key>
 </i18n>

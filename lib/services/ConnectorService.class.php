@@ -106,34 +106,24 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 	 */
 	public function setPaymentResult($response, $order)
 	{
-		$rc = RequestContext::getInstance();
-		try
+		$order->setPaymentTransactionId($response->getTransactionId());
+		$order->setPaymentTransactionText($response->getTransactionText());
+		$order->setPaymentResponse($response->getRawBankResponse());
+		if ($response->isAccepted())
 		{
-			$order->setPaymentTransactionId($response->getTransactionId());
-			$order->setPaymentTransactionText($response->getTransactionText());
-			$order->setPaymentResponse($response->getRawBankResponse());
-			if ($response->isAccepted())
-			{
-				$order->setPaymentDate($response->getDate());
-				$order->setPaymentStatus('success');
-			}
-			else if ($order->getPaymentStatus() != 'success')
-			{  
-				if ($response->isFailed())
-				{
-					$order->setPaymentStatus('failed');
-				}
-				else 
-				{
-					$order->setPaymentStatus('waiting');
-				}
-			}
-
-			$rc->endI18nWork();
+			$order->setPaymentDate($response->getDate());
+			$order->setPaymentStatus('success');
 		}
-		catch (Exception $e)
-		{
-			$rc->endI18nWork($e);
+		else if ($order->getPaymentStatus() != 'success')
+		{  
+			if ($response->isFailed())
+			{
+				$order->setPaymentStatus('failed');
+			}
+			else 
+			{
+				$order->setPaymentStatus('waiting');
+			}
 		}
 	}
 	

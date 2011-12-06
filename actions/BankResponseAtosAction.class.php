@@ -35,23 +35,48 @@ class payment_BankResponseAtosAction extends f_action_BaseAction
 			{
 				$connectorService->setPaymentResult($bankResponse, $order);
 			}
-            else
+            elseif ($order->getPaymentStatus() === 'initiated')
             {
-				if (f_util_StringUtils::isEmpty($order->getPaymentStatus()))
+             	
+                if ($bankResponse->isFailed())
+                {
+                	$ms->log("BANKING ATOS from [".$remoteAddr." : ".$requestUri."] UPDATE STATUS: FAILED");
+                    $connectorService->setPaymentResult($bankResponse, $order);
+                }  
+				else
 				{
+					$ms->log("BANKING ATOS from [".$remoteAddr." : ".$requestUri."] UPDATE STATUS: WAITING");
 					$order->setPaymentStatus('waiting');
 				}
             }
-			$connectorService->setSessionInfo(array());
-				
+            
+			$connectorService->setSessionInfo(array());				
 			$url = $sessionInfo['paymentURL'];
 			$ms->log("BANKING ATOS from [".$remoteAddr." : ".$requestUri."] END AND REDIRECT : " . $url);
 			$this->getTransactionManager()->commit();
 		}
 		catch(Exception $e)
 		{
-			$ms->log("BANKING ATOS from [".$remoteAddr." : ".$requestUri."] FAILED : " . $e->getMessage());
 			$this->getTransactionManager()->rollBack($e);
+			
+			$ms->log("BANKING ATOS from [".$remoteAddr." : ".$requestUri."] EXCEPTION : " . $e->getMessage());
+			
+			if (count($sessionInfo) && isset($sessionInfo['orderId']) && isset($sessionInfo['paymentURL']))
+			{
+				$connectorService->setSessionInfo(array());
+				$ms->log("BANKING ATOS from [".$remoteAddr." : ".$requestUri."] REDIRECT FROM SESSION INFO");
+				$bill = order_persistentdocument_bill::getInstanceById($sessionInfo['orderId']);
+				if ($bill->getPaymentStatus()  === 'initiated')
+				{
+					$ms->log("BANKING ATOS from [".$remoteAddr." : ".$requestUri."] UPDATE STATUS: FAILED");			
+					$bill->setTransactionId('ERROR-BAD-RESPONSE');
+					$bill->setPaymentStatus('failed');
+				}
+				$url = $sessionInfo['paymentURL'];
+				$context->getController()->redirectToUrl($url);
+				return VIEW::NONE;
+			}			
+			
 			$currentWebsite = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
 			$url = $currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang());
 		}

@@ -180,4 +180,30 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 		}
 		return null;
 	}
+	
+	/**
+	 * @param order_persistentdocument_order $order
+	 * @param order_CartInfo $cartInfo
+	 */
+	public function setOrderAddress($order, $cartInfo)
+	{
+		$billingAddress = $order->getBillingAddress();
+		if ($billingAddress === null)		
+		{
+			$billingAddress = customer_AddressService::getNewDocumentInstance();
+			$order->setBillingAddress($billingAddress);
+		}
+		
+		if ($cartInfo->getAddressInfo()->useSameAddressForBilling)
+		{
+			$cartInfo->getAddressInfo()->exportShippingAddress($billingAddress);
+		}
+		else
+		{
+			$cartInfo->getAddressInfo()->exportBillingAddress($billingAddress);
+		}
+		$billingAddress->setPublicationstatus('FILED');
+		$billingAddress->save();
+		$cartInfo->setBillingAddressId($billingAddress->getId());
+	}
 }

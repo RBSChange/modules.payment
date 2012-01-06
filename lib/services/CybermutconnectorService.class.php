@@ -215,7 +215,8 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 		$oHmac = new CMCIC_Hmac($oTpe);
 		
 		// Message Authentication
-		$cgi2_fields = sprintf(CMCIC_CGI2_FIELDS, $oTpe->sNumero, $parameters["date"], $parameters['montant'], $parameters['reference'], $parameters['texte-libre'], $oTpe->sVersion, $parameters['code-retour'], $parameters['cvx'], $parameters['vld'], $parameters['brand'], $parameters['status3ds'], $parameters['numauto'], $parameters['motifrefus'], $parameters['originecb'], $parameters['bincb'], $parameters['hpancb'], $parameters['ipclient'], $parameters['originetr'], $parameters['veres'], $parameters['pares']);
+		$numauto = isset($parameters['numauto']) ? $parameters['numauto'] : null;
+		$cgi2_fields = sprintf(CMCIC_CGI2_FIELDS, $oTpe->sNumero, $parameters["date"], $parameters['montant'], $parameters['reference'], $parameters['texte-libre'], $oTpe->sVersion, $parameters['code-retour'], $parameters['cvx'], $parameters['vld'], $parameters['brand'], $parameters['status3ds'], $numauto, $parameters['motifrefus'], $parameters['originecb'], $parameters['bincb'], $parameters['hpancb'], $parameters['ipclient'], $parameters['originetr'], $parameters['veres'], $parameters['pares']);
 		$response->setRawBankResponse($cgi2_fields);
 		if ($oHmac->computeHmac($cgi2_fields) == strtolower($parameters['MAC']))
 		{

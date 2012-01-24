@@ -180,4 +180,24 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 		}
 		return null;
 	}
+	
+	/**
+	 * @param payment_persistentdocument_connector $document
+	 * @param string $errorMessage
+	 */
+	public function canBeFiled($document, &$errorMessage)
+	{
+		$ms = ModuleService::getInstance();
+		if ($ms->moduleExists('catalog'))
+		{
+			$sfs = catalog_PaymentfilterService::getInstance();
+			$query = $sfs->createQuery()->add(Restrictions::eq('connector', $document))->setProjection(Projections::rowCount('count'));
+			if (f_util_ArrayUtils::firstElement($query->findColumn('count')) > 0)
+			{
+				$errorMessage = LocaleService::getInstance()->transBO('m.payment.bo.general.used-in-filters');
+				return false;
+			}
+		}
+		return true;
+	}
 }

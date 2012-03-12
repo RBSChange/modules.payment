@@ -540,8 +540,19 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		
 		if ("" != $data[self::DATA_AMOUNT] && "" != $data[self::DATA_CURRENCY_CODE])
 		{
-			$amount = $this->translateAmountFromAtos($data[self::DATA_AMOUNT], $data[self::DATA_CURRENCY_CODE]);
-			$parsed["transaction_amount"] = catalog_ShopService::getInstance()->getCurrentShop()->formatPrice($amount);
+			
+			$amount = $this->translateAmountFromAtos($data[self::DATA_AMOUNT], $data[self::DATA_CURRENCY_CODE]);			
+			if ($order instanceof order_persistentdocument_bill)
+			{
+				$parsed["transaction_amount"] = $order->getOrder()->formatPrice($amount);
+				
+			}
+			else
+			{
+				$shop = catalog_ShopService::getInstance()->getCurrentShop();
+				$billingArea = $shop->getCurrentBillingArea();
+				$parsed["transaction_amount"] = $billingArea->formatPrice($amount);
+			}
 		}
 		else
 		{

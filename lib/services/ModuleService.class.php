@@ -31,7 +31,7 @@ class payment_ModuleService extends ModuleBaseService
 		$this->logFilePath = f_util_FileUtils::buildWebeditPath('log', 'payment', 'payment.log');
 		if (!file_exists($this->logFilePath))
 		{
-			f_util_FileUtils::writeAndCreateContainer($this->logFilePath, gmdate('Y-m-d H:i:s')."\t Created");
+			f_util_FileUtils::writeAndCreateContainer($this->logFilePath, gmdate('Y-m-d H:i:s')."\t Created" . PHP_EOL);
 		}
 	}
 	
@@ -47,7 +47,7 @@ class payment_ModuleService extends ModuleBaseService
 	
 	public function log($stringLine)
 	{
-		error_log("\n". gmdate('Y-m-d H:i:s')."\t".$stringLine, 3, $this->logFilePath);
+		error_log(gmdate('Y-m-d H:i:s')."\t".$stringLine . PHP_EOL, 3, $this->logFilePath);
 	}
 	
 	/**

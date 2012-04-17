@@ -1,4 +1,4 @@
-<h3 change:h="">${trans:m.payment.frontoffice.atos-title,ucf}</h3>
+<h1 change:h="">${trans:m.payment.frontoffice.atos-title,ucf}</h1>
 <div class="normal" tal:condition="php: order.getPaymentStatus() == 'waiting'">${trans:m.payment.frontoffice.atos-waiting,ucf}</div>
 <div class="normal" tal:condition="php: order.getPaymentStatus() != 'waiting'">${connector/getHTMLPayment}</div>
 <tal:block tal:condition="order/getArchive" >

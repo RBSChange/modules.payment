@@ -75,28 +75,16 @@ class payment_FreeconnectorService extends payment_ConnectorService
 		
 		$acceptUrl = LinkHelper::getActionUrl('payment', 'ResponseFree', array('accept' => true));
 		$cancelUrl = LinkHelper::getActionUrl('payment', 'ResponseFree', array('cancel' => true));
-		$ls = LocaleService::getInstance();
-		$formaters =  array('ucf', 'html');
-		$connector->setHTMLPayment("<p>" . $ls->transFO('m.payment.frontoffice.free-text', $formaters) .
-			"</p><br /><p class=\"buttons\">" .
-			"<a class=\"link button\" href=\"$acceptUrl\">". $ls->transFO('m.payment.frontoffice.free-payment', $formaters) ."</a> ".
-			"<a class=\"link button\" href=\"$cancelUrl\">". $ls->transFO('m.payment.frontoffice.cancel', $formaters) ."</a>".
-			"</p>");
+		$template = TemplateLoader::getInstance()->setMimeContentType('html')
+			->setPackageName('modules_payment')
+			->setDirectory('templates')
+			->load('Payment-Inc-PaymentForm-' . $connector->getTemplateViewName());
+		$template->setAttribute('connector', $connector);
+		$template->setAttribute('order', $order);
+		$template->setAttribute('acceptUrl', $acceptUrl);
+		$template->setAttribute('cancelUrl', $cancelUrl);
+		$connector->setHTMLPayment($template->execute(true));
 	}
-	
-	/**
-	 * @param payment_persistentdocument_paypalconnector $connector
-	 * @param payment_Order $order
-	 */	
-	private function setPaymentStatus($connector, $order)
-	{	
-		$ls = LocaleService::getInstance();
-		$html = '<ol><li>' .$ls->transFO('m.order.frontoffice.Orderlist-status', array('ucf', 'html', 'lab')) . ' ' .
-			 $ls->transFO('m.payment.frontoffice.free-status-'. $order->getPaymentStatus(), array('ucf', 'html')) . '</li>'.
-			'<li>' . f_util_HtmlUtils::nlTobr($order->getPaymentTransactionText()) .'</li></ol>';
-		$connector->setHTMLPayment($html);
-	}
-	
 	
 	/**
 	 * @param array $parameters

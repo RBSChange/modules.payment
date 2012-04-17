@@ -75,23 +75,15 @@ class payment_ChequeconnectorService extends payment_ConnectorService
 		
 		$acceptUrl = LinkHelper::getActionUrl('payment', 'BankResponseCheque', array('accept' => true));
 		$cancelUrl = LinkHelper::getActionUrl('payment', 'BankResponseCheque', array('cancel' => true));
-		$connector->setHTMLPayment("<p>" . f_Locale::translate("&modules.payment.frontoffice.Cheque-text;") .
-			"</p><br /><p class=\"buttons\">" .
-			"<a class=\"button\" href=\"$acceptUrl\">".  f_Locale::translate('&modules.payment.frontoffice.cheque-payment;') ."</a> ".
-			"<a class=\"button\" href=\"$cancelUrl\">".  f_Locale::translate('&modules.payment.frontoffice.cancel;') ."</a>".
-			"</p>");
-	}
-	
-	/**
-	 * @param payment_persistentdocument_paypalconnector $connector
-	 * @param payment_Order $order
-	 */	
-	private function setPaymentStatus($connector, $order)
-	{	
-		$html = '<ol class="messages"><li>' . f_Locale::translate('&modules.order.frontoffice.Orderlist-status;') . ' : ' . 
-			 f_Locale::translate('&modules.payment.frontoffice.status.'. ucfirst($order->getPaymentStatus())  .';') . '</li>'.
-			'<li>' . f_util_HtmlUtils::nlTobr($order->getPaymentTransactionText()) .'</li></ol>';
-		$connector->setHTMLPayment($html);
+		$template = TemplateLoader::getInstance()->setMimeContentType('html')
+			->setPackageName('modules_payment')
+			->setDirectory('templates')
+			->load('Payment-Inc-PaymentForm-' . $connector->getTemplateViewName());
+		$template->setAttribute('connector', $connector);
+		$template->setAttribute('order', $order);
+		$template->setAttribute('acceptUrl', $acceptUrl);
+		$template->setAttribute('cancelUrl', $cancelUrl);
+		$connector->setHTMLPayment($template->execute(true));
 	}
 	
 	/**
@@ -114,21 +106,19 @@ class payment_ChequeconnectorService extends payment_ConnectorService
 		$lang = $parameters['lang'];
 		$response->setLang($parameters['lang']);
 		
-	
 		$order = $response->getOrder();
 		$response->setAmount($order->getPaymentAmount());
 		$response->setCurrency($order->getPaymentCurrency());
-		//$response->setDate(date_Calendar::getInstance()->toString());		
-
 		
 		if ($parameters['status'] == 'waiting')
 		{
 			$response->setDelayed();
 			$response->setTransactionId('CHQ-' . $order->getPaymentReference());
 		
-			$trs = f_Locale::translate('&modules.payment.frontoffice.Cheque-recipient;', null, $lang) . ":\n" 
+			$ls = LocaleService::getInstance();
+			$trs = $ls->formatKey($lang, 'm.payment.frontoffice.cheque-recipient', array('ucf', 'lab')) . ' ' 
 				. $connector->getRecipient() . "\n"
-				. f_Locale::translate('&modules.payment.frontoffice.Cheque-address;', null, $lang) . ":\n"
+				. $ls->formatKey($lang, 'm.payment.frontoffice.cheque-address', array('ucf', 'lab')) . ' '
 				. $connector->getRecipientAddress();
 			$response->setTransactionText($trs);	
 		}

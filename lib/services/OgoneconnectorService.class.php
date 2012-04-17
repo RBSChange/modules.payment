@@ -307,18 +307,6 @@ class payment_OgoneconnectorService extends payment_ConnectorService
 		return $protocol . $this->getServer($connector) . "/payment/ogoneCancel.php";
 	}
 	
-	/**
-	 * @param payment_persistentdocument_paypalconnector $connector
-	 * @param payment_Order $order
-	 */
-	private function setPaymentStatus($connector, $order)
-	{
-		$html = '<ol class="messages"><li>' . f_Locale::translate('&modules.order.frontoffice.Orderlist-status;') . ' : ' . f_Locale::translate(
-				'&modules.payment.frontoffice.status.' . ucfirst($order->getPaymentStatus()) . ';') . '</li>' . '<li>' . f_util_HtmlUtils::nlTobr(
-				$order->getPaymentTransactionText()) . '</li></ol>';
-		$connector->setHTMLPayment($html);
-	}
-	
 	private function getSignIn($params, $shaKey)
 	{
 		$datas = $this->filterSignParams($params);

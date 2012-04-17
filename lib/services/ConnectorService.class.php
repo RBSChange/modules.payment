@@ -85,6 +85,25 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 	{
 		throw new Exception('Not implemented function');		
 	}
+	
+	/**
+	 * @param payment_persistentdocument_freeconnector $connector
+	 * @param payment_Order $order
+	 */
+	protected function setPaymentStatus($connector, $order)
+	{
+		$ls = LocaleService::getInstance();
+		$template = TemplateLoader::getInstance()->setMimeContentType('html')
+			->setPackageName('modules_payment')
+			->setDirectory('templates')
+			->load('Payment-Inc-PaymentStatus-Default');
+
+		$template->setAttribute('connector', $connector);
+		$template->setAttribute('order', $order);
+		$template->setAttribute('status', $ls->transFO('m.payment.frontoffice.status.' . $order->getPaymentStatus(), array('ucf')));
+		$template->setAttribute('transactionText', f_util_HtmlUtils::nlTobr($order->getPaymentTransactionText()));
+		$connector->setHTMLPayment($template->execute(true));
+	}
 
 	/**
 	 * @param payment_persistentdocument_connector $connector

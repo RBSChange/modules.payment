@@ -265,8 +265,6 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		$connector->setHTMLPayment($message);	
 	}
 	
-	
-	
 	/**
 	 * @param array $params
 	 * @param payment_persistentdocument_atosconnector $connector
@@ -275,19 +273,6 @@ class payment_AtosconnectorService extends payment_ConnectorService
 	protected function completeRequestParams(&$params, $connector, $order)
 	{
 		//Override this	
-	}
-	
-	/**
-	 * @param payment_persistentdocument_paypalconnector $connector
-	 * @param payment_Order $order
-	 */	
-	private function setPaymentStatus($connector, $order)
-	{	
-		$html = '<ol class="messages"><li>' . f_Locale::translate('&modules.order.frontoffice.Orderlist-status;') . ' : ' . 
-			f_Locale::translate('&modules.payment.frontoffice.status.'. ucfirst($order->getPaymentStatus())  .';') . '</li>'.
-			'<li>' . f_util_HtmlUtils::nlTobr($order->getPaymentTransactionText()) .'</li></ol>';
-
-		$connector->setHTMLPayment($html);
 	}
 	
 	/**

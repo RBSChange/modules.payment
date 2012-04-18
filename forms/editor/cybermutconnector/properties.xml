@@ -15,7 +15,6 @@
 			   shorthelp="m.payment.document.cybermutconnector.ListenerURL-help" />
 			   
 		<field name="addressRequired" />
-		<field name="currencyCode" />
 		<field name="minValue" />
 		<field name="maxValue" />
 	</section>	 		

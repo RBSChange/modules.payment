@@ -8,7 +8,6 @@
     <add name="code" type="String" min-occurs="1" db-size="25"/>
     <add name="useHTTPS" type="Boolean" default-value="false"/>
     <add name="addressRequired" type="Boolean" default-value="true"/>
-    <add name="currencyCode" type="String" from-list="modules_catalog/shopcurrency" db-size="25"/>
     <add name="minValue" type="Double"/>
     <add name="maxValue" type="Double"/>
   </properties>

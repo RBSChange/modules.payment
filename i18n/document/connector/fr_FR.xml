@@ -10,9 +10,6 @@
   <key id="addressrequired">Adresse de facturation</key>
   <key id="addressrequired-help">l'adresse de facturation est obligatoire.</key>
   
-  <key id="currencycode">Devise</key>
-  <key id="currencycode-help">Devise acceptéz par le connecteur, laisser vide pour toutes les devises.</key>
-  
   <key id="minvalue">Montant minimum</key>
   <key id="minvalue-help">Montant minimum accepté par le connecteur</key>
   

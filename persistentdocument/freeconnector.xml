@@ -7,5 +7,6 @@
 		 <add name="code" default-value="FREE" />
 		 <add name="description" type="LongString" />
 		 <add name="autoValidation" type="Boolean" default-value="false" />
+		 <add name="maxValue" default-value="0"/>
 	</properties>
 </document>

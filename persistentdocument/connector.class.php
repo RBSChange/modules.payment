@@ -61,4 +61,12 @@ class payment_persistentdocument_connector extends payment_persistentdocument_co
 		}
 		return null;
 	}
+
+	/**
+	 * @deprecated
+	 */
+	public function getCurrencyCode()
+	{
+		return null;
+	}
 }

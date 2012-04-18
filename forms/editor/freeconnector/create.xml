@@ -9,7 +9,6 @@
 
 	<section labeli18n="modules.payment.bo.doceditor.fieldsgroup.Advanced" class="toggle" hidden="true">
 		<field name="addressRequired" />
-		<field name="currencyCode" />
 		<field name="minValue" />
 		<field name="maxValue" />
 	</section>

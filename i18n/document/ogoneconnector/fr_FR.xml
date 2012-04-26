@@ -3,6 +3,7 @@
   <include id="m.payment.document.connector"/>
   <key id="document-name">mode de paiement Ogone (CB)</key>
   <key id="pspid">Code PSPID</key>
+  <key id="pspid-help">Code PSPID</key>
   <key id="bankserverurl">URL du serveur bancaire</key>
   <key id="operation">Type d'opération</key>
   <key id="shainkey">Clé SHA-1 In</key>

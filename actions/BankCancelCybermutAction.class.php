@@ -10,8 +10,8 @@ class payment_BankCancelCybermutAction extends change_Action
 	 */
 	protected function _execute($context, $request)
 	{	
-	    $remoteAddr = $_SERVER['REMOTE_ADDR'];
-        $requestUri = $_SERVER['REQUEST_URI'];  	        
+		$remoteAddr = $_SERVER['REMOTE_ADDR'];
+		$requestUri = $_SERVER['REQUEST_URI'];  			
 		$ms = payment_ModuleService::getInstance();	
 		$ms->log("BANKING CANCEL CYBERMUT from [".$remoteAddr." : ".$requestUri."] BEGIN");
 		
@@ -51,7 +51,7 @@ class payment_BankCancelCybermutAction extends change_Action
 	}
 
 	/**
-	 * @return Integer
+	 * @return integer
 	 */
 	public function getRequestMethods()
 	{
@@ -59,7 +59,7 @@ class payment_BankCancelCybermutAction extends change_Action
 	}
 
 	/**
-	 * @return Boolean
+	 * @return boolean
 	 */
 	public final function isSecure()
 	{

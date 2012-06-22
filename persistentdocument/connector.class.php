@@ -50,7 +50,9 @@ class payment_persistentdocument_connector extends payment_persistentdocument_co
 		return $this->getDocumentService()->getSelectionAsHtml($this);
 	}
 
-	
+	/**
+	 * @return string
+	 */
 	public function getLogLabel()
 	{
 		if (Framework::inDevelopmentMode())

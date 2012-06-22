@@ -2,7 +2,6 @@
 <rights>
 	<actions>
 		<document name="rootfolder" />
-		<document name="folder" />
 		<document name="atosconnector" />
 		<document name="chequeconnector" />
 		<document name="cybermutconnector" />

@@ -1,25 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.payment.frontoffice" lcid="en_GB">
-  <key id="atos-title">Payment by credit card</key>
-  <key id="cheque-title">Payment by cheque</key>
-  <key id="cybermut-title">Payment by credit card</key>
-  <key id="paypal-title">PayPal payment</key>
-  <key id="cheque-text">To validate your transaction and pay with a cheque, please click on the  ″Pay by cheque″ button below.</key>
-  <key id="cheque-recipient">cheque payable to</key>
-  <key id="cheque-address">send to</key>
-  <key id="payment">Pay</key>
-  <key id="cheque-payment">Pay by cheque</key>
-  <key id="cancel">Cancel</key>
-  <key id="bank-confirm">Pending confirmation from the bank</key>
-  <key id="cancel-transaction">Payment cancelled</key>
-  <key id="no-shipping-address-defined">Shipping address is missing</key>
-  <key id="atos-failed">The payment has failed.</key>
-  <key id="atos-success">Payment with card "{code}" made successfully.</key>
-  <key id="atos-waiting" format="html"><![CDATA[We are awaiting the confirmation of your credit card payment. In a few minutes, you will receive a confirmation email informing you that your payment has been processed by our website.<br />Thank you for your patience.]]></key>
-  <key id="failed-transaction">The payment has failed.</key>
-  <key id="free-payment">validate the order</key>
-  <key id="free-status-success">validated</key>
-  <key id="free-status-waiting">validation pending</key>
-  <key id="free-text">To validate your order, please click on the ″Validate the order″ button below.</key>
-  <key id="free-title">Offered order</key>
+	<key id="atos-title">Payment by credit card</key>
+	<key id="cheque-title">Payment by cheque</key>
+	<key id="cybermut-title">Payment by credit card</key>
+	<key id="paypal-title">PayPal payment</key>
+	<key id="cheque-text">To validate your transaction and pay with a cheque, please click on the	″Pay by cheque″ button below.</key>
+	<key id="cheque-recipient">cheque payable to</key>
+	<key id="cheque-address">send to</key>
+	<key id="payment">Pay</key>
+	<key id="cheque-payment">Pay by cheque</key>
+	<key id="cancel">Cancel</key>
+	<key id="bank-confirm">Pending confirmation from the bank</key>
+	<key id="cancel-transaction">Payment cancelled</key>
+	<key id="no-shipping-address-defined">Shipping address is missing</key>
+	<key id="atos-failed">The payment has failed.</key>
+	<key id="atos-success">Payment with card "{code}" made successfully.</key>
+	<key id="atos-waiting" format="html"><![CDATA[We are awaiting the confirmation of your credit card payment. In a few minutes, you will receive a confirmation email informing you that your payment has been processed by our website.<br />Thank you for your patience.]]></key>
+	<key id="failed-transaction">The payment has failed.</key>
+	<key id="free-payment">validate the order</key>
+	<key id="free-status-success">validated</key>
+	<key id="free-status-waiting">validation pending</key>
+	<key id="free-text">To validate your order, please click on the ″Validate the order″ button below.</key>
+	<key id="free-title">Offered order</key>
 </i18n>

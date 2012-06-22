@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.payment.bo.blocks" lcid="fr_FR">
-  <key id="payment">Paiement</key>
+	<key id="payment">Paiement</key>
 </i18n>

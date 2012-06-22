@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.payment.document.permission" lcid="en_GB">
-  <key id="admin">Administrator</key>
-  <key id="admin-help">Administrator</key>
-  <key id="writer">Writer</key>
-  <key id="writer-help">Writer</key>
-  <key id="translator">Translator</key>
-  <key id="translator-help">Translator</key>
-  <key id="validator">Validator</key>
-  <key id="validator-help">Validator of content before it is published</key>
-  <key id="guest">Guest</key>
-  <key id="guest-help">Authorised to navigate in the module</key>
-  <key id="user">Integrator</key>
-  <key id="user-help">Use module data as resources</key>
+	<key id="admin">Administrator</key>
+	<key id="admin-help">Administrator</key>
+	<key id="writer">Writer</key>
+	<key id="writer-help">Writer</key>
+	<key id="translator">Translator</key>
+	<key id="translator-help">Translator</key>
+	<key id="validator">Validator</key>
+	<key id="validator-help">Validator of content before it is published</key>
+	<key id="guest">Guest</key>
+	<key id="guest-help">Authorised to navigate in the module</key>
+	<key id="user">Integrator</key>
+	<key id="user-help">Use module data as resources</key>
 </i18n>

@@ -2,7 +2,7 @@
 class payment_Transaction
 {
 	const ACCEPTED  = 'A';
-	const FAILED    = 'F';
+	const FAILED	= 'F';
 	const DELAYED   = 'D';
 
 	private $date;
@@ -139,7 +139,7 @@ class payment_Transaction
 	}
 		
 	/**
-	 * @param String $value
+	 * @param string $value
 	 * @return payment_Transaction
 	 */
 	public function setDate($value)
@@ -149,7 +149,7 @@ class payment_Transaction
 	}
 
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public function getDate()
 	{
@@ -157,7 +157,7 @@ class payment_Transaction
 	}
 
 	/**
-	 * @param String $value
+	 * @param string $value
 	 * @return payment_Transaction
 	 */
 	public function setAmount($value)
@@ -167,7 +167,7 @@ class payment_Transaction
 	}
 
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public function getAmount()
 	{
@@ -175,7 +175,7 @@ class payment_Transaction
 	}
 
 	/**
-	 * @param String $value
+	 * @param string $value
 	 * @return payment_Transaction
 	 */
 	public function setCurrency($value)
@@ -185,7 +185,7 @@ class payment_Transaction
 	}
 
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public function getCurrency()
 	{
@@ -193,7 +193,7 @@ class payment_Transaction
 	}
 
 	/**
-	 * @param String $value
+	 * @param string $value
 	 * @return payment_Transaction
 	 */
 	public function setRawBankResponse($value)
@@ -203,7 +203,7 @@ class payment_Transaction
 	}
 
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public function getRawBankResponse()
 	{
@@ -220,7 +220,7 @@ class payment_Transaction
 	}
 
 	/**
-	 * @return Boolean
+	 * @return boolean
 	 */
 	public function isAccepted()
 	{
@@ -237,7 +237,7 @@ class payment_Transaction
 	}
 
 	/**
-	 * @return Boolean
+	 * @return boolean
 	 */
 	public function isFailed()
 	{
@@ -250,7 +250,7 @@ class payment_Transaction
 	}
 	
 	/**
-	 * @return Boolean
+	 * @return boolean
 	 */
 	public function isDelayed()
 	{

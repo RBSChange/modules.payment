@@ -1,0 +1,4 @@
+<ul class="normal">
+	<li>${trans:m.order.frontoffice.orderlist-status,ucf,lab} <span class="payment-${order/getPaymentStatus}">${status}</span></li>
+	<li tal:condition="transactionText">${transactionText}</li>
+</ul>

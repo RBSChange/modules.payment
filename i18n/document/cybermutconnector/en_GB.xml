@@ -1,22 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.payment.document.cybermutconnector" lcid="en_GB">
-  <include id="m.payment.document.connector"/>
-  <key id="document-name">CM-CIC p@iement payment method (credit card)</key>
-  <key id="merchantid">merchant identifier</key>
-  <key id="merchantid-help">This is the merchant identifier used by the bank (merchantId).</key>
-  <key id="bankserverurl">bank</key>
-  <key id="bankserverurl-help">This is the merchant's bank.</key>
-  <key id="payment-cb">Credit Card payment</key>
-  <key id="listenerurl">URL</key>
-  <key id="listenerurl-help">This is the URL used by the bank to validate and confirm the payment.</key>
-  <key id="tpecompanycode">company code</key>
-  <key id="tpecompanycode-help">This is the company code given by your provider.</key>
-  <key id="tpekey">POS key</key>
-  <key id="tpekey-help">This is the POS key given by your provider.</key>
-  <key id="tpepassphrase">POS keyphrase</key>
-  <key id="tpepassphrase-help">This is the POS keyphrase given by your provider.</key>
-  <key id="transaction-accepted">Credit card payment has been accepted.</key>
-  <key id="transaction-accepted-test">Credit card payment has been accepted (TEST).</key>
-  <key id="transaction-delayed">Payment is awaiting validation.</key>
-  <key id="transaction-failed">Credit card payment has been refused.</key>
+	<include id="m.payment.document.connector" />
+	<key id="document-name">CM-CIC p@iement payment method (credit card)</key>
+	<key id="merchantid">merchant identifier</key>
+	<key id="merchantid-help">This is the merchant identifier used by the bank (merchantId).</key>
+	<key id="bankserverurl">bank</key>
+	<key id="bankserverurl-help">This is the merchant's bank.</key>
+	<key id="payment-cb">Credit Card payment</key>
+	<key id="listenerurl">URL</key>
+	<key id="listenerurl-help">This is the URL used by the bank to validate and confirm the payment.</key>
+	<key id="tpecompanycode">company code</key>
+	<key id="tpecompanycode-help">This is the company code given by your provider.</key>
+	<key id="tpekey">POS key</key>
+	<key id="tpekey-help">This is the POS key given by your provider.</key>
+	<key id="tpepassphrase">POS keyphrase</key>
+	<key id="tpepassphrase-help">This is the POS keyphrase given by your provider.</key>
+	<key id="transaction-accepted">Credit card payment has been accepted.</key>
+	<key id="transaction-accepted-test">Credit card payment has been accepted (TEST).</key>
+	<key id="transaction-delayed">Payment is awaiting validation.</key>
+	<key id="transaction-failed">Credit card payment has been refused.</key>
 </i18n>

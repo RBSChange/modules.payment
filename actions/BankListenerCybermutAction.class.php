@@ -22,8 +22,8 @@ class payment_BankListenerCybermutAction extends change_Action
 	 */
 	public function _execute($context, $request)
 	{
-	    $remoteAddr = $_SERVER['REMOTE_ADDR'];
-        $requestUri = $_SERVER['REQUEST_URI'];
+		$remoteAddr = $_SERVER['REMOTE_ADDR'];
+		$requestUri = $_SERVER['REQUEST_URI'];
 		$ms = payment_ModuleService::getInstance();	
 		$ms->log("BANKING CYBERMUT LISTENER from [".$remoteAddr." : ".$requestUri."] BEGIN");	
 		
@@ -31,7 +31,7 @@ class payment_BankListenerCybermutAction extends change_Action
 		{
 			$this->getTransactionManager()->beginTransaction();
 			
-			$connectorService = payment_CybermutconnectorService::getInstance();       
+			$connectorService = payment_CybermutconnectorService::getInstance();	   
 			$bankResponse = $connectorService->getBankResponse($request->getParameters());			
 			if ($bankResponse->getTransactionId() == null)
 			{
@@ -50,21 +50,21 @@ class payment_BankListenerCybermutAction extends change_Action
 			
 			header("Pragma: no-cache");
 			header("Content-type: text/plain");
-    		$receipt = CMCIC_CGI2_MACNOTOK.$bankResponse->getRawBankResponse();
-    		printf (CMCIC_CGI2_RECEIPT, $receipt);
-    		exit();
+			$receipt = CMCIC_CGI2_MACNOTOK.$bankResponse->getRawBankResponse();
+			printf (CMCIC_CGI2_RECEIPT, $receipt);
+			exit();
 		}
 		
 		ob_get_clean();		
 		header("Pragma: no-cache");
 		header("Content-type: text/plain");
-    	$receipt = CMCIC_CGI2_MACOK;
-    	printf (CMCIC_CGI2_RECEIPT, $receipt);
+		$receipt = CMCIC_CGI2_MACOK;
+		printf (CMCIC_CGI2_RECEIPT, $receipt);
 		exit();
 	}
 	
 	/**
-	 * @return Integer
+	 * @return integer
 	 */
 	public function getRequestMethods()
 	{
@@ -72,7 +72,7 @@ class payment_BankListenerCybermutAction extends change_Action
 	}
 
 	/**
-	 * @return Boolean
+	 * @return boolean
 	 */
 	public final function isSecure()
 	{

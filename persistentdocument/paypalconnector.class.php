@@ -57,8 +57,8 @@ class payment_persistentdocument_paypalconnector extends payment_persistentdocum
 		//' If the API call succeded, then redirect the buyer to PayPal to begin to authorize payment.  
 		//' If an error occured, show the resulting errors
 		//'---------------------------------------------------------------------------------------------------------------
-	    $resArray= $this->hash_call("SetExpressCheckout", $nvpstr);	   
-	    return $resArray;
+		$resArray= $this->hash_call("SetExpressCheckout", $nvpstr);	   
+		return $resArray;
 	}
 	
 	/*'----------------------------------------------------------------------------------
@@ -128,8 +128,8 @@ class payment_persistentdocument_paypalconnector extends payment_persistentdocum
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 		curl_setopt($ch, CURLOPT_POST, 1);
 		
-	    //if USE_PROXY constant set to TRUE in Constants.php, then only proxy will be enabled.
-	    //Set proxy name to PROXY_HOST and port number to PROXY_PORT in constants.php 
+		//if USE_PROXY constant set to TRUE in Constants.php, then only proxy will be enabled.
+		//Set proxy name to PROXY_HOST and port number to PROXY_PORT in constants.php 
 		if($USE_PROXY)
 		{
 			curl_setopt ($ch, CURLOPT_PROXY, $PROXY_HOST. ":" . $PROXY_PORT); 
@@ -189,7 +189,7 @@ class payment_persistentdocument_paypalconnector extends payment_persistentdocum
 			//decoding the respose
 			$nvpArray[urldecode($keyval)] =urldecode( $valval);
 			$nvpstr=substr($nvpstr,$valuepos+1,strlen($nvpstr));
-	     }
+		 }
 		return $nvpArray;
 	}
 	

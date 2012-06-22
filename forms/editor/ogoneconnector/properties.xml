@@ -9,10 +9,8 @@
 		<field name="shaInKey" />
 		<field name="shaOutKey" />
 	</section>
-
 	<section labeli18n="m.payment.bo.doceditor.fieldsgroup.advanced" class="toggle" hidden="true">
 		<field name="addressRequired" />
-		<field name="currencyCode" />
 		<field name="minValue" />
 		<field name="maxValue" />
 	</section>

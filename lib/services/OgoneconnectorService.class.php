@@ -1,28 +1,10 @@
 <?php
 /**
- * payment_OgoneconnectorService
  * @package modules.payment
+ * @method payment_OgoneconnectorService getInstance()
  */
 class payment_OgoneconnectorService extends payment_ConnectorService
-{
-	
-	/**
-	 * @var payment_OgoneconnectorService
-	 */
-	private static $instance;
-	
-	/**
-	 * @return payment_OgoneconnectorService
-	 */
-	public static function getInstance()
-	{
-		if (self::$instance === null)
-		{
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
-	
+{	
 	/**
 	 * @return payment_persistentdocument_ogoneconnector
 	 */
@@ -39,7 +21,7 @@ class payment_OgoneconnectorService extends payment_ConnectorService
 	 */
 	public function createQuery()
 	{
-		return $this->pp
+		return $this->getPersistentProvider()
 			->createQuery('modules_payment/ogoneconnector');
 	}
 	
@@ -51,7 +33,7 @@ class payment_OgoneconnectorService extends payment_ConnectorService
 	 */
 	public function createStrictQuery()
 	{
-		return $this->pp
+		return $this->getPersistentProvider()
 			->createQuery('modules_payment/ogoneconnector', false);
 	}
 	
@@ -156,8 +138,8 @@ class payment_OgoneconnectorService extends payment_ConnectorService
 		{
 			$html[] = '<input type="hidden" name="' . $name . '" value="' . $value . '" />';
 		}
-		$html[] = '<input type="submit" name="bouton" value="' . f_Locale::translate(
-				'&modules.payment.document.ogoneconnector.payment-cb;') . '" />';
+		$html[] = '<input type="submit" name="bouton" value="' . 
+			LocaleService::getInstance()->trans('m.payment.document.ogoneconnector.payment-cb') . '" />';
 		$html[] = '</form>';
 		
 		$connector->setHTMLPayment(implode("", $html));
@@ -234,7 +216,7 @@ class payment_OgoneconnectorService extends payment_ConnectorService
 			case "5": //Authorized
 			case "9": //Payment requested
 				$response->setAccepted();
-				$response->setTransactionText(f_Locale::translate('&modules.payment.document.ogoneconnector.Transaction-accepted;'));
+				$response->setTransactionText(LocaleService::getInstance()->trans('m.payment.document.ogoneconnector.transaction-accepted', array('ucf')));
 				$response->setDate(date_Calendar::getInstance());
 				break;
 			case "51": //Authorization waiting	
@@ -242,11 +224,11 @@ class payment_OgoneconnectorService extends payment_ConnectorService
 			case "52": //Authorization not known		
 			case "91": //Payment uncertain	
 				$response->setDelayed();
-				$response->setTransactionText(f_Locale::translate('&modules.payment.document.ogoneconnector.Transaction-delayed;'));
+				$response->setTransactionText(LocaleService::getInstance()->trans('m.payment.document.ogoneconnector.transaction-delayed', array('ucf')));
 				break;
 			default:
 				$response->setFailed();
-				$response->setTransactionText(f_Locale::translate('&modules.payment.document.ogoneconnector.Transaction-failed;'));
+				$response->setTransactionText(LocaleService::getInstance()->trans('m.payment.document.ogoneconnector.transaction-failed', array('ucf')));
 				break;
 		}
 		
@@ -279,7 +261,7 @@ class payment_OgoneconnectorService extends payment_ConnectorService
 	
 	/**
 	 * @param payment_persistentdocument_paypalconnector $connector
-	 * @return String
+	 * @return string
 	 */
 	protected function getServer($connector = null)
 	{
@@ -289,7 +271,7 @@ class payment_OgoneconnectorService extends payment_ConnectorService
 	
 	/**
 	 * @param payment_persistentdocument_paypalconnector $connector
-	 * @return String
+	 * @return string
 	 */
 	protected function getSuccessURL($connector = null)
 	{
@@ -299,24 +281,12 @@ class payment_OgoneconnectorService extends payment_ConnectorService
 
 	/**
 	 * @param payment_persistentdocument_paypalconnector $connector
-	 * @return String
+	 * @return string
 	 */
 	protected function getCancelURL($connector = null)
 	{
 		$protocol =  ($connector !== null && $connector->getUseHTTPS()) ? "https://" : "http://";
 		return $protocol . $this->getServer($connector) . "/payment/ogoneCancel.php";
-	}
-	
-	/**
-	 * @param payment_persistentdocument_paypalconnector $connector
-	 * @param payment_Order $order
-	 */
-	private function setPaymentStatus($connector, $order)
-	{
-		$html = '<ol class="messages"><li>' . f_Locale::translate('&modules.order.frontoffice.Orderlist-status;') . ' : ' . f_Locale::translate(
-				'&modules.payment.frontoffice.status.' . ucfirst($order->getPaymentStatus()) . ';') . '</li>' . '<li>' . f_util_HtmlUtils::nlTobr(
-				$order->getPaymentTransactionText()) . '</li></ol>';
-		$connector->setHTMLPayment($html);
 	}
 	
 	private function getSignIn($params, $shaKey)

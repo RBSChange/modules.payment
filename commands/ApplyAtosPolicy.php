@@ -1,11 +1,8 @@
 <?php
-/**
- * Should be in website module
- */
 class commands_ApplyAtosPolicy extends c_ChangescriptCommand
 {
 	/**
-	 * @return String
+	 * @return string
 	 */
 	function getUsage()
 	{
@@ -13,7 +10,7 @@ class commands_ApplyAtosPolicy extends c_ChangescriptCommand
 	}
 	
 	/**
-	 * @return String
+	 * @return string
 	 */
 	function getDescription()
 	{
@@ -21,13 +18,13 @@ class commands_ApplyAtosPolicy extends c_ChangescriptCommand
 	}
 	
 	/**
-	 * @return Boolean default false
+	 * @return boolean default false
 	 */
 	function isHidden()
 	{
 		return true;
 	}
-	
+
 	/**
 	 * @see c_ChangescriptCommand::getEvents()
 	 */
@@ -37,9 +34,9 @@ class commands_ApplyAtosPolicy extends c_ChangescriptCommand
 			array('target' => 'apply-webapp-policy'),
 		);
 	}
-
+	
 	/**
-	 * @param String[] $params
+	 * @param string[] $params
 	 * @param array<String, String> $options where the option array key is the option name, the potential option value or true
 	 * @see c_ChangescriptCommand::parseArgs($args)
 	 */

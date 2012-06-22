@@ -18,7 +18,7 @@ class payment_PayPalPaymentAction extends change_Action
 	}
 		
 	/**
-	 * @return Integer
+	 * @return integer
 	 */
 	public function getRequestMethods()
 	{
@@ -26,7 +26,7 @@ class payment_PayPalPaymentAction extends change_Action
 	}
 	
 	/**
-	 * @return Boolean
+	 * @return boolean
 	 */
 	public final function isSecure()
 	{

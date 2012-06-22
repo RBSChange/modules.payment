@@ -1,22 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.payment.document.cybermutconnector" lcid="fr_FR">
-  <include id="m.payment.document.connector"/>
-  <key id="document-name">mode de paiement CM-CIC p@iement (CB)</key>
-  <key id="merchantid">identifiant marchand</key>
-  <key id="merchantid-help">identifiant du marchand auprès de la banque (merchantId).</key>
-  <key id="bankserverurl">banque</key>
-  <key id="bankserverurl-help">banque du marchand.</key>
-  <key id="tpekey">clé TPE</key>
-  <key id="tpekey-help">clé TPE fournie par votre prestataire.</key>
-  <key id="tpepassphrase">phrase clé TPE</key>
-  <key id="tpepassphrase-help">phrase clé TPE fournie par votre prestataire.</key>
-  <key id="tpecompanycode">code société</key>
-  <key id="tpecompanycode-help">code société fourni par votre prestataire.</key>
-  <key id="listenerurl">URL</key>
-  <key id="listenerurl-help">URL utilisée par la banque pour valider/confirmer le paiement.</key>
-  <key id="payment-cb">Paiement CB</key>
-  <key id="transaction-accepted">Paiement par carte Banquaire accépté.</key>
-  <key id="transaction-accepted-test">Paiement par carte Banquaire accépté (TEST).</key>
-  <key id="transaction-delayed">Paiement en attente de validation.</key>
-  <key id="transaction-failed">Paiement par carte Banquaire refusé.</key>
+	<include id="m.payment.document.connector" />
+	<key id="document-name">mode de paiement CM-CIC p@iement (CB)</key>
+	<key id="merchantid">identifiant marchand</key>
+	<key id="merchantid-help">identifiant du marchand auprès de la banque (merchantId).</key>
+	<key id="bankserverurl">banque</key>
+	<key id="bankserverurl-help">banque du marchand.</key>
+	<key id="tpekey">clé TPE</key>
+	<key id="tpekey-help">clé TPE fournie par votre prestataire.</key>
+	<key id="tpepassphrase">phrase clé TPE</key>
+	<key id="tpepassphrase-help">phrase clé TPE fournie par votre prestataire.</key>
+	<key id="tpecompanycode">code société</key>
+	<key id="tpecompanycode-help">code société fourni par votre prestataire.</key>
+	<key id="listenerurl">URL</key>
+	<key id="listenerurl-help">URL utilisée par la banque pour valider/confirmer le paiement.</key>
+	<key id="payment-cb">Paiement CB</key>
+	<key id="transaction-accepted">Paiement par carte bancaire accépté.</key>
+	<key id="transaction-accepted-test">Paiement par carte bancaire accépté (TEST).</key>
+	<key id="transaction-delayed">Paiement en attente de validation.</key>
+	<key id="transaction-failed">Paiement par carte bancaire refusé.</key>
 </i18n>

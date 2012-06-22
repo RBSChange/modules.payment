@@ -1,27 +1,10 @@
 <?php
 /**
- * payment_ConnectorService
- * @package payment
+ * @package modules.payment
+ * @method payment_ConnectorService getInstance()
  */
 class payment_ConnectorService extends f_persistentdocument_DocumentService
 {
-	/**
-	 * @var payment_ConnectorService
-	 */
-	private static $instance;
-
-	/**
-	 * @return payment_ConnectorService
-	 */
-	public static function getInstance()
-	{
-		if (self::$instance === null)
-		{
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
-
 	/**
 	 * @return payment_persistentdocument_connector
 	 */
@@ -38,7 +21,7 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 	 */
 	public function createQuery()
 	{
-		return $this->pp->createQuery('modules_payment/connector');
+		return $this->getPersistentProvider()->createQuery('modules_payment/connector');
 	}
 	
 	/**
@@ -57,7 +40,7 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 	 *
 	 * @param f_persistentdocument_PersistentDocument $newDocument
 	 * @param f_persistentdocument_PersistentDocument $originalDocument
-	 * @param Integer $parentNodeId
+	 * @param integer $parentNodeId
 	 *
 	 * @throws IllegalOperationException
 	 */
@@ -84,6 +67,25 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 	public function setPaymentInfo($connector, $order)
 	{
 		throw new Exception('Not implemented function');		
+	}
+	
+	/**
+	 * @param payment_persistentdocument_freeconnector $connector
+	 * @param payment_Order $order
+	 */
+	protected function setPaymentStatus($connector, $order)
+	{
+		$ls = LocaleService::getInstance();
+		$template = TemplateLoader::getInstance()->setMimeContentType('html')
+			->setPackageName('modules_payment')
+			->setDirectory('templates')
+			->load('Payment-Inc-PaymentStatus-Default');
+
+		$template->setAttribute('connector', $connector);
+		$template->setAttribute('order', $order);
+		$template->setAttribute('status', $ls->trans('m.payment.frontoffice.status.' . $order->getPaymentStatus(), array('ucf')));
+		$template->setAttribute('transactionText', f_util_HtmlUtils::nlTobr($order->getPaymentTransactionText()));
+		$connector->setHTMLPayment($template->execute(true));
 	}
 
 	/**
@@ -174,5 +176,51 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 			Framework::exception($e);
 		}
 		return null;
+	}
+	
+	/**
+	 * @param order_persistentdocument_order $order
+	 * @param order_CartInfo $cartInfo
+	 */
+	public function setOrderAddress($order, $cartInfo)
+	{
+		$billingAddress = $order->getBillingAddress();
+		if ($billingAddress === null)		
+		{
+			$billingAddress = customer_AddressService::getInstance()->getNewDocumentInstance();
+			$order->setBillingAddress($billingAddress);
+		}
+		
+		if ($cartInfo->getAddressInfo()->useSameAddressForBilling)
+		{
+			$cartInfo->getAddressInfo()->exportShippingAddress($billingAddress);
+		}
+		else
+		{
+			$cartInfo->getAddressInfo()->exportBillingAddress($billingAddress);
+		}
+		$billingAddress->setPublicationstatus('FILED');
+		$billingAddress->save();
+		$cartInfo->setBillingAddressId($billingAddress->getId());
+	}
+	
+	/**
+	 * @param payment_persistentdocument_connector $document
+	 * @param string $errorMessage
+	 */
+	public function canBeFiled($document, &$errorMessage)
+	{
+		$ms = ModuleService::getInstance();
+		if ($ms->moduleExists('catalog'))
+		{
+			$sfs = catalog_PaymentfilterService::getInstance();
+			$query = $sfs->createQuery()->add(Restrictions::eq('connector', $document))->setProjection(Projections::rowCount('count'));
+			if (f_util_ArrayUtils::firstElement($query->findColumn('count')) > 0)
+			{
+				$errorMessage = LocaleService::getInstance()->trans('m.payment.bo.general.used-in-filters');
+				return false;
+			}
+		}
+		return true;
 	}
 }

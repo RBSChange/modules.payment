@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.payment.bo.general" lcid="fr_FR">
-  <key id="module-name">modes de paiement</key>
-  <key id="tree-root-name">modes de paiement</key>
-  <key id="system-folder-name">modes de paiement</key>
+	<key id="module-name">modes de paiement</key>
+	<key id="tree-root-name">modes de paiement</key>
+	<key id="system-folder-name">modes de paiement</key>
+	<key id="used-in-filters">Ce mode est utilisé dans au moins un filtre de paiement et ne peut donc pas être supprimé.</key>
 </i18n>

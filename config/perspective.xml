@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <perspective>
 	<models>
 		<model name="modules_generic/rootfolder">
@@ -146,7 +146,6 @@
 		<action name="createOgoneconnector" single="true" permission="Insert_ogoneconnector" labeli18n="m.payment.bo.actions.create-ogoneconnector" />
 		<action name="openTreeNodeOrder" single="true" permission="Order" icon="sort" labeli18n="m.uixul.bo.actions.set-children-order" />
 		<action name="openFolder" icon="open-folder" labeli18n="m.uixul.bo.actions.openfolder" />
-		<action name="createFreeconnector" single="true" permission="Insert_freeconnector" icon="add"
-			labeli18n="m.payment.bo.actions.create-freeconnector" />
+		<action name="createFreeconnector" single="true" permission="Insert_freeconnector" icon="add" labeli18n="m.payment.bo.actions.create-freeconnector" />
 	</actions>
 </perspective>

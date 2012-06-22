@@ -5,13 +5,13 @@
  */
 class payment_AtosconnectorScriptDocumentElement extends import_ScriptDocumentElement
 {
-    /**
-     * @return payment_persistentdocument_atosconnector
-     */
-    protected function initPersistentDocument()
-    {
-    	return payment_AtosconnectorService::getInstance()->getNewDocumentInstance();
-    }
+	/**
+	 * @return payment_persistentdocument_atosconnector
+	 */
+	protected function initPersistentDocument()
+	{
+		return payment_AtosconnectorService::getInstance()->getNewDocumentInstance();
+	}
 	
 	/**
 	 * @see import_ScriptDocumentElement::getDocumentProperties()
@@ -32,7 +32,7 @@ class payment_AtosconnectorScriptDocumentElement extends import_ScriptDocumentEl
 		return $properties;
 	}
  
-    /**
+	/**
 	 * @return f_persistentdocument_PersistentDocumentModel
 	 */
 	protected function getDocumentModel()

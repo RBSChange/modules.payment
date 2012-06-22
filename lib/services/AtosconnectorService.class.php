@@ -1,7 +1,7 @@
 <?php
 /**
- * payment_AtosconnectorService
- * @package payment
+ * @package modules.payment
+ * @method payment_AtosconnectorService getInstance()
  */
 class payment_AtosconnectorService extends payment_ConnectorService
 {
@@ -38,23 +38,6 @@ class payment_AtosconnectorService extends payment_ConnectorService
 	const DATA_CAPTURE_DAY = 30;
 	const DATA_CAPTURE_MODE = 31;
 	const DATA_DATA = 32;
-	
-	/**
-	 * @var payment_AtosconnectorService
-	 */
-	private static $instance;
-
-	/**
-	 * @return payment_AtosconnectorService
-	 */
-	public static function getInstance()
-	{
-		if (self::$instance === null)
-		{
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
 
 	/**
 	 * @return payment_persistentdocument_atosconnector
@@ -72,7 +55,7 @@ class payment_AtosconnectorService extends payment_ConnectorService
 	 */
 	public function createQuery()
 	{
-		return $this->pp->createQuery('modules_payment/atosconnector');
+		return $this->getPersistentProvider()->createQuery('modules_payment/atosconnector');
 	}
 	
 	/**
@@ -83,12 +66,12 @@ class payment_AtosconnectorService extends payment_ConnectorService
 	 */
 	public function createStrictQuery()
 	{
-		return $this->pp->createQuery('modules_payment/atosconnector', false);
+		return $this->getPersistentProvider()->createQuery('modules_payment/atosconnector', false);
 	}
 
 	/**
 	 * @param payment_persistentdocument_atosconnector $document
-	 * @param Integer $parentNodeId Parent node ID where to save the document.
+	 * @param integer $parentNodeId Parent node ID where to save the document.
 	 * @return void
 	 */
 	protected function postSave($document, $parentNodeId = null)
@@ -98,8 +81,8 @@ class payment_AtosconnectorService extends payment_ConnectorService
 	}
 
 	/**
-     * Currencies map : Change4 => ATOS
-     */
+	 * Currencies map : Change4 => ATOS
+	 */
 	private $currencyMap = array(
 		"EUR"	=> 978,		// Euro
 		"GBP"	=> 826,		// Livre sterling
@@ -113,17 +96,17 @@ class payment_AtosconnectorService extends payment_ConnectorService
 	);
 	
 	/**
-     * Request parameter name for the returned banking data.
-     *
-     */
+	 * Request parameter name for the returned banking data.
+	 *
+	 */
 	const DATA_PARAMETER = 'DATA';
 
 	/**
-     * Response codes (see descriptions above).
-     *
-     * an implementation specyfing these parameters accorded to its bank
-     * (sogenactif, cyberplus... would extend Atos...)
-     **/
+	 * Response codes (see descriptions above).
+	 *
+	 * an implementation specyfing these parameters accorded to its bank
+	 * (sogenactif, cyberplus... would extend Atos...)
+	 **/
 	const RESPONSE_CODE_ACCEPTED = 0;
 	const RESPONSE_CODE_ASK_FOR_AUTHORIZATION = 2;
 	const RESPONSE_CODE_INVALID_MERCHANT = 3;
@@ -229,7 +212,7 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		
 		$this->completeRequestParams($params, $connector, $order);
 
-		$path_bin = f_util_FileUtils::buildWebeditPath('bin', 'request');
+		$path_bin = f_util_FileUtils::buildProjectPath('bin', 'request');
 		
 		foreach ($params as $param => $value)
 		{
@@ -244,11 +227,11 @@ class payment_AtosconnectorService extends payment_ConnectorService
 			);
 
 		/**
-    	 * Sortie de la fonction : $result=!code!error!buffer!
-    	 *  - code =  0	: La fonction génère une page html contenue dans la variable buffer
-    	 *  - code = -1 : La fonction retourne un message d'erreur dans la variable error
-    	 * On separe les differents champs et on les met dans un tableau
-    	 */
+		 * Sortie de la fonction : $result=!code!error!buffer!
+		 *  - code =  0	: La fonction génère une page html contenue dans la variable buffer
+		 *  - code = -1 : La fonction retourne un message d'erreur dans la variable error
+		 * On separe les differents champs et on les met dans un tableau
+		 */
 		$resultArray = explode ('!', $result);
 		$code = isset($resultArray[1]) ? $resultArray[1] : '';
 		$error = isset($resultArray[2]) ? $resultArray[2] : '';
@@ -265,8 +248,6 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		$connector->setHTMLPayment($message);	
 	}
 	
-	
-	
 	/**
 	 * @param array $params
 	 * @param payment_persistentdocument_atosconnector $connector
@@ -278,22 +259,9 @@ class payment_AtosconnectorService extends payment_ConnectorService
 	}
 	
 	/**
-	 * @param payment_persistentdocument_paypalconnector $connector
-	 * @param payment_Order $order
-	 */	
-	private function setPaymentStatus($connector, $order)
-	{	
-		$html = '<ol class="messages"><li>' . f_Locale::translate('&modules.order.frontoffice.Orderlist-status;') . ' : ' . 
-			f_Locale::translate('&modules.payment.frontoffice.status.'. ucfirst($order->getPaymentStatus())  .';') . '</li>'.
-			'<li>' . f_util_HtmlUtils::nlTobr($order->getPaymentTransactionText()) .'</li></ol>';
-
-		$connector->setHTMLPayment($html);
-	}
-	
-	/**
 	 * Return the valid transaction_id to the format requested by Atos server
 	 * @param order_persistentdocument_order $order
-	 * @return Integer
+	 * @return integer
 	 * @throws Exception
 	 */
 	private function getCurrencyCode($order)
@@ -305,34 +273,34 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		return $this->currencyMap[$order->getCurrencyCode()];
 	}
 	/**
-	 * @return String
+	 * @return string
 	 */
 	private function getPathFile()
 	{
-		return f_util_FileUtils::buildWebeditPath('build', 'atos', 'pathfile');
+		return f_util_FileUtils::buildProjectPath('build', 'atos', 'pathfile');
 	}
 	
 	/**
-	 * @param String $merchantId
-	 * @return String
+	 * @param string $merchantId
+	 * @return string
 	 */
 	private function getParmcomFile($merchantId)
 	{
-		return f_util_FileUtils::buildWebeditPath('build', 'atos', 'parmcom.'.$merchantId);
+		return f_util_FileUtils::buildProjectPath('build', 'atos', 'parmcom.'.$merchantId);
 	}
 	
 	/**
-	 * @param String $merchantId
-	 * @return String
+	 * @param string $merchantId
+	 * @return string
 	 */
 	private function getCertifFile($merchantId)
 	{
-		return f_util_FileUtils::buildWebeditPath('build', 'atos', 'certif.fr.'.$merchantId);
+		return f_util_FileUtils::buildProjectPath('build', 'atos', 'certif.fr.'.$merchantId);
 	}
 	
 	/**
 	 * @param payment_persistentdocument_atosconnector $connector
-	 * @return String
+	 * @return string
 	 */
 	protected function getServer($connector = null)
 	{
@@ -342,7 +310,7 @@ class payment_AtosconnectorService extends payment_ConnectorService
 	
 	/**
 	 * @param payment_persistentdocument_atosconnector $connector
-	 * @return String
+	 * @return string
 	 */
 	protected function getSuccessURL($connector = null)
 	{
@@ -352,7 +320,7 @@ class payment_AtosconnectorService extends payment_ConnectorService
 
 	/**
 	 * @param payment_persistentdocument_atosconnector $connector
-	 * @return String
+	 * @return string
 	 */
 	protected function getCancelURL($connector = null)
 	{
@@ -362,7 +330,7 @@ class payment_AtosconnectorService extends payment_ConnectorService
 
 	/**
 	 * @param payment_persistentdocument_atosconnector $connector
-	 * @return String
+	 * @return string
 	 */
 	protected function getListenerURL($connector = null)
 	{
@@ -433,7 +401,7 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		
 		$response = new payment_Transaction();
 		$params = array('message' => $data, 'pathfile' => $this->getPathFile());
-		$path_bin = f_util_FileUtils::buildWebeditPath('bin', 'response');
+		$path_bin = f_util_FileUtils::buildProjectPath('bin', 'response');
 		foreach ($params as $param => $value)
 		{
 			$path_bin .= ' ' . $param . '=' . $value;
@@ -484,7 +452,7 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		{
 			$response->setAccepted();
 			$response->setTransactionId($resultArray[6]);
-			$response->setTransactionText(LocaleService::getInstance()->transFO('m.payment.frontoffice.atos-success', array('ucf'), array('code' => $resultArray[7])));
+			$response->setTransactionText(LocaleService::getInstance()->trans('m.payment.frontoffice.atos-success', array('ucf'), array('code' => $resultArray[7])));
 			$date = preg_replace('/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/', '\1-\2-\3 \4:\5:\6', $resultArray[8]);
 			$response->setDate($date);
 		}
@@ -492,7 +460,7 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		{
 			$response->setFailed();
 			$response->setTransactionId('ERROR-'. $resultArray[11]);
-			$response->setTransactionText(LocaleService::getInstance()->transFO('m.payment.frontoffice.atos-failed', array('ucf')));			
+			$response->setTransactionText(LocaleService::getInstance()->trans('m.payment.frontoffice.atos-failed', array('ucf')));			
 		}
 		
 		payment_ModuleService::getInstance()->logBankResponse($connector, $response);
@@ -540,8 +508,19 @@ class payment_AtosconnectorService extends payment_ConnectorService
 		
 		if ("" != $data[self::DATA_AMOUNT] && "" != $data[self::DATA_CURRENCY_CODE])
 		{
-			$amount = $this->translateAmountFromAtos($data[self::DATA_AMOUNT], $data[self::DATA_CURRENCY_CODE]);
-			$parsed["transaction_amount"] = catalog_ShopService::getInstance()->getCurrentShop()->formatPrice($amount);
+			
+			$amount = $this->translateAmountFromAtos($data[self::DATA_AMOUNT], $data[self::DATA_CURRENCY_CODE]);			
+			if ($order instanceof order_persistentdocument_bill)
+			{
+				$parsed["transaction_amount"] = $order->getOrder()->formatPrice($amount);
+				
+			}
+			else
+			{
+				$shop = catalog_ShopService::getInstance()->getCurrentShop();
+				$billingArea = $shop->getCurrentBillingArea();
+				$parsed["transaction_amount"] = $billingArea->formatPrice($amount);
+			}
 		}
 		else
 		{
@@ -554,8 +533,8 @@ class payment_AtosconnectorService extends payment_ConnectorService
 	}
 	
 	/**
-	 * @param String $amount
-	 * @param String $currencyCode
+	 * @param string $amount
+	 * @param string $currencyCode
 	 * @return float
 	 */
 	protected function translateAmountFromAtos($amount, $currencyCode)

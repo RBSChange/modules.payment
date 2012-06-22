@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.payment.document.ogoneconnector" lcid="fr_FR">
-  <include id="m.payment.document.connector"/>
-  <key id="document-name">mode de paiement Ogone (CB)</key>
-  <key id="pspid">Code PSPID</key>
-  <key id="bankserverurl">URL du serveur banquaire</key>
-  <key id="operation">Type d'opération</key>
-  <key id="shainkey">Clé SHA-1 In</key>
-  <key id="shaoutkey">Clé SHA-1 Out</key>
-  <key id="payment-cb">Paiement CB</key>
-  <key id="transaction-accepted">Paiement accpeté.</key>
-  <key id="transaction-delayed">Paiement en attente de validation.</key>
-  <key id="transaction-failed">Paiement refusé.</key>
+	<include id="m.payment.document.connector" />
+	<key id="document-name">mode de paiement Ogone (CB)</key>
+	<key id="pspid">Code PSPID</key>
+	<key id="pspid-help">Code PSPID</key>
+	<key id="bankserverurl">URL du serveur bancaire</key>
+	<key id="operation">Type d'opération</key>
+	<key id="shainkey">Clé SHA-1 In</key>
+	<key id="shaoutkey">Clé SHA-1 Out</key>
+	<key id="payment-cb">Paiement CB</key>
+	<key id="transaction-accepted">Paiement accpeté.</key>
+	<key id="transaction-delayed">Paiement en attente de validation.</key>
+	<key id="transaction-failed">Paiement refusé.</key>
 </i18n>

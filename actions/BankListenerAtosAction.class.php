@@ -9,16 +9,16 @@ class payment_BankListenerAtosAction extends change_Action
 	 */
 	protected function _execute($context, $request)
 	{	
-	    $remoteAddr = $_SERVER['REMOTE_ADDR'];
-        $requestUri = $_SERVER['REQUEST_URI'];
+		$remoteAddr = $_SERVER['REMOTE_ADDR'];
+		$requestUri = $_SERVER['REQUEST_URI'];
 		$ms = payment_ModuleService::getInstance();
 		$ms->log("BANKING ATOS LISTENER from [".$remoteAddr." : ".$requestUri."] BEGIN");	
-        
+		
 		try
 		{
 			$this->getTransactionManager()->beginTransaction();
 			
-        	$connectorService = payment_AtosconnectorService::getInstance();       
+			$connectorService = payment_AtosconnectorService::getInstance();	   
 			$bankResponse = $connectorService->getBankResponse($request->getParameter('DATA'));			
 			$order = $bankResponse->getOrder();
 			$connectorService->setPaymentResult($bankResponse, $order);		
@@ -34,7 +34,7 @@ class payment_BankListenerAtosAction extends change_Action
 	}
 
 	/**
-	 * @return Integer
+	 * @return integer
 	 */
 	public function getRequestMethods()
 	{
@@ -42,7 +42,7 @@ class payment_BankListenerAtosAction extends change_Action
 	}
 
 	/**
-	 * @return Boolean
+	 * @return boolean
 	 */
 	public final function isSecure()
 	{

@@ -1,25 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.payment.document.atosconnector" lcid="en_GB">
-  <include id="m.payment.document.connector"/>
-  <key id="document-name">SIPS payment method (credit card)</key>
-  <key id="merchantid">'merchant_id' parameter</key>
-  <key id="merchantid-help">This field value is provided by the merchant's bank, when the merchant registers his/her shop. It makes it possible to identify a shop. It usually matches the SIRET preceded by a '0'.</key>
-  <key id="all-paymentmeans">All the defined payment methods</key>
-  <key id="paymentmeans">Authorised payment methods</key>
-  <key id="paymentmeans-help">List of the authorised credit cards.</key>
-  <key id="response-code-0">The authorisation has been granted.</key>
-  <key id="response-code-12">Invalid transaction, please check the parameters used in the request.</key>
-  <key id="response-code-13">Invalid amount, please check the amount used in the request.</key>
-  <key id="response-code-17">Cancelled by the visitor.</key>
-  <key id="response-code-2">Request authorisation from your bank by telephone as the card limit has been exceeded (see appendix I).</key>
-  <key id="response-code-3">The 'merchant_id' field is invalid, please check the value used in the request. The distance selling agreement does not exist, please contact your bank representative.</key>
-  <key id="response-code-30">Format error.</key>
-  <key id="response-code-5">The authorisation has been denied.</key>
-  <key id="response-code-63">Security rules have not been respected, the transaction has been stopped.</key>
-  <key id="response-code-75">The maximum number of attempts to enter the credit card number has been reached.</key>
-  <key id="response-code-90">Service temporarily unavailable.</key>
-  <key id="tpecertifcontent">POS certificate</key>
-  <key id="tpecertifcontent-help">Contents of the certificate file for the POS.</key>
-  <key id="tpeparmcomcontent">POS parameters</key>
-  <key id="tpeparmcomcontent-help">Contents of the parameter file for the POS.</key>
+	<include id="m.payment.document.connector" />
+	<key id="document-name">SIPS payment method (credit card)</key>
+	<key id="merchantid">'merchant_id' parameter</key>
+	<key id="merchantid-help">This field value is provided by the merchant's bank, when the merchant registers his/her shop. It makes it possible to identify a shop. It usually matches the SIRET preceded by a '0'.</key>
+	<key id="all-paymentmeans">All the defined payment methods</key>
+	<key id="paymentmeans">Authorised payment methods</key>
+	<key id="paymentmeans-help">List of the authorised credit cards.</key>
+	<key id="response-code-0">The authorisation has been granted.</key>
+	<key id="response-code-12">Invalid transaction, please check the parameters used in the request.</key>
+	<key id="response-code-13">Invalid amount, please check the amount used in the request.</key>
+	<key id="response-code-17">Cancelled by the visitor.</key>
+	<key id="response-code-2">Request authorisation from your bank by telephone as the card limit has been exceeded (see appendix I).</key>
+	<key id="response-code-3">The 'merchant_id' field is invalid, please check the value used in the request. The distance selling agreement does not exist, please contact your bank representative.</key>
+	<key id="response-code-30">Format error.</key>
+	<key id="response-code-5">The authorisation has been denied.</key>
+	<key id="response-code-63">Security rules have not been respected, the transaction has been stopped.</key>
+	<key id="response-code-75">The maximum number of attempts to enter the credit card number has been reached.</key>
+	<key id="response-code-90">Service temporarily unavailable.</key>
+	<key id="tpecertifcontent">POS certificate</key>
+	<key id="tpecertifcontent-help">Contents of the certificate file for the POS.</key>
+	<key id="tpeparmcomcontent">POS parameters</key>
+	<key id="tpeparmcomcontent-help">Contents of the parameter file for the POS.</key>
 </i18n>

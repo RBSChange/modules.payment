@@ -1,27 +1,10 @@
 <?php
 /**
- * payment_PaypalconnectorService
- * @package payment
+ * @package modules.payment
+ * @method payment_PaypalconnectorService getInstance()
  */
 class payment_PaypalconnectorService extends payment_ConnectorService
 {
-	/**
-	 * @var payment_PaypalconnectorService
-	 */
-	private static $instance;
-	
-	/**
-	 * @return payment_PaypalconnectorService
-	 */
-	public static function getInstance()
-	{
-		if (self::$instance === null)
-		{
-			self::$instance = self::getServiceClassInstance ( get_class () );
-		}
-		return self::$instance;
-	}
-	
 	/**
 	 * @return payment_persistentdocument_paypalconnector
 	 */
@@ -38,7 +21,7 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 	 */
 	public function createQuery()
 	{
-		return $this->pp->createQuery ( 'modules_payment/paypalconnector' );
+		return $this->getPersistentProvider()->createQuery ( 'modules_payment/paypalconnector' );
 	}
 	
 	/**
@@ -49,7 +32,7 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 	 */
 	public function createStrictQuery()
 	{
-		return $this->pp->createQuery ( 'modules_payment/paypalconnector', false );
+		return $this->getPersistentProvider()->createQuery ( 'modules_payment/paypalconnector', false );
 	}
 	
 	/**
@@ -80,22 +63,10 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 	 * @param payment_persistentdocument_paypalconnector $connector
 	 * @param payment_Order $order
 	 */	
-	private function setPaymentStatus($connector, $order)
-	{	
-		$html = '<ol class="messages"><li>' . f_Locale::translate('&modules.order.frontoffice.Orderlist-status;') . ' : ' . 
-			f_Locale::translate('&modules.payment.frontoffice.status.'. ucfirst($order->getPaymentStatus())  .';') . '</li>'.
-			'<li>' . f_util_HtmlUtils::nlTobr($order->getPaymentTransactionText()) .'</li></ol>';
-		$connector->setHTMLPayment($html);
-	}	
-	
-	/**
-	 * @param payment_persistentdocument_paypalconnector $connector
-	 * @param payment_Order $order
-	 */	
 	private function payment($connector, $order)
 	{	
 		$url = LinkHelper::getActionUrl('payment', 'PayPalPayment', array());
-		$connector->setHTMLPayment( "<a href=\"$url\">".  f_Locale::translate('&modules.payment.frontoffice.payment;')  ."</a>" );
+		$connector->setHTMLPayment( "<a href=\"$url\">". LocaleService::getInstance()->trans('m.payment.frontoffice.payment')  ."</a>" );
 	}
 	
 	/**
@@ -105,11 +76,11 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 	public function validatePayment($sessionInfo, $connector)
 	{
 		$remoteAddr = $_SERVER['REMOTE_ADDR'];
-        $requestUri = $_SERVER['REQUEST_URI'];
+		$requestUri = $_SERVER['REQUEST_URI'];
 		try
 		{
 			$this->getTransactionManager()->beginTransaction();
-	        $ms = payment_ModuleService::getInstance();	
+			$ms = payment_ModuleService::getInstance();	
 			$ms->log("BANKING PAYMENT PAYPAL from [".$remoteAddr." : ".$requestUri."] BEGIN");							
 			$finalPaymentAmt = $sessionInfo ['paymentAmount'];
 			$token = $sessionInfo ['token'];
@@ -152,7 +123,7 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 		$addr = $order->getPaymentShippingAddress();
 		if ($addr === null)
 		{
-			$errMsg = f_Locale::translate("&modules.payment.frontoffice.No-shipping-address-defined;");
+			$errMsg = LocaleService::getInstance()->trans('m.payment.frontoffice.no-shipping-address-defined', array('ucf'));
 			$connector->setHTMLPayment("<ul class=\"errors\"><li class=\"first last\">$errMsg</li></ol>");			
 			return;
 		}
@@ -186,20 +157,13 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 			
 			$this->setSessionInfo($sessionInfo);
 			payment_ModuleService::getInstance ()->log ( sprintf ( "PAYPAL BANKING (%s): prepare (token: '%s', amount: '%s', currency: '%s', language: '%s').", $connector->getLogLabel (), $sessionInfo ['token'], $paymentAmount, $currencyCodeType, $sessionInfo ['lang'] ) );			
-			$img = f_Locale::translate("&modules.payment.frontoffice.paypal.button;", null, null, false);
-			if ($img === null)
+			$img = LocaleService::getInstance()->trans('m.payment.frontoffice.paypal.button');
+			if ($img === null || $img === 'm.payment.frontoffice.paypal.button')
 			{
 				$img = 'https://www.paypal.com/fr_XC/i/btn/btn_xpressCheckout.gif';
 				if (Framework::isDebugEnabled())
 				{
 					Framework::debug(__METHOD__ . ' DEFAULT ' . $img);
-				}
-			}
-			else
-			{
-				if (Framework::isDebugEnabled())
-				{
-					Framework::debug(__METHOD__ . ' LOCAL ' . $img);
 				}
 			}
 			$url = $connector->redirectToPayPal ( $sessionInfo ['token'] );
@@ -256,11 +220,11 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 			$response->setTransactionId('ERROR-'. $ErrorCode);
 			if (Framework::inDevelopmentMode())
 			{
-				$response->setTransactionText(LocaleService::getInstance()->transFO('m.payment.frontoffice.failed-transaction') . $msg);
+				$response->setTransactionText(LocaleService::getInstance()->trans('m.payment.frontoffice.failed-transaction') . $msg);
 			}
 			else
 			{
-				$response->setTransactionText(LocaleService::getInstance()->transFO('m.payment.frontoffice.failed-transaction'));
+				$response->setTransactionText(LocaleService::getInstance()->trans('m.payment.frontoffice.failed-transaction'));
 			}
 			
 			payment_ModuleService::getInstance()->logBankResponse($connector, $response);
@@ -271,7 +235,7 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 		'********************************************************************************************************************
 		'
 		' THE PARTNER SHOULD SAVE THE KEY TRANSACTION RELATED INFORMATION LIKE 
-		'                    transactionId & orderTime 
+		'					transactionId & orderTime 
 		'  IN THEIR OWN  DATABASE
 		' AND THE REST OF THE INFORMATION CAN BE USED TO UNDERSTAND THE STATUS OF THE PAYMENT 
 		'
@@ -329,14 +293,14 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 			$date = preg_replace('/^(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2})Z$/', '$1 $2', $orderTime);
 			$response->setDate($date);
 			$response->setDelayed();
-			$response->setTransactionText(f_Locale::translate('&modules.payment.frontoffice.paypal.Payment-waiting;', array('transaction' => $transactionId)));
+			$response->setTransactionText(LocaleService::getInstance()->trans('m.payment.frontoffice.paypal.payment-waiting', array('ucf'), array('transaction' => $transactionId)));
 		}
 		else
 		{
 			$date = preg_replace('/^(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2})Z$/', '$1 $2', $orderTime);
 			$response->setDate($date);
 			$response->setAccepted();
-			$response->setTransactionText(f_Locale::translate('&modules.payment.frontoffice.paypal.Payment-success;', array('transaction' => $transactionId)));
+			$response->setTransactionText(LocaleService::getInstance()->trans('m.payment.frontoffice.paypal.payment-success', array('ucf'), array('transaction' => $transactionId)));
 		}
 		
 		payment_ModuleService::getInstance()->logBankResponse($connector, $response);
@@ -344,28 +308,28 @@ class payment_PaypalconnectorService extends payment_ConnectorService
 	}
 	
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public function getSuccessURL()
 	{
-		return "http://" . $this->getServer () . "/payment/paypalConfirm.php";
+		return "http://" . $this->getServer() . "/payment/paypalConfirm.php";
 	}
 	
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public function getCancelURL()
 	{
-		return "http://" . $this->getServer () . "/payment/paypalCancel.php";
+		return "http://" . $this->getServer() . "/payment/paypalCancel.php";
 	}
 	
 	/**
-	 * @return String
+	 * @return string
 	 */
 	private function getServer()
 	{
 		$currentWebsite = website_WebsiteService::getInstance ()->getCurrentWebsite();
-		return $currentWebsite->getDomain ();
+		return $currentWebsite->getDomain();
 	}
 	
 	/**

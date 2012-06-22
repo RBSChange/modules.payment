@@ -14,7 +14,7 @@ class payment_persistentdocument_ogoneconnector extends payment_persistentdocume
 	}
 	
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public function getListenerURL()
 	{

@@ -10,8 +10,8 @@ class payment_PaypalCancelAction extends change_Action
 	protected function _execute($context, $request)
 	{	
  		$remoteAddr = $_SERVER['REMOTE_ADDR'];
-        $requestUri = $_SERVER['REQUEST_URI'];
-        $ms = payment_ModuleService::getInstance();	
+		$requestUri = $_SERVER['REQUEST_URI'];
+		$ms = payment_ModuleService::getInstance();	
 		$ms->log("BANKING CANCEL PAYPAL from [".$remoteAddr." : ".$requestUri."]");
 		$connectorService = payment_PaypalconnectorService::getInstance(); 
 		$sessionInfo = $connectorService->getSessionInfo();
@@ -31,7 +31,7 @@ class payment_PaypalCancelAction extends change_Action
 					$response->setConnectorId($connector->getId());
 					$response->setLang($order->getLang());
 					$response->setFailed();
-					$response->setTransactionText(LocaleService::getInstance()->transFO('m.payment.frontoffice.cancel-transaction'));
+					$response->setTransactionText(LocaleService::getInstance()->trans('m.payment.frontoffice.cancel-transaction'));
 					$response->setTransactionId('CANCEL-'. $order->getId());
 					$connectorService->setPaymentResult($response, $order);
 				}
@@ -53,7 +53,7 @@ class payment_PaypalCancelAction extends change_Action
 	}
 
 	/**
-	 * @return Integer
+	 * @return integer
 	 */
 	public function getRequestMethods()
 	{
@@ -61,7 +61,7 @@ class payment_PaypalCancelAction extends change_Action
 	}
 
 	/**
-	 * @return Boolean
+	 * @return boolean
 	 */
 	public final function isSecure()
 	{

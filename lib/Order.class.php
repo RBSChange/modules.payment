@@ -35,14 +35,12 @@ interface payment_Order
 	function getPaymentAmount();
 	
 	/**
-	 * @return string
-	 * @example "EUR", "GBP", "CHF"
+	 * @return string For example: "EUR", "GBP", "CHF"
 	 */
 	function getPaymentCurrency();
 	
 	/**
-	 * @return string
-	 * @example "fr", "en"
+	 * @return string For example: "fr", "en"
 	 */
 	function getPaymentLang();
 	
@@ -67,8 +65,7 @@ interface payment_Order
 	function setPaymentDate($date);
 	
 	/**
-	 * @param string $status
-	 * @example "waiting", "success", "failed"
+	 * @param string $status For example: "waiting", "success", "failed"
 	 */
 	function setPaymentStatus($status);
 
@@ -88,8 +85,7 @@ interface payment_Order
 	function setPaymentTransactionText($transactionText);
 	
 	/**
-	 * @return string
-	 * @example "waiting", "success", "failed"
+	 * @return string For example: "waiting", "success", "failed"
 	 */
 	function getPaymentStatus();
 

@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.payment.frontoffice.paypal" lcid="en_GB">
-  <key id="button">https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif</key>
-  <key id="payment-success">PayPal payment successfully made. Transaction reference: {transaction}.</key>
-  <key id="payment-waiting">PayPal payment pending. Transaction reference: {transaction}.</key>
+	<key id="button">https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif</key>
+	<key id="payment-success">PayPal payment successfully made. Transaction reference: {transaction}.</key>
+	<key id="payment-waiting">PayPal payment pending. Transaction reference: {transaction}.</key>
 </i18n>

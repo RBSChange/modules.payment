@@ -11,7 +11,7 @@ class payment_persistentdocument_cybermutconnector extends payment_persistentdoc
 	}
 	
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public function getListenerURL()
 	{

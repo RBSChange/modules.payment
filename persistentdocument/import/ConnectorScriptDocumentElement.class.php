@@ -5,15 +5,15 @@
  */
 class payment_ConnectorScriptDocumentElement extends import_ScriptDocumentElement
 {
-    /**
-     * @return payment_persistentdocument_connector
-     */
-    protected function initPersistentDocument()
-    {
-    	return payment_ConnectorService::getInstance()->getNewDocumentInstance();
-    }
-    
-    /**
+	/**
+	 * @return payment_persistentdocument_connector
+	 */
+	protected function initPersistentDocument()
+	{
+		return payment_ConnectorService::getInstance()->getNewDocumentInstance();
+	}
+	
+	/**
 	 * @return f_persistentdocument_PersistentDocumentModel
 	 */
 	protected function getDocumentModel()

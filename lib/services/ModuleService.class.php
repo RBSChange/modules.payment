@@ -1,53 +1,27 @@
 <?php
 /**
- * @package modules.payment.lib.services
+ * @package modules.payment
+ * @method payment_ModuleService getInstance()
  */
 class payment_ModuleService extends ModuleBaseService
 {
 	/**
-	 * Singleton
-	 * @var payment_ModuleService
+	 * @var string
 	 */
-	private static $instance = null;
-	
-	
 	private $logFilePath;
 
-	/**
-	 * @return payment_ModuleService
-	 */
-	public static function getInstance()
+	protected function __construct()
 	{
-		if (is_null(self::$instance))
-		{
-			self::$instance = new self();
-			
-		}
-		return self::$instance;
-	}
-	
-	function __construct()
-	{
-		$this->logFilePath = f_util_FileUtils::buildWebeditPath('log', 'payment', 'payment.log');
+		$this->logFilePath = f_util_FileUtils::buildProjectPath('log', 'payment', 'payment.log');
 		if (!file_exists($this->logFilePath))
 		{
-			f_util_FileUtils::writeAndCreateContainer($this->logFilePath, gmdate('Y-m-d H:i:s')."\t Created");
+			f_util_FileUtils::writeAndCreateContainer($this->logFilePath, gmdate('Y-m-d H:i:s')."\t Created" . PHP_EOL);
 		}
 	}
-	
-	/**
-	 * @param Integer $documentId
-	 * @return f_persistentdocument_PersistentTreeNode
-	 */
-//	public function getParentNodeForPermissions($documentId)
-//	{
-//		// Define this method to handle permissions on a virtual tree node. Example available in list module.
-//	}
-
 	
 	public function log($stringLine)
 	{
-		error_log("\n". gmdate('Y-m-d H:i:s')."\t".$stringLine, 3, $this->logFilePath);
+		error_log(gmdate('Y-m-d H:i:s')."\t".$stringLine . PHP_EOL, 3, $this->logFilePath);
 	}
 	
 	/**
@@ -89,7 +63,7 @@ class payment_ModuleService extends ModuleBaseService
 	public function getCurrentTransaction()
 	{
 		$storage = change_Controller::getInstance()->getInstance()->getStorage();
-		$data = $storage->read('CurrentTransaction', self::PAYMENT_SESSION_NAMESPACE);
+		$data = $storage->read('CurrentTransaction', self::PAYMENT_SESSION_NAMESPACE);	
 		if (f_util_StringUtils::isNotEmpty($data))
 		{
 			return unserialize($data);

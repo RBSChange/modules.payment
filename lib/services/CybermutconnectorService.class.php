@@ -10,28 +10,11 @@ define("CMCIC_URLPAIEMENT", "paiement.cgi");
 define("CMCIC_VERSION", "3.0");
 
 /**
- * payment_CybermutconnectorService
- * @package payment
+ * @package modules.payment
+ * @method payment_CybermutconnectorService getInstance()
  */
 class payment_CybermutconnectorService extends payment_ConnectorService
 {
-	/**
-	 * @var payment_CybermutconnectorService
-	 */
-	private static $instance;
-	
-	/**
-	 * @return payment_CybermutconnectorService
-	 */
-	public static function getInstance()
-	{
-		if (self::$instance === null)
-		{
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
-	
 	/**
 	 * @return payment_persistentdocument_cybermutconnector
 	 */
@@ -48,7 +31,7 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 	 */
 	public function createQuery()
 	{
-		return $this->pp->createQuery('modules_payment/cybermutconnector');
+		return $this->getPersistentProvider()->createQuery('modules_payment/cybermutconnector');
 	}
 	
 	/**
@@ -59,7 +42,7 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 	 */
 	public function createStrictQuery()
 	{
-		return $this->pp->createQuery('modules_payment/cybermutconnector', false);
+		return $this->getPersistentProvider()->createQuery('modules_payment/cybermutconnector', false);
 	}
 	
 	/**
@@ -148,25 +131,13 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 		$html[] = '<input type="hidden" name="montantech3"         id="montantech3"    value="' . $sMontantEcheance3 . '" />';
 		$html[] = '<input type="hidden" name="dateech4"            id="dateech4"       value="' . $sDateEcheance4 . '" />';
 		$html[] = '<input type="hidden" name="montantech4"         id="montantech4"    value="' . $sMontantEcheance4 . '" />';
-		$html[] = '<input type="submit" name="bouton"              id="bouton"         value="' . f_Locale::translate('&modules.payment.document.cybermutconnector.payment-cb;') . '" />';
+		$html[] = '<input type="submit" name="bouton"              id="bouton"         value="' . LocaleService::getInstance()->trans('m.payment.document.cybermutconnector.payment-cb') . '" />';
 		$html[] = '</form>';
 		$connector->setHTMLPayment(implode("", $html));
 	}
 	
 	/**
-	 * @param payment_persistentdocument_paypalconnector $connector
-	 * @param payment_Order $order
-	 */	
-	private function setPaymentStatus($connector, $order)
-	{	
-		$html = '<ol class="messages"><li>' . f_Locale::translate('&modules.order.frontoffice.Orderlist-status;') . ' : ' . 
-			f_Locale::translate('&modules.payment.frontoffice.status.'. ucfirst($order->getPaymentStatus())  .';') . '</li>'.
-			'<li>' . f_util_HtmlUtils::nlTobr($order->getPaymentTransactionText()) .'</li></ol>';
-		$connector->setHTMLPayment($html);
-	}
-	
-	/**
-	 * @return String
+	 * @return string
 	 */
 	private function getServer()
 	{
@@ -175,7 +146,7 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 	}
 	
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public function getSuccessURL()
 	{
@@ -183,7 +154,7 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 	}
 	
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public function getCancelURL()
 	{
@@ -215,7 +186,8 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 		$oHmac = new CMCIC_Hmac($oTpe);
 		
 		// Message Authentication
-		$cgi2_fields = sprintf(CMCIC_CGI2_FIELDS, $oTpe->sNumero, $parameters["date"], $parameters['montant'], $parameters['reference'], $parameters['texte-libre'], $oTpe->sVersion, $parameters['code-retour'], $parameters['cvx'], $parameters['vld'], $parameters['brand'], $parameters['status3ds'], $parameters['numauto'], $parameters['motifrefus'], $parameters['originecb'], $parameters['bincb'], $parameters['hpancb'], $parameters['ipclient'], $parameters['originetr'], $parameters['veres'], $parameters['pares']);
+		$numauto = isset($parameters['numauto']) ? $parameters['numauto'] : null;
+		$cgi2_fields = sprintf(CMCIC_CGI2_FIELDS, $oTpe->sNumero, $parameters["date"], $parameters['montant'], $parameters['reference'], $parameters['texte-libre'], $oTpe->sVersion, $parameters['code-retour'], $parameters['cvx'], $parameters['vld'], $parameters['brand'], $parameters['status3ds'], $numauto, $parameters['motifrefus'], $parameters['originecb'], $parameters['bincb'], $parameters['hpancb'], $parameters['ipclient'], $parameters['originetr'], $parameters['veres'], $parameters['pares']);
 		$response->setRawBankResponse($cgi2_fields);
 		if ($oHmac->computeHmac($cgi2_fields) == strtolower($parameters['MAC']))
 		{
@@ -241,16 +213,16 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 			{
 				case "Annulation" :
 					$response->setFailed();
-					$response->setTransactionText(f_Locale::translate('&modules.payment.document.cybermutconnector.Transaction-failed;'));
+					$response->setTransactionText(LocaleService::getInstance()->trans('m.payment.document.cybermutconnector.transaction-failed', array('ucf')));
 					break;			
 				case "payetest" :
 					$response->setAccepted();
-					$response->setTransactionText(f_Locale::translate('&modules.payment.document.cybermutconnector.Transaction-accepted-test;'));
+					$response->setTransactionText(LocaleService::getInstance()->trans('m.payment.document.cybermutconnector.transaction-accepted-test', array('ucf')));
 					$response->setDate(date_Converter::convertDateToGMT($date));
 					break;				
 				case "paiement" :
 					$response->setAccepted();
-					$response->setTransactionText(f_Locale::translate('&modules.payment.document.cybermutconnector.Transaction-accepted;'));
+					$response->setTransactionText(LocaleService::getInstance()->trans('m.payment.document.cybermutconnector.transaction-accepted', array('ucf')));
 					$response->setDate(date_Converter::convertDateToGMT($date));
 					break;
 				
@@ -304,14 +276,14 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 		if ($parameters['status'] == 'CANCEL')
 		{
 			$response->setTransactionId('CANCEL-' . $order->getPaymentReference());
-			$trs = f_Locale::translate('&modules.payment.frontoffice.Cancel-transaction;');
+			$trs = LocaleService::getInstance()->trans('m.payment.frontoffice.cancel-transaction', array('ucf'));
 			$response->setTransactionText($trs);
 			$response->setFailed();			
 		}
 		else
 		{
 			$response->setTransactionId('DELAY-' . $order->getPaymentReference());
-			$trs = f_Locale::translate('&modules.payment.frontoffice.Bank-confirm;');
+			$trs = LocaleService::getInstance()->trans('m.payment.frontoffice.bank-confirm', array('ucf'));
 			$response->setTransactionText($trs);
 			$response->setDelayed();
 		}

@@ -1,17 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.payment.document.connector" lcid="en_GB">
-  <key id="code">code</key>
-  <key id="label">label</key>
-  <key id="label-help">This is the label for the payment method used in backoffice and in the payment method selection step of the ordering process.</key>
-  <key id="code-help">payment method code used on all the invoices and when exporting the orders.</key>
-  <key id="currencycode">Currency</key>
-  <key id="currencycode-help">The currency accepted by the connector. An empty field means 'any currency'.</key>
-  <key id="maxvalue">Maximum amount</key>
-  <key id="maxvalue-help">This is the maximum amount accepted by the connector.</key>
-  <key id="minvalue">Minimum amount</key>
-  <key id="minvalue-help">This is the minimum amount accepted by the connector.</key>
-  <key id="usehttps">use HTTPS</key>
-  <key id="usehttps-help">Use the HTTPS protocol for communications between the bank and the website.</key>
-  <key id="addressRequired"/>
-  <key id="addressRequired-help"/>
+	<key id="code">code</key>
+	<key id="label">label</key>
+	<key id="label-help">This is the label for the payment method used in backoffice and in the payment method selection step of the ordering process.</key>
+	<key id="addressrequired">Billing address</key>
+	<key id="addressrequired-help">The billing address is mandatory.</key>
+	<key id="code-help">payment method code used on all the invoices and when exporting the orders.</key>
+	<key id="maxvalue">Maximum amount</key>
+	<key id="maxvalue-help">This is the maximum amount accepted by the connector.</key>
+	<key id="minvalue">Minimum amount</key>
+	<key id="minvalue-help">This is the minimum amount accepted by the connector.</key>
+	<key id="usehttps">use HTTPS</key>
+	<key id="usehttps-help">Use the HTTPS protocol for communications between the bank and the website.</key>
 </i18n>

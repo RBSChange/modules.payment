@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <panel>
 	<section labeli18n="m.uixul.bo.doceditor.fieldsgroup.title">
-		<field name="label"/>
-		<field name="code"/>
-		<field name="merchantId"/>
-		<field name="bankServerUrl"/>
-		<field name="tpeKey"/>
-		<field name="tpeCompanyCode"/>
+		<field name="label" />
+		<field name="code" />
+		<field name="merchantId" />
+		<field name="bankServerUrl" />
+		<field name="tpeKey" />
+		<field name="tpeCompanyCode" />
 	</section>
-	
 	<section labeli18n="m.payment.bo.doceditor.fieldsgroup.confirm-url">
-		<field name="listenerURL" size="100"
-			   labeli18n="m.payment.document.cybermutconnector.listenerurl"
-			   shorthelpi18n="m.payment.document.cybermutconnector.listenerurl-help" />
-			   
+		<field name="listenerURL" size="100" labeli18n="m.payment.document.cybermutconnector.listenerurl" shorthelpi18n="m.payment.document.cybermutconnector.listenerurl-help" />
 		<field name="addressRequired" />
-		<field name="currencyCode" />
 		<field name="minValue" />
 		<field name="maxValue" />
-	</section>	 		
+	</section>
 </panel>

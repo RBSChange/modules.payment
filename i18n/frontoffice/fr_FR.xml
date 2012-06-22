@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.payment.frontoffice" lcid="fr_FR">
 	<key id="atos-title">Paiement par carte bancaire</key>
 	<key id="cheque-title">Paiement par chèque</key>
@@ -22,5 +22,4 @@
 	<key id="atos-waiting" format="html"><![CDATA[Nous sommes en attente de confirmation de votre paiement par carte bancaire. D'ici quelques minutes vous recevrez un e-mail vous informant du traitement de votre paiement par notre site.<br />Merci de votre patience.]]></key>
 	<key id="atos-success">Paiement par carte "{code}" effectué avec succès.</key>
 	<key id="atos-failed">Paiement échoué.</key>
-	
 </i18n>

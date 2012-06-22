@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.payment.bo.doceditor.fieldsgroup" lcid="fr_FR">
-  <key id="confirm-url">URL de confirmation</key>
-  <key id="advanced">Parametrage avancé</key>
+	<key id="confirm-url">URL de confirmation</key>
+	<key id="advanced">Paramétrage avancé</key>
 </i18n>

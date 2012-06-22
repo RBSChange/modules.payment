@@ -5,15 +5,15 @@
  */
 class payment_CybermutconnectorScriptDocumentElement extends import_ScriptDocumentElement
 {
-    /**
-     * @return payment_persistentdocument_cybermutconnector
-     */
-    protected function initPersistentDocument()
-    {
-    	return payment_CybermutconnectorService::getInstance()->getNewDocumentInstance();
-    }
-    
-    /**
+	/**
+	 * @return payment_persistentdocument_cybermutconnector
+	 */
+	protected function initPersistentDocument()
+	{
+		return payment_CybermutconnectorService::getInstance()->getNewDocumentInstance();
+	}
+	
+	/**
 	 * @return f_persistentdocument_PersistentDocumentModel
 	 */
 	protected function getDocumentModel()

@@ -209,7 +209,7 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 		$billingAddress = $order->getBillingAddress();
 		if ($billingAddress === null)		
 		{
-			$billingAddress = customer_AddressService::getNewDocumentInstance();
+			$billingAddress = customer_AddressService::getInstance()->getNewDocumentInstance();
 			$order->setBillingAddress($billingAddress);
 		}
 		

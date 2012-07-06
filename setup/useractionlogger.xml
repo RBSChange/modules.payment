@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <script>
-  <binding fileName="modules/useractionlogger/persistentdocument/import/useractionlogger_binding.xml"/>
-  <actiondef modulename="payment" actionname="insert.paypalconnector" label="modules.payment.bo.useractionlogger.insert-paypalconnector"/>
-  <actiondef modulename="payment" actionname="reactivate.atosconnector" label="modules.payment.bo.useractionlogger.reactivate-atosconnector"/>
-  <actiondef modulename="payment" actionname="update.paypalconnector" label="modules.payment.bo.useractionlogger.update-paypalconnector"/>
-  <actiondef modulename="payment" actionname="reactivate.paypalconnector" label="modules.payment.bo.useractionlogger.reactivate-paypalconnector"/>
-  <actiondef modulename="payment" actionname="reactivate.cybermutconnector" label="modules.payment.bo.useractionlogger.reactivate-cybermutconnector"/>
-  <actiondef modulename="payment" actionname="update.atosconnector" label="modules.payment.bo.useractionlogger.update-atosconnector"/>
-  <actiondef modulename="payment" actionname="deactivated.paypalconnector" label="modules.payment.bo.useractionlogger.deactivated-paypalconnector"/>
-  <actiondef modulename="payment" actionname="deactivated.cybermutconnector" label="modules.payment.bo.useractionlogger.deactivated-cybermutconnector"/>
-  <actiondef modulename="payment" actionname="deactivated.chequeconnector" label="modules.payment.bo.useractionlogger.deactivated-chequeconnector"/>
-  <actiondef modulename="payment" actionname="reactivate.chequeconnector" label="modules.payment.bo.useractionlogger.reactivate-chequeconnector"/>
-  <actiondef modulename="payment" actionname="deactivated.atosconnector" label="modules.payment.bo.useractionlogger.deactivated-atosconnector"/>
-  <actiondef modulename="payment" actionname="insert.chequeconnector" label="modules.payment.bo.useractionlogger.insert-chequeconnector"/>
-  <actiondef modulename="payment" actionname="update.chequeconnector" label="modules.payment.bo.useractionlogger.update-chequeconnector"/>
-  <actiondef modulename="payment" actionname="delete.chequeconnector" label="modules.payment.bo.useractionlogger.delete-chequeconnector"/>
-  <actiondef modulename="payment" actionname="delete.paypalconnector" label="modules.payment.bo.useractionlogger.delete-paypalconnector"/>
-  <actiondef modulename="payment" actionname="insert.cybermutconnector" label="modules.payment.bo.useractionlogger.insert-cybermutconnector"/>
-  <actiondef modulename="payment" actionname="update.cybermutconnector" label="modules.payment.bo.useractionlogger.update-cybermutconnector"/>
-  <actiondef modulename="payment" actionname="delete.cybermutconnector" label="modules.payment.bo.useractionlogger.delete-cybermutconnector"/>
-  <actiondef modulename="payment" actionname="insert.atosconnector" label="modules.payment.bo.useractionlogger.insert-atosconnector"/>
-  <actiondef modulename="payment" actionname="delete.atosconnector" label="modules.payment.bo.useractionlogger.delete-atosconnector"/>
-  <actiondef modulename="payment" actionname="insert.folder" label="modules.payment.bo.useractionlogger.insert-folder"/>
-  <actiondef modulename="payment" actionname="update.folder" label="modules.payment.bo.useractionlogger.update-folder"/>
-  <actiondef modulename="payment" actionname="savepermissions.folder" label="modules.payment.bo.useractionlogger.savepermissions-folder"/>
-  <actiondef modulename="payment" actionname="delete.folder" label="modules.payment.bo.useractionlogger.delete-folder"/>
-  <actiondef modulename="payment" actionname="reactivate.ogoneconnector" label="modules.payment.bo.useractionlogger.reactivate-ogoneconnector"/>
-  <actiondef modulename="payment" actionname="deactivated.ogoneconnector" label="modules.payment.bo.useractionlogger.deactivated-ogoneconnector"/>
-  <actiondef modulename="payment" actionname="update.ogoneconnector" label="modules.payment.bo.useractionlogger.update-ogoneconnector"/>
-  <actiondef modulename="payment" actionname="delete.ogoneconnector" label="modules.payment.bo.useractionlogger.delete-ogoneconnector"/>
-  <actiondef modulename="payment" actionname="insert.freeconnector" label="m.payment.bo.useractionlogger.insert-freeconnector"/>
-  <actiondef modulename="payment" actionname="update.freeconnector" label="m.payment.bo.useractionlogger.update-freeconnector"/>
-  <actiondef modulename="payment" actionname="insert.ogoneconnector" label="m.payment.bo.useractionlogger.insert-ogoneconnector"/>
+	<binding fileName="modules/useractionlogger/persistentdocument/import/useractionlogger_binding.xml" />
+	<actiondef modulename="payment" actionname="insert.paypalconnector" label="modules.payment.bo.useractionlogger.insert-paypalconnector" />
+	<actiondef modulename="payment" actionname="reactivate.atosconnector" label="modules.payment.bo.useractionlogger.reactivate-atosconnector" />
+	<actiondef modulename="payment" actionname="update.paypalconnector" label="modules.payment.bo.useractionlogger.update-paypalconnector" />
+	<actiondef modulename="payment" actionname="reactivate.paypalconnector" label="modules.payment.bo.useractionlogger.reactivate-paypalconnector" />
+	<actiondef modulename="payment" actionname="reactivate.cybermutconnector" label="modules.payment.bo.useractionlogger.reactivate-cybermutconnector" />
+	<actiondef modulename="payment" actionname="update.atosconnector" label="modules.payment.bo.useractionlogger.update-atosconnector" />
+	<actiondef modulename="payment" actionname="deactivated.paypalconnector" label="modules.payment.bo.useractionlogger.deactivated-paypalconnector" />
+	<actiondef modulename="payment" actionname="deactivated.cybermutconnector" label="modules.payment.bo.useractionlogger.deactivated-cybermutconnector" />
+	<actiondef modulename="payment" actionname="deactivated.chequeconnector" label="modules.payment.bo.useractionlogger.deactivated-chequeconnector" />
+	<actiondef modulename="payment" actionname="reactivate.chequeconnector" label="modules.payment.bo.useractionlogger.reactivate-chequeconnector" />
+	<actiondef modulename="payment" actionname="deactivated.atosconnector" label="modules.payment.bo.useractionlogger.deactivated-atosconnector" />
+	<actiondef modulename="payment" actionname="insert.chequeconnector" label="modules.payment.bo.useractionlogger.insert-chequeconnector" />
+	<actiondef modulename="payment" actionname="update.chequeconnector" label="modules.payment.bo.useractionlogger.update-chequeconnector" />
+	<actiondef modulename="payment" actionname="delete.chequeconnector" label="modules.payment.bo.useractionlogger.delete-chequeconnector" />
+	<actiondef modulename="payment" actionname="delete.paypalconnector" label="modules.payment.bo.useractionlogger.delete-paypalconnector" />
+	<actiondef modulename="payment" actionname="insert.cybermutconnector" label="modules.payment.bo.useractionlogger.insert-cybermutconnector" />
+	<actiondef modulename="payment" actionname="update.cybermutconnector" label="modules.payment.bo.useractionlogger.update-cybermutconnector" />
+	<actiondef modulename="payment" actionname="delete.cybermutconnector" label="modules.payment.bo.useractionlogger.delete-cybermutconnector" />
+	<actiondef modulename="payment" actionname="insert.atosconnector" label="modules.payment.bo.useractionlogger.insert-atosconnector" />
+	<actiondef modulename="payment" actionname="delete.atosconnector" label="modules.payment.bo.useractionlogger.delete-atosconnector" />
+	<actiondef modulename="payment" actionname="insert.folder" label="modules.payment.bo.useractionlogger.insert-folder" />
+	<actiondef modulename="payment" actionname="update.folder" label="modules.payment.bo.useractionlogger.update-folder" />
+	<actiondef modulename="payment" actionname="savepermissions.folder" label="modules.payment.bo.useractionlogger.savepermissions-folder" />
+	<actiondef modulename="payment" actionname="delete.folder" label="modules.payment.bo.useractionlogger.delete-folder" />
+	<actiondef modulename="payment" actionname="reactivate.ogoneconnector" label="modules.payment.bo.useractionlogger.reactivate-ogoneconnector" />
+	<actiondef modulename="payment" actionname="deactivated.ogoneconnector" label="modules.payment.bo.useractionlogger.deactivated-ogoneconnector" />
+	<actiondef modulename="payment" actionname="update.ogoneconnector" label="modules.payment.bo.useractionlogger.update-ogoneconnector" />
+	<actiondef modulename="payment" actionname="delete.ogoneconnector" label="modules.payment.bo.useractionlogger.delete-ogoneconnector" />
+	<actiondef modulename="payment" actionname="insert.freeconnector" label="m.payment.bo.useractionlogger.insert-freeconnector" />
+	<actiondef modulename="payment" actionname="update.freeconnector" label="m.payment.bo.useractionlogger.update-freeconnector" />
+	<actiondef modulename="payment" actionname="insert.ogoneconnector" label="m.payment.bo.useractionlogger.insert-ogoneconnector" />
 </script>

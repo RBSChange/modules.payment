@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document xmlns="http://www.rbs.fr/schema/change-document/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/4.0.xsd" model-version="1.0" extend="modules_payment/connector" backoffice-indexable="true">
+<document xmlns="http://www.rbs.fr/schema/change-document/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/schema/persistentdocument-4.0.xsd" model-version="1.0" extend="modules_payment/connector" backoffice-indexable="true">
 	<properties>
 		<property name="code" default-value="CB" />
-		<property name="pspid" type="String" min-occurs="1" />
-		<property name="bankServerUrl" type="String" min-occurs="1" from-list="modules_payment/ogoneserverurl" />
+		<property name="pspid" type="String" required="true" />
+		<property name="bankServerUrl" type="String" from-list="modules_payment/ogoneserverurl" required="true" />
 		<property name="operation" type="String" db-size="3" from-list="modules_payment/ogoneoperation" default-value="RES" />
 		<property name="shaInKey" type="String" db-size="50" />
 		<property name="shaOutKey" type="String" db-size="50" />

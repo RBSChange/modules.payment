@@ -76,10 +76,8 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 	protected function setPaymentStatus($connector, $order)
 	{
 		$ls = LocaleService::getInstance();
-		$template = TemplateLoader::getInstance()->setMimeContentType('html')
-			->setPackageName('modules_payment')
-			->setDirectory('templates')
-			->load('Payment-Inc-PaymentStatus-Default');
+		$template = change_TemplateLoader::getNewInstance()->setExtension('html')
+			->load('modules', 'payment', 'templates', 'Payment-Inc-PaymentStatus-Default');
 
 		$template->setAttribute('connector', $connector);
 		$template->setAttribute('order', $order);
@@ -91,13 +89,16 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 	/**
 	 * @param payment_persistentdocument_connector $connector
 	 * @return string
+	 * @throws Exception
 	 */
 	public function getSelectionAsHtml($connector)
 	{
-		$template = TemplateLoader::getInstance()->setMimeContentType('html')
-			->setPackageName('modules_payment')
-			->setDirectory('templates')
-			->load('Payment-Inc-Selection-' . $connector->getTemplateViewName());
+		$template = change_TemplateLoader::getNewInstance()->setExtension('html')
+			->load('modules', 'payment', 'templates', 'Payment-Inc-Selection-' . $connector->getTemplateViewName());
+		if ($template === null)
+		{
+			throw new Exception('Template not found: Payment-Inc-Selection-' . $connector->getTemplateViewName());
+		}
 		$template->setAttribute('connector', $connector);
 		return $template->execute(true);
 	}

@@ -2,37 +2,29 @@
 <script>
 	<binding fileName="modules/list/persistentdocument/import/list_binding.xml" />
 	<binding fileName="modules/payment/persistentdocument/import/payment_binding.xml" />
-	
-	<systemfolder module="list" relatedmodule="payment">	
-		<staticlist listid="modules_payment/cybermutbankserverurl" 
-			label="Etablissement bancaire"
-			description="Etablissement bancaire du marchand">
+	<systemfolder module="list" relatedmodule="payment">
+		<staticlist listid="modules_payment/cybermutbankserverurl" label="Etablissement bancaire" description="Etablissement bancaire du marchand">
 			<staticitem label="Crédit Mutuel" value="paiement.creditmutuel.fr" />
 			<staticitem label="CIC" value="ssl.paiement.cic-banques.fr" />
 			<staticitem label="OBC-ABNAMRO" value="ssl.paiement.banque-obc.fr" />
-			
 			<staticitem label="[TEST] Crédit Mutuel" value="paiement.creditmutuel.fr/test" />
 			<staticitem label="[TEST] CIC" value="ssl.paiement.cic-banques.fr/test" />
 			<staticitem label="[TEST] OBC-ABNAMRO" value="ssl.paiement.banque-obc.fr/test" />
 		</staticlist>
-		
 		<staticlist listid="modules_payment/atospaymentmeans" label="Cartes de paiement">
 			<staticitem label="CB" value="CB.2" />
 			<staticitem label="VISA" value="VISA.2" />
 			<staticitem label="MASTERCARD" value="MASTERCARD.2" />
 		</staticlist>
-		
 		<staticlist listid="modules_payment/ogoneserverurl" label="Url de paiement Ogone">
 			<staticitem label="Serveur de TEST" value="https://secure.ogone.com/ncol/test/orderstandard.asp" />
 			<staticitem label="Serveur de PROD" value="https://secure.ogone.com/ncol/prod/orderstandard.asp" />
 		</staticlist>
-		
 		<staticlist listid="modules_payment/ogoneoperation" label="Type d'oprération Ogone">
 			<staticitem label="Authorization" value="RES" />
 			<staticitem label="Paiement" value="SAL" />
 		</staticlist>
 	</systemfolder>
-	
 	<rootfolder module="payment">
 		<freeconnector byLabel="Pas de paiement" publicationstatus="ACTIVE" code="FREE" autoValidation="true" />
 	</rootfolder>

@@ -2,90 +2,11 @@
 <script>
 	<binding fileName="modules/payment/persistentdocument/import/payment_binding.xml" />
 	<rootfolder module="payment">
-		<atosconnector byLabel="paiement CB ATOS" publicationstatus="DEACTIVATED" code="CB"
-			merchantId="038862749811111" 
-			tpeCertifContent="U3sXIQDtzYYw5HjmjiDtmtPz1GZGFmlZtmNQDy5ZvFOzgnQOmfxmlzYgrRCG0G2Asr\n
-ib1LOXHg8zYJJE2Icl7wfb78JVevr6AlulMQpIYlBPJuakcSs4g12gaJiiLoBAPYgh\n
-xOZnd4XELhKmKJhQPIVMJxwMf9rsq5lcQYLduFiFRT6094pvFvAnZRbcbRXAGTloLv\n
-71IlVq5QnH8egVsumVmq55PoovpvAf3RTmC6ney1zGQdNpX9A5hl9HNfeZ0Gawnz1a\n
-M46m9JgiYBFThqP7sHnJ1zi8iRQigCxFxN63VSPsr5Eqr74ZyD7ylzZ2JiFagqzW7c\n
-r4JA3L6W3CogxB3C3Kvh2LbbhBc3V08Zyr3O5RlUp8HIbCminz78v2CGtlbI0AMDVs\n
-JMgJpqAmXFwO85L6P34O5cbZWvPfVYEu9NA16akfCzXPM50bNpXTZqpv5ogPFUsdnW\n
-Mvof9Vetu6aTfErJP4vV9TXOr2BORGNhmA8WZXEnU36FVzfRXxSLUB8ckEmt4S6cgo\n
-NWzAR355eFXjoLextHy9U0NdRe4zSVBaKU9t530bjgY5ltPrN72PNfW4FcQjED5gok\n
-XfnEmg1ARdVyEsSkEje8C8zAEGYwe9nGWIeUWH870UrnF5lMGuViiT47ziPWhhEMnt\n
-Syd0JvC8H9E69YDY707KN0KogDYEHm6qjYGt4YievG0pwsaqMC5KUmW1rZuAHH3r2N\n
-EoQllnBvrDGRUzQpuVeYCgIT4uXuhwWVJKLUXpRKYblT9FZNa37dmXQuGkyxuWoPtA\n
-C1yW5BmtYTnI3kY9UkoqnetLAsIQXm0FjTGWsb7gCWWfVM5Ee0FlQCd2a2sTLasNcm\n
-ASWbho6DwwhPK4FxE43x9X2xYpabuEju7PZeMxvmG3c67py2bsOPPX3utrvCDQu6P8\n
-DvrrxaaOu5EH8XMWJ4FYH1iZIdNkyTn7fB8ATWr205MpZ53m1mDkloaX3ufOrPnl2a\n
-KAdn56Jgj2QSivQ0F4rVDDxIoLVC0jyCHVRel3gDipoLIdFsP58X4szTG3CZVGmqiP\n
-3TviEpvB80l19GKcpvoIPNRIVdlNXYIeSNB2I5XkRfD9qSlrTm6753kjeL2imkJEIw\n
-BG4hEafH9feBuwEnKQJxhuA5GPSjGTAB3L4Ubzw0t0ojaZQiDXDsXCX0XVGc9C6igZ\n
-YQJ7A4SfWu0b7chyoyNAC6cxoVRgMnpk22jYIHtIKn8G5YMcQJZdnWODChX7Wnc2yN\n
-cC3CMFMJxWefW5yHxv8fqhFPjk7nR2YbYGmsYJCkf4WtGrrE2pLbUdE74tAMXahOqv\n
-hAPZWBY7g3F23KHYXSnQC2B3co1tB5msbRN2VvMtuz9vq1Ask8yLQBe1RfnGByBkOA\n
-f85FkjkJXg2jEmcV0ZzGuT1IWMhh2d8w6DWlMt8Y0XnCGfeIMjtthSRGSfAt6KfSIf\n
-Q4K1Abix89K32VFgfiDbp3BvbWw2EozwskO8xqoTreZoyc6gO0SQapXgIs95Oxw29V\n
-BsTuyGVVLM7wFq6BpK5HNXJoG4OvYU9RgE2kYqGFgUUdukfZS99jxZSNihO2dUjnmX\n
-Wgu3OZp3qVTsIE5U94DEUfPLUg2CsrSKmGzq92mocJYkDCeCO8ReyVqNEt5lQlpe9j\n
-144F3E3F8A5E3664896DBA079B129672500C235F54054E0AAFDEDC3E144A086D90\n
-538CEFBEC9A97250A0CD944F661DE6B37F95A40E3C22837B39CCC0AF44C4E61DAE\n
-5E56350E0EF2DD4qQr1zR6dLlJOiMDbG6OGmKSYrbRLjNxgYF6O0LOphKqjcTtEjC4\n
-qRYApJkYmWXLLANZn46w0I65L63PlBVrpYPSvFAu25aUMaSwcELNUKcpgFq5tsI1wG\n
-112B4911903C1A069A0403BD9C027491AA7EF8DFF8AE179E65801DF446BE2E2C9A\n
-843D64C8C64997211E8CB08FA2AA12B16A3449FA3CF38B9891eFcB1ZxNnOK4rRiC\n
-YhZYW3QiL6OW9eXqQr1zR6dLlJOiMDbG6OGmKSYrbRLjNxgYF6O0LOphKqjcTtEjC4\n
-qRYApJkYmWXLLANZn46w0I65L63PlBVrpYPSvFAu25aUMaSwcELNUKcpgFq5tsI1wG\n
-144F3E3F8A5E3664896DBA079B129672500C235F54054E0AAFDEDC3E144A086D90\n
-538CEFBEC9A97250A0CD944F661DE6B37F95A40E3C22837B39CCC0AF44C4E61DAE\n
-5E56350E0EF2DD4qQr1zR6dLlJOiMDbG6OGmKSYrbRLjNxgYF6O0LOphKqjcTtEjC4\n
-qRYApJkYmWXLLANZn46w0I65L63PlBVrpYPSvFAu25aUMaSwcELNUKcpgFq5tsI1wG\n
-1124CCC3F6FEAEB073A45DB5D2A4A1C3A320926269A332263EB72F65A9B5091088\n
-E73F77762C9BF63476816D09D302B2BBD3A2641413CBC496F1eFcB1ZxNnOK4rRiC\n
-YhZYW3QiL6OW9eXqQr1zR6dLlJOiMDbG6OGmKSYrbRLjNxgYF6O0LOphKqjcTtEjC4\n
-qRYApJkYmWXLLANZn46w0I65L63PlBVrpYPSvFAu25aUMaSwcELNUKcpgFq5tsI1wG\n
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n
-cyberplusdemo,11/08/1999,V4,CYBERPLUS,DEMO++++++++++++++++++++++++\n
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++END"
-			tpeParmcomContent="###############################################################################\n
-# Fichier des parametres du commercant\n
-# Remarque : Ce fichier parametre est sous la responsabilite du commercant\n
-###############################################################################\n
-# Logo du commercant (il apparait en entete sur les pages de paiement)\n
-ADVERT!merchant.gif!\n
-# URL de retour automatique de la reponse du paiement\n
-#AUTO_RESPONSE_URL!http://!\n
-# URL de retour suite a paiement refuse\n
-#CANCEL_URL!http://!\n
-# URL de retour suite a paiement accepte\n
-#RETURN_URL!http://!\n
-# END OF FILE"
-		 minValue="0.1" />
-		 
-		<chequeconnector byLabel="Paiement par chèque" publicationstatus="ACTIVE" code="CHQ"
-			recipient="RBS"
-			recipientAddress="11 rue Icare Strasbourg
-Entzheim 67836 Tanneries Cedex" minValue="0.1" />
-		
-		<cybermutconnector byLabel="Paiement CB CYBERMUT" publicationstatus="DEACTIVATED" code="CB" 
-			merchantId="0000001"
-			bankServerUrl="paiement.creditmutuel.fr/test" 
-			tpeKey="babf3e31e5e7dc44deaffc72b035804deafb0281"
-			tpeCompanyCode="RBS" minValue="0.1" />
-		
-		<paypalconnector byLabel="Paypal" publicationstatus="DEACTIVATED" code="PAYPAL"
-			username="seller_1256046402_biz_api1.rbs.fr"
-			password="1256046416"
-			signature="A.uDRx7AN1vNDm3J613rooPmk6OrASsLDx9KMS8Gd-xMYautoJxd-i79"
-			sandbox="true" maxValue="100" minValue="0.1" />
-			
-		<freeconnector byLabel="Pas de paiement" publicationstatus="ACTIVE" code="FREE" autoValidation="true"
-			addressRequired="false" maxValue="0"/>
-			
-		<ogoneconnector byLabel="Paiement CB OGONE" publicationstatus="DEACTIVATED" code="CB" 
-			pspid="votrePSPID"
-			bankServerUrl="https://secure.ogone.com/ncol/test/orderstandard.asp" 
-			operation="RES" shaInKey="votreCleSHA1-In" shaOutKey="votreCleSHA1-Out" minValue="0.1" />
+		<atosconnector byLabel="paiement CB ATOS" publicationstatus="DEACTIVATED" code="CB" merchantId="038862749811111" tpeCertifContent="U3sXIQDtzYYw5HjmjiDtmtPz1GZGFmlZtmNQDy5ZvFOzgnQOmfxmlzYgrRCG0G2Asr\n ib1LOXHg8zYJJE2Icl7wfb78JVevr6AlulMQpIYlBPJuakcSs4g12gaJiiLoBAPYgh\n xOZnd4XELhKmKJhQPIVMJxwMf9rsq5lcQYLduFiFRT6094pvFvAnZRbcbRXAGTloLv\n 71IlVq5QnH8egVsumVmq55PoovpvAf3RTmC6ney1zGQdNpX9A5hl9HNfeZ0Gawnz1a\n M46m9JgiYBFThqP7sHnJ1zi8iRQigCxFxN63VSPsr5Eqr74ZyD7ylzZ2JiFagqzW7c\n r4JA3L6W3CogxB3C3Kvh2LbbhBc3V08Zyr3O5RlUp8HIbCminz78v2CGtlbI0AMDVs\n JMgJpqAmXFwO85L6P34O5cbZWvPfVYEu9NA16akfCzXPM50bNpXTZqpv5ogPFUsdnW\n Mvof9Vetu6aTfErJP4vV9TXOr2BORGNhmA8WZXEnU36FVzfRXxSLUB8ckEmt4S6cgo\n NWzAR355eFXjoLextHy9U0NdRe4zSVBaKU9t530bjgY5ltPrN72PNfW4FcQjED5gok\n XfnEmg1ARdVyEsSkEje8C8zAEGYwe9nGWIeUWH870UrnF5lMGuViiT47ziPWhhEMnt\n Syd0JvC8H9E69YDY707KN0KogDYEHm6qjYGt4YievG0pwsaqMC5KUmW1rZuAHH3r2N\n EoQllnBvrDGRUzQpuVeYCgIT4uXuhwWVJKLUXpRKYblT9FZNa37dmXQuGkyxuWoPtA\n C1yW5BmtYTnI3kY9UkoqnetLAsIQXm0FjTGWsb7gCWWfVM5Ee0FlQCd2a2sTLasNcm\n ASWbho6DwwhPK4FxE43x9X2xYpabuEju7PZeMxvmG3c67py2bsOPPX3utrvCDQu6P8\n DvrrxaaOu5EH8XMWJ4FYH1iZIdNkyTn7fB8ATWr205MpZ53m1mDkloaX3ufOrPnl2a\n KAdn56Jgj2QSivQ0F4rVDDxIoLVC0jyCHVRel3gDipoLIdFsP58X4szTG3CZVGmqiP\n 3TviEpvB80l19GKcpvoIPNRIVdlNXYIeSNB2I5XkRfD9qSlrTm6753kjeL2imkJEIw\n BG4hEafH9feBuwEnKQJxhuA5GPSjGTAB3L4Ubzw0t0ojaZQiDXDsXCX0XVGc9C6igZ\n YQJ7A4SfWu0b7chyoyNAC6cxoVRgMnpk22jYIHtIKn8G5YMcQJZdnWODChX7Wnc2yN\n cC3CMFMJxWefW5yHxv8fqhFPjk7nR2YbYGmsYJCkf4WtGrrE2pLbUdE74tAMXahOqv\n hAPZWBY7g3F23KHYXSnQC2B3co1tB5msbRN2VvMtuz9vq1Ask8yLQBe1RfnGByBkOA\n f85FkjkJXg2jEmcV0ZzGuT1IWMhh2d8w6DWlMt8Y0XnCGfeIMjtthSRGSfAt6KfSIf\n Q4K1Abix89K32VFgfiDbp3BvbWw2EozwskO8xqoTreZoyc6gO0SQapXgIs95Oxw29V\n BsTuyGVVLM7wFq6BpK5HNXJoG4OvYU9RgE2kYqGFgUUdukfZS99jxZSNihO2dUjnmX\n Wgu3OZp3qVTsIE5U94DEUfPLUg2CsrSKmGzq92mocJYkDCeCO8ReyVqNEt5lQlpe9j\n 144F3E3F8A5E3664896DBA079B129672500C235F54054E0AAFDEDC3E144A086D90\n 538CEFBEC9A97250A0CD944F661DE6B37F95A40E3C22837B39CCC0AF44C4E61DAE\n 5E56350E0EF2DD4qQr1zR6dLlJOiMDbG6OGmKSYrbRLjNxgYF6O0LOphKqjcTtEjC4\n qRYApJkYmWXLLANZn46w0I65L63PlBVrpYPSvFAu25aUMaSwcELNUKcpgFq5tsI1wG\n 112B4911903C1A069A0403BD9C027491AA7EF8DFF8AE179E65801DF446BE2E2C9A\n 843D64C8C64997211E8CB08FA2AA12B16A3449FA3CF38B9891eFcB1ZxNnOK4rRiC\n YhZYW3QiL6OW9eXqQr1zR6dLlJOiMDbG6OGmKSYrbRLjNxgYF6O0LOphKqjcTtEjC4\n qRYApJkYmWXLLANZn46w0I65L63PlBVrpYPSvFAu25aUMaSwcELNUKcpgFq5tsI1wG\n 144F3E3F8A5E3664896DBA079B129672500C235F54054E0AAFDEDC3E144A086D90\n 538CEFBEC9A97250A0CD944F661DE6B37F95A40E3C22837B39CCC0AF44C4E61DAE\n 5E56350E0EF2DD4qQr1zR6dLlJOiMDbG6OGmKSYrbRLjNxgYF6O0LOphKqjcTtEjC4\n qRYApJkYmWXLLANZn46w0I65L63PlBVrpYPSvFAu25aUMaSwcELNUKcpgFq5tsI1wG\n 1124CCC3F6FEAEB073A45DB5D2A4A1C3A320926269A332263EB72F65A9B5091088\n E73F77762C9BF63476816D09D302B2BBD3A2641413CBC496F1eFcB1ZxNnOK4rRiC\n YhZYW3QiL6OW9eXqQr1zR6dLlJOiMDbG6OGmKSYrbRLjNxgYF6O0LOphKqjcTtEjC4\n qRYApJkYmWXLLANZn46w0I65L63PlBVrpYPSvFAu25aUMaSwcELNUKcpgFq5tsI1wG\n ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n cyberplusdemo,11/08/1999,V4,CYBERPLUS,DEMO++++++++++++++++++++++++\n +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++END" tpeParmcomContent="###############################################################################\n # Fichier des parametres du commercant\n # Remarque : Ce fichier parametre est sous la responsabilite du commercant\n ###############################################################################\n # Logo du commercant (il apparait en entete sur les pages de paiement)\n ADVERT!merchant.gif!\n # URL de retour automatique de la reponse du paiement\n #AUTO_RESPONSE_URL!http://!\n # URL de retour suite a paiement refuse\n #CANCEL_URL!http://!\n # URL de retour suite a paiement accepte\n #RETURN_URL!http://!\n # END OF FILE" minValue="0.1" />
+		<chequeconnector byLabel="Paiement par chèque" publicationstatus="ACTIVE" code="CHQ" recipient="RBS" recipientAddress="11 rue Icare Strasbourg Entzheim 67836 Tanneries Cedex" minValue="0.1" />
+		<cybermutconnector byLabel="Paiement CB CYBERMUT" publicationstatus="DEACTIVATED" code="CB" merchantId="0000001" bankServerUrl="paiement.creditmutuel.fr/test" tpeKey="babf3e31e5e7dc44deaffc72b035804deafb0281" tpeCompanyCode="RBS" minValue="0.1" />
+		<paypalconnector byLabel="Paypal" publicationstatus="DEACTIVATED" code="PAYPAL" username="seller_1256046402_biz_api1.rbs.fr" password="1256046416" signature="A.uDRx7AN1vNDm3J613rooPmk6OrASsLDx9KMS8Gd-xMYautoJxd-i79" sandbox="true" maxValue="100" minValue="0.1" />
+		<freeconnector byLabel="Pas de paiement" publicationstatus="ACTIVE" code="FREE" autoValidation="true" addressRequired="false" maxValue="0" />
+		<ogoneconnector byLabel="Paiement CB OGONE" publicationstatus="DEACTIVATED" code="CB" pspid="votrePSPID" bankServerUrl="https://secure.ogone.com/ncol/test/orderstandard.asp" operation="RES" shaInKey="votreCleSHA1-In" shaOutKey="votreCleSHA1-Out" minValue="0.1" />
 	</rootfolder>
 </script>

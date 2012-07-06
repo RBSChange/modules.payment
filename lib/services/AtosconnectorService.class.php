@@ -363,8 +363,7 @@ class payment_AtosconnectorService extends payment_ConnectorService
 	protected function refreshCertificate($atosConnector)
 	{
 		$pathfile = $this->getPathFile();
-		$template = FileResolver::getInstance()->setPackageName('modules_payment')->setDirectory('config/atos')
-			->getPath('pathfile.tpl');
+		$template = change_FileResolver::getNewInstance()->getPath('modules', 'payment', 'config', 'atos', 'pathfile.tpl');
 		$content = f_util_FileUtils::read($template);
 		$content = str_replace('{PROJECT_HOME}', PROJECT_HOME, $content);	
 		f_util_FileUtils::writeAndCreateContainer($pathfile, $content, f_util_FileUtils::OVERRIDE);

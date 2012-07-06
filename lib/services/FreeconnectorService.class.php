@@ -38,6 +38,7 @@ class payment_FreeconnectorService extends payment_ConnectorService
 	/**
 	 * @param payment_persistentdocument_freeconnector $connector
 	 * @param payment_Order $order
+	 * @throws Exception
 	 */
 	public function setPaymentInfo($connector, $order)
 	{
@@ -58,10 +59,12 @@ class payment_FreeconnectorService extends payment_ConnectorService
 		
 		$acceptUrl = LinkHelper::getActionUrl('payment', 'ResponseFree', array('accept' => true));
 		$cancelUrl = LinkHelper::getActionUrl('payment', 'ResponseFree', array('cancel' => true));
-		$template = TemplateLoader::getInstance()->setMimeContentType('html')
-			->setPackageName('modules_payment')
-			->setDirectory('templates')
-			->load('Payment-Inc-PaymentForm-' . $connector->getTemplateViewName());
+		$template = change_TemplateLoader::getNewInstance()->setExtension('html')
+			->load('modules', 'payment', 'templates', 'Payment-Inc-PaymentForm-' . $connector->getTemplateViewName());
+		if ($template === null)
+		{
+			throw new Exception('Template not found: Payment-Inc-PaymentForm-' . $connector->getTemplateViewName());
+		}
 		$template->setAttribute('connector', $connector);
 		$template->setAttribute('order', $order);
 		$template->setAttribute('acceptUrl', $acceptUrl);

@@ -10,8 +10,6 @@ class payment_ModuleService extends ModuleBaseService
 	 */
 	private static $instance = null;
 	
-	
-	private $logFilePath;
 
 	/**
 	 * @return payment_ModuleService
@@ -26,28 +24,12 @@ class payment_ModuleService extends ModuleBaseService
 		return self::$instance;
 	}
 	
-	function __construct()
-	{
-		$this->logFilePath = f_util_FileUtils::buildWebeditPath('log', 'payment', 'payment.log');
-		if (!file_exists($this->logFilePath))
-		{
-			f_util_FileUtils::writeAndCreateContainer($this->logFilePath, gmdate('Y-m-d H:i:s')."\t Created" . PHP_EOL);
-		}
-	}
-	
 	/**
-	 * @param Integer $documentId
-	 * @return f_persistentdocument_PersistentTreeNode
+	 * @param string $stringLine
 	 */
-//	public function getParentNodeForPermissions($documentId)
-//	{
-//		// Define this method to handle permissions on a virtual tree node. Example available in list module.
-//	}
-
-	
 	public function log($stringLine)
 	{
-		error_log(gmdate('Y-m-d H:i:s')."\t".$stringLine . PHP_EOL, 3, $this->logFilePath);
+		LoggingService::getInstance()->namedLog($stringLine, 'payment');
 	}
 	
 	/**

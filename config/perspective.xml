@@ -149,5 +149,6 @@
 		<action name="openFolder" icon="open-folder" labeli18n="m.uixul.bo.actions.OpenFolder" />
 		<action name="createFreeconnector" single="true" permission="Insert_freeconnector" icon="add"
 			labeli18n="m.payment.bo.actions.Create-freeconnector" />
+		<action name="activate" single="true" permission="Activate" icon="activate" labeli18n="m.uixul.bo.actions.Activate"/>
 	</actions>
 </perspective>

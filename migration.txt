@@ -1,0 +1,7 @@
+Last merge with 3.6 : https://github.com/RBSChange/modules.payment/commit/c64cfb91fb91be8e7b1b22bb7e75e91a482ff810
+
+removed function :
+
+removed class :
+
+removed interface :

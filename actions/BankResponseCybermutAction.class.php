@@ -47,7 +47,7 @@ class payment_BankResponseCybermutAction extends change_Action
 			$url = $currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang());
 		}
 		$context->getController()->redirectToUrl($url);
-		return VIEW::NONE;	
+		return null;	
 	}
 
 	/**

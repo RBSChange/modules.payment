@@ -35,7 +35,7 @@ class payment_BankListenerOgoneAction extends change_Action
 			$ms->log("BANKING OGONE LISTENER from [".$remoteAddr." : ".$requestUri."] FAILED : " . $e->getMessage());
 			$this->getTransactionManager()->rollBack($e);
 		}
-		return VIEW::NONE;	
+		return null;
 	}
 
 	/**

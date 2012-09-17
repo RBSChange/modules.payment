@@ -49,7 +49,7 @@ class payment_PaypalCancelAction extends change_Action
 		}
 		
 		$context->getController()->redirectToUrl($url);
-		return VIEW::NONE;
+		return null;
 	}
 
 	/**

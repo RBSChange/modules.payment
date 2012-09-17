@@ -78,58 +78,59 @@
 		<model name="modules_payment/chequeconnector">
 			<contextactions>
 				<contextaction name="edit" />
-				<contextaction name="delete" />
 				<contextaction name="deactivated" />
 				<contextaction name="reactivate" />
+				<contextaction name="delete" />
 			</contextactions>
 		</model>
 		<model name="modules_payment/atosconnector">
 			<contextactions>
 				<contextaction name="edit" />
-				<contextaction name="delete" />
 				<contextaction name="deactivated" />
 				<contextaction name="reactivate" />
+				<contextaction name="delete" />
 			</contextactions>
 		</model>
 		<model name="modules_payment/cybermutconnector">
 			<contextactions>
 				<contextaction name="edit" />
-				<contextaction name="delete" />
 				<contextaction name="deactivated" />
 				<contextaction name="reactivate" />
+				<contextaction name="delete" />
 			</contextactions>
 		</model>
 		<model name="modules_payment/paypalconnector">
 			<contextactions>
 				<contextaction name="edit" />
-				<contextaction name="delete" />
 				<contextaction name="deactivated" />
 				<contextaction name="reactivate" />
+				<contextaction name="delete" />
 			</contextactions>
 		</model>
 		<model name="modules_payment/ogoneconnector">
 			<contextactions>
 				<contextaction name="edit" />
-				<contextaction name="delete" />
 				<contextaction name="deactivated" />
 				<contextaction name="reactivate" />
+				<contextaction name="delete" />
 			</contextactions>
 		</model>
 		<model name="modules_payment/freeconnector">
 			<contextactions>
 				<contextaction name="edit" />
-				<contextaction name="delete" />
 				<contextaction name="activate" />
 				<contextaction name="deactivated" />
 				<contextaction name="reactivate" />
+				<contextaction name="delete" />
 			</contextactions>
 		</model>
 	</models>
 	<toolbar>
 		<toolbarbutton name="edit" />
-		<toolbarbutton name="delete" />
+		<toolbarbutton name="activate" />
 		<toolbarbutton name="deactivated" />
 		<toolbarbutton name="reactivate" />
+		<toolbarbutton name="delete" />
 	</toolbar>
 	<actions>
 		<action name="refresh" single="true" icon="refresh" labeli18n="m.uixul.bo.actions.refresh" />
@@ -147,5 +148,6 @@
 		<action name="openTreeNodeOrder" single="true" permission="Order" icon="sort" labeli18n="m.uixul.bo.actions.set-children-order" />
 		<action name="openFolder" icon="open-folder" labeli18n="m.uixul.bo.actions.openfolder" />
 		<action name="createFreeconnector" single="true" permission="Insert_freeconnector" icon="add" labeli18n="m.payment.bo.actions.create-freeconnector" />
+		<action name="activate" single="true" permission="Activate" icon="activate" labeli18n="m.uixul.bo.actions.activate" />
 	</actions>
 </perspective>

@@ -14,7 +14,7 @@ class payment_PayPalPaymentAction extends change_Action
 		$connector = payment_persistentdocument_paypalconnector::getInstanceById($sessionInfo['connectorId']);
 		$url = $connectorService->validatePayment($sessionInfo, $connector);
 		$context->getController()->redirectToUrl($url);
-		return VIEW::NONE;
+		return null;
 	}
 		
 	/**

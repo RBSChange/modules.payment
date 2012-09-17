@@ -30,7 +30,7 @@ class payment_BankListenerAtosAction extends change_Action
 			$ms->log("BANKING ATOS LISTENER from [".$remoteAddr." : ".$requestUri."] FAILED : " . $e->getMessage());
 			$this->getTransactionManager()->rollBack($e);
 		}
-		return VIEW::NONE;
+		return null;
 	}
 
 	/**

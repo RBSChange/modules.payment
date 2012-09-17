@@ -74,14 +74,14 @@ class payment_BankResponseAtosAction extends change_Action
 				}
 				$url = $sessionInfo['paymentURL'];
 				$context->getController()->redirectToUrl($url);
-				return VIEW::NONE;
+				return null;
 			}			
 			
 			$currentWebsite = website_WebsiteService::getInstance()->getCurrentWebsite();
 			$url = $currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang());
 		}
 		$context->getController()->redirectToUrl($url);
-		return VIEW::NONE;	
+		return null;
 	}
 
 	/**

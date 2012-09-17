@@ -14,7 +14,7 @@ class payment_BankResponseOgoneAction extends change_Action
 		$requestUri = $_SERVER['REQUEST_URI'];
 		$ms = payment_ModuleService::getInstance();	
 		$ms->log("BANKING OGONE from [".$remoteAddr." : ".$requestUri."] BEGIN");	
-		
+		$url = null;
 		try
 		{
 			$this->getTransactionManager()->beginTransaction();		
@@ -33,11 +33,25 @@ class payment_BankResponseOgoneAction extends change_Action
 				$url = $sessionInfo['paymentURL'];
 				$connectorService->setSessionInfo(array());
 			}
-			else
+			elseif ($bankResponse)
+			{
+				$order = $bankResponse->getOrder();
+				if ($order instanceof order_persistentdocument_bill)
+				{
+					$doc = $order->getOrder();
+					if ($doc !== null && $doc->getCustomer() == customer_CustomerService::getInstance()->getCurrentCustomer())
+					{
+						$url = LinkHelper::getDocumentUrlForWebsite($doc, $doc->getWebsite(), $doc->getLang());
+					}
+				}
+			}
+	
+			if ($url === null)
 			{
 				$currentWebsite = website_WebsiteService::getInstance()->getCurrentWebsite();
 				$url = $currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang());
-			}	
+			}
+			
 			$ms->log("BANKING OGONE from [".$remoteAddr." : ".$requestUri."] END AND REDIRECT : " . $url);
 			$this->getTransactionManager()->commit();
 	
@@ -50,7 +64,7 @@ class payment_BankResponseOgoneAction extends change_Action
 			$url = $currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang());
 		}
 		$context->getController()->redirectToUrl($url);
-		return VIEW::NONE;	
+		return null;	
 	}
 
 	/**

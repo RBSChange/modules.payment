@@ -47,7 +47,7 @@ class payment_BankCancelCybermutAction extends change_Action
 		}
 	
 		$context->getController()->redirectToUrl($url);
-		return VIEW::NONE;
+		return null;
 	}
 
 	/**

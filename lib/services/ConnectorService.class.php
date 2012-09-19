@@ -189,7 +189,6 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 		if ($billingAddress === null)		
 		{
 			$billingAddress = customer_AddressService::getInstance()->getNewDocumentInstance();
-			$order->setBillingAddress($billingAddress);
 		}
 		
 		if ($cartInfo->getAddressInfo()->useSameAddressForBilling)
@@ -200,8 +199,11 @@ class payment_ConnectorService extends f_persistentdocument_DocumentService
 		{
 			$cartInfo->getAddressInfo()->exportBillingAddress($billingAddress);
 		}
+		
 		$billingAddress->setPublicationstatus('FILED');
 		$billingAddress->save();
+		
+		$order->setBillingAddress($billingAddress);
 		$cartInfo->setBillingAddressId($billingAddress->getId());
 	}
 	

@@ -1,0 +1,6 @@
+{
+	"name": "rbschange/payment",
+	"description": "RBS Change Payment module",
+	"type": "rbschange-compatibility-module",
+	"license":"AGPL-3.0"
+}

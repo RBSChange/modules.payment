@@ -34,6 +34,7 @@
 	</systemfolder>
 	
 	<rootfolder module="payment">
-		<freeconnector byLabel="Pas de paiement" publicationstatus="ACTIVE" code="FREE" autoValidation="true" />
+		<freeconnector byLabel="Pas de paiement" publicationstatus="ACTIVE" code="FREE" autoValidation="true"
+			addressRequired="false" maxValue="0"/>
 	</rootfolder>
 </script>

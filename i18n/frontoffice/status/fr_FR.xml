@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.payment.frontoffice.status" lcid="fr_FR">
-	<key id="error">erreur</key>
-	<key id="canceled">annulé</key>
-	<key id="complete">expédié</key>
-	<key id="unknown">indéterminé</key>
-	<key id="initiated">initié</key>
-	<key id="in_progress">en cours</key>
+	<key id="success">validé</key>
+	<key id="waiting">en attente</key>
+	<key id="failed">echoué</key>
 </i18n>

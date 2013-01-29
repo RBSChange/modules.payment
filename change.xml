@@ -2,7 +2,7 @@
 <change xmlns="http://www.rbs.fr/schema/change-component/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.rbs.fr/schema/change-component/1.0 http://www.rbschange.fr/static/schema/change-component/1.0.xsd">
   <name>payment</name>
   <type>change-module</type>
-  <version>3.6.4</version>
+  <version>3.6.5</version>
   <description>Payment module</description>
   <license>os</license>
   <repository>public</repository>

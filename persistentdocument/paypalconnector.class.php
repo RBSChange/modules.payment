@@ -114,7 +114,7 @@ class payment_persistentdocument_paypalconnector extends payment_persistentdocum
 		$PROXY_HOST = '127.0.0.1';
 		$PROXY_PORT = '8080';
 		
-		$sBNCode = "PP-ECWizard";
+		$sBNCode = "RBSchange_Cart_EC";
 
 		//setting the curl parameters.
 		$ch = curl_init();
@@ -206,7 +206,7 @@ class payment_persistentdocument_paypalconnector extends payment_persistentdocum
 	public function confirmPayment($finalPaymentAmt, $token, $paymentType, $currencyCodeType, $payerID )
 	{
 		$nvpstr  = '&TOKEN=' . urlencode($token) . '&PAYERID=' . urlencode($payerID) . '&PAYMENTACTION=' . urlencode($paymentType) . '&AMT=' . $finalPaymentAmt;
-		$nvpstr .= '&CURRENCYCODE=' . urlencode($currencyCodeType) . '&IPADDRESS=' . urlencode($_SERVER['SERVER_NAME']); 
+		$nvpstr .= '&CURRENCYCODE=' . urlencode($currencyCodeType) . '&IPADDRESS=' . urlencode($_SERVER['SERVER_NAME']) ; 
 
 		$resArray = $this->hash_call("DoExpressCheckoutPayment",$nvpstr);
 		$ack = strtoupper($resArray["ACK"]);

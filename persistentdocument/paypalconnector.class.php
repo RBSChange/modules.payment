@@ -71,11 +71,11 @@ class payment_persistentdocument_paypalconnector extends payment_persistentdocum
 	{
 		if ($this->getSandbox() == true) 
 		{	
-			$PAYPAL_URL = "https://www.sandbox.paypal.com/webscr?cmd=_express-checkout&token=";
+			$PAYPAL_URL = "https://www.sandbox.paypal.com/webscr?cmd=_express-checkout&useraction=commit&token=";
 		}
 		else
 		{
-			$PAYPAL_URL = "https://www.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=";
+			$PAYPAL_URL = "https://www.paypal.com/cgi-bin/webscr?cmd=_express-checkout&useraction=commit&token=";
 		}
 		
 		// Redirect to paypal.com here

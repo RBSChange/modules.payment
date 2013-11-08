@@ -25,14 +25,26 @@ class payment_BankResponseCybermutAction extends f_action_BaseAction
 			{
 				throw new Exception('Session expired');
 			}
-			$sessionInfo['status'] = 'CANCEL';
-			$bankResponse = $connectorService->getCallbackResponse($sessionInfo);
-			if ($bankResponse)
+
+			if(Framework::inDevelopmentMode())
 			{
-				$order = $bankResponse->getOrder();
-				$connectorService->setPaymentResult($bankResponse, $order);
+				$sessionInfo['status'] = 'CANCEL';
+				$bankResponse = $connectorService->getCallbackResponse($sessionInfo);
+				if ($bankResponse)
+				{
+					$order = $bankResponse->getOrder();
+					$connectorService->setPaymentResult($bankResponse, $order);
+				}
 			}
-			
+			else
+			{
+				$order = DocumentHelper::getDocumentInstance($request->getParameter('orderId'));
+				if(f_util_StringUtils::isEmpty($order->getPaymentStatus()))
+				{
+					$order->setPaymentResult('waiting');
+				}
+			}
+
 			$url = $sessionInfo['paymentURL'];		
 			$connectorService->setSessionInfo(array());
 			$ms->log("BANKING CYBERMUT from [".$remoteAddr." : ".$requestUri."] END AND REDIRECT : " . $url);

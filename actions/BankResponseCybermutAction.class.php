@@ -1,7 +1,7 @@
 <?php
 class payment_BankResponseCybermutAction extends f_action_BaseAction
 {
-	
+
 	/**
 	 * @see f_action_BaseAction::_execute()
 	 *
@@ -10,15 +10,15 @@ class payment_BankResponseCybermutAction extends f_action_BaseAction
 	 */
 	protected function _execute($context, $request)
 	{
-	    $remoteAddr = $_SERVER['REMOTE_ADDR'];
-        $requestUri = $_SERVER['REQUEST_URI'];
-        $ms = payment_ModuleService::getInstance();	
-		$ms->log("BANKING CYBERMUT from [".$remoteAddr." : ".$requestUri."] BEGIN");	
-        
+		$remoteAddr = $_SERVER['REMOTE_ADDR'];
+		$requestUri = $_SERVER['REQUEST_URI'];
+		$ms = payment_ModuleService::getInstance();
+		$ms->log("BANKING CYBERMUT from [".$remoteAddr." : ".$requestUri."] BEGIN");
+
 		try
 		{
-			$this->getTransactionManager()->beginTransaction();		
-		
+			$this->getTransactionManager()->beginTransaction();
+
 			$connectorService = payment_CybermutconnectorService::getInstance();
 			$sessionInfo = $connectorService->getSessionInfo();
 			if (count($sessionInfo) == 0)
@@ -26,30 +26,33 @@ class payment_BankResponseCybermutAction extends f_action_BaseAction
 				throw new Exception('Session expired');
 			}
 
-			if(Framework::inDevelopmentMode())
+			$params = array();
+			$params['orderId'] = $request->getParameter('orderId');
+			$params['connectorId'] = $request->getParameter('connectorId');
+			$params['lang'] = $request->getParameter('lang');
+			$params['status'] = Framework::inDevelopmentMode() ? 'payetest' : 'paiement';
+
+			$bankResponse = $connectorService->getCallbackResponse($params);
+			RequestContext::getInstance()->setLang($bankResponse->getLang());
+
+			$order = $bankResponse->getOrder();
+
+			//En production le listener ce charge de compléter la commande
+			if (Framework::inDevelopmentMode())
 			{
-				$sessionInfo['status'] = 'CANCEL';
-				$bankResponse = $connectorService->getCallbackResponse($sessionInfo);
-				if ($bankResponse)
-				{
-					$order = $bankResponse->getOrder();
-					$connectorService->setPaymentResult($bankResponse, $order);
-				}
+				$connectorService->setPaymentResult($bankResponse, $order);
 			}
-			else
+			elseif ($order->getPaymentStatus() === 'initiated')
 			{
-				$order = DocumentHelper::getDocumentInstance($request->getParameter('orderId'));
-				if(f_util_StringUtils::isEmpty($order->getPaymentStatus()))
-				{
-					$order->setPaymentResult('waiting');
-				}
+				$ms->log("BANKING CYBERMUT from [" . $remoteAddr . " : " . $requestUri . "] UPDATE STATUS: WAITING");
+				$order->setPaymentStatus('waiting');
 			}
 
-			$url = $sessionInfo['paymentURL'];		
+			$url = $sessionInfo['paymentURL'];
 			$connectorService->setSessionInfo(array());
 			$ms->log("BANKING CYBERMUT from [".$remoteAddr." : ".$requestUri."] END AND REDIRECT : " . $url);
 			$this->getTransactionManager()->commit();
-	
+
 		}
 		catch(Exception $e)
 		{
@@ -59,7 +62,7 @@ class payment_BankResponseCybermutAction extends f_action_BaseAction
 			$url = $currentWebsite->getUrlForLang(RequestContext::getInstance()->getLang());
 		}
 		$context->getController()->redirectToUrl($url);
-		return VIEW::NONE;	
+		return VIEW::NONE;
 	}
 
 	/**

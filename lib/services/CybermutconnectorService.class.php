@@ -273,12 +273,6 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 		$response->setOrderId($orderId);
 		$order = $response->getOrder();
 
-		$transactionId = $order->getPaymentTransactionId();
-		if ($transactionId != null)
-		{
-			return null;
-		}
-
 		$connectorId = $parameters['connectorId'];
 		$response->setConnectorId($connectorId);
 		$connector = $response->getConnector();

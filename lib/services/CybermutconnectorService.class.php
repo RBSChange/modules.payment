@@ -152,19 +152,19 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 		$html[] = '</form>';
 		$connector->setHTMLPayment(implode("", $html));
 	}
-	
+
 	/**
 	 * @param payment_persistentdocument_paypalconnector $connector
 	 * @param payment_Order $order
-	 */	
+	 */
 	private function setPaymentStatus($connector, $order)
-	{	
-		$html = '<ol class="messages"><li>' . f_Locale::translate('&modules.order.frontoffice.Orderlist-status;') . ' : ' . 
+	{
+		$html = '<ol class="messages"><li>' . f_Locale::translate('&modules.order.frontoffice.Orderlist-status;') . ' : ' .
 			f_Locale::translate('&modules.payment.frontoffice.status.'. ucfirst($order->getPaymentStatus())  .';') . '</li>'.
 			'<li>' . f_util_HtmlUtils::nlTobr($order->getPaymentTransactionText()) .'</li></ol>';
 		$connector->setHTMLPayment($html);
 	}
-	
+
 	/**
 	 * @return String
 	 */
@@ -284,12 +284,6 @@ class payment_CybermutconnectorService extends payment_ConnectorService
 		$orderId = $parameters['orderId'];
 		$response->setOrderId($orderId);
 		$order = $response->getOrder();
-
-		$transactionId = $order->getPaymentTransactionId();
-		if ($transactionId != null)
-		{
-			return null;
-		}
 
 		$connectorId = $parameters['connectorId'];
 		$response->setConnectorId($connectorId);

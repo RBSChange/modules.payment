@@ -99,7 +99,9 @@ class payment_BankListenerCybermutAction extends f_action_BaseAction
 
 			if (f_util_StringUtils::isEmpty($order->getPaymentStatus()) || $order->getPaymentStatus() === 'initiated')
 			{
-				$order->setPaymentStatus('waiting');
+				$bankResponse->setDelayed();
+				$bankResponse->setTransactionText(f_Locale::translate('&modules.payment.document.cybermutconnector.Transaction-delayed;'));
+				$connectorService->setPaymentResult($bankResponse, $order);
 			}
 
 			$ms->log("BANKING CYBERMUT LISTENER from [".$remoteAddr." : ".$requestUri."] END");

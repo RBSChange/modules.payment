@@ -52,7 +52,9 @@ class payment_BankResponseCybermutAction extends f_action_BaseAction
 			if (f_util_StringUtils::isEmpty($order->getPaymentStatus()) || $order->getPaymentStatus() === 'initiated')
 			{
 				$ms->log("BANKING CYBERMUT from [" . $remoteAddr . " : " . $requestUri . "] UPDATE STATUS: WAITING");
-				$order->setPaymentStatus('waiting');
+				$bankResponse->setDelayed();
+				$bankResponse->setTransactionText(f_Locale::translate('&modules.payment.document.cybermutconnector.Transaction-delayed;'));
+				$connectorService->setPaymentResult($bankResponse, $order);
 			}
 
 			$url = $sessionInfo['paymentURL'];

@@ -40,12 +40,21 @@ class payment_BankResponseCybermutAction extends f_action_BaseAction
 			//En production le listener ce charge de compléter la commande
 			if (Framework::inDevelopmentMode())
 			{
-				$connectorService->setPaymentResult($bankResponse, $order);
+				$date = date_Calendar::getInstance()->add(date_Calendar::MINUTE, 5);
+				$task = task_PlannedtaskService::getInstance()->getNewDocumentInstance();
+				$task->setSystemtaskclassname('payment_CybermutPaymentResult');
+				$task->setLabel(__METHOD__);
+				$task->setUniqueExecutiondate($date);
+				$task->setParameters(serialize(array('bankResponse' => $bankResponse)));
+				$task->save();
 			}
-			elseif ($order->getPaymentStatus() === 'initiated')
+
+			if (f_util_StringUtils::isEmpty($order->getPaymentStatus()) || $order->getPaymentStatus() === 'initiated')
 			{
 				$ms->log("BANKING CYBERMUT from [" . $remoteAddr . " : " . $requestUri . "] UPDATE STATUS: WAITING");
-				$order->setPaymentStatus('waiting');
+				$bankResponse->setDelayed();
+				$bankResponse->setTransactionText(f_Locale::translate('&modules.payment.document.cybermutconnector.Transaction-delayed;'));
+				$connectorService->setPaymentResult($bankResponse, $order);
 			}
 
 			$url = $sessionInfo['paymentURL'];

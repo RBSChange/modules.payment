@@ -25,7 +25,7 @@ class payment_BankCancelCybermutAction extends f_action_BaseAction
 				throw new Exception('Session expired');
 			}
 
-					$params = array();
+			$params = array();
 			$params['orderId'] = $request->getParameter('orderId');
 			$params['connectorId'] = $request->getParameter('connectorId');
 			$params['lang'] = $request->getParameter('lang');
@@ -41,7 +41,7 @@ class payment_BankCancelCybermutAction extends f_action_BaseAction
 			{
 				$connectorService->setPaymentResult($bankResponse, $order);
 			}
-			elseif ($order->getPaymentStatus() === 'initiated')
+			elseif (f_util_StringUtils::isEmpty($order->getPaymentStatus()) || $order->getPaymentStatus() === 'initiated')
 			{
 				$ms->log("BANKING CYBERMUT from [" . $remoteAddr . " : " . $requestUri . "] UPDATE STATUS: FAILED");
 				$connectorService->setPaymentResult($bankResponse, $order);
